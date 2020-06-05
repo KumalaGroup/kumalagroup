@@ -1,0 +1,96 @@
+CRITICAL - 2020-05-26 01:40:20 --> file_get_contents(http://localhost:6424/kmg/api/kmg/berita): failed to open stream: No connection could be made because the target machine actively refused it.
+
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'Z:\\develop\\kuma...', 15, Array)
+#1 Z:\develop\kumalagroup\app\Modules\kumalagroup\Controllers\Home.php(15): file_get_contents('http://localhos...')
+#2 Z:\develop\kumalagroup\system\CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Home->index()
+#3 Z:\develop\kumalagroup\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Home))
+#4 Z:\develop\kumalagroup\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 Z:\develop\kumalagroup\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-05-26 01:40:36 --> file_get_contents(http://localhost:6424/kmg/api/kmg/berita): failed to open stream: No connection could be made because the target machine actively refused it.
+
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'Z:\\develop\\kuma...', 15, Array)
+#1 Z:\develop\kumalagroup\app\Modules\kumalagroup\Controllers\Home.php(15): file_get_contents('http://localhos...')
+#2 Z:\develop\kumalagroup\system\CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Home->index()
+#3 Z:\develop\kumalagroup\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Home))
+#4 Z:\develop\kumalagroup\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 Z:\develop\kumalagroup\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-05-26 01:41:00 --> file_get_contents(http://localhost:6424/kmg/api/kmg/berita): failed to open stream: No connection could be made because the target machine actively refused it.
+
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'Z:\\develop\\kuma...', 15, Array)
+#1 Z:\develop\kumalagroup\app\Modules\kumalagroup\Controllers\Home.php(15): file_get_contents('http://localhos...')
+#2 Z:\develop\kumalagroup\system\CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Home->index()
+#3 Z:\develop\kumalagroup\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Home))
+#4 Z:\develop\kumalagroup\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 Z:\develop\kumalagroup\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-05-26 03:50:46 --> Invalid file: {0}
+#0 /home/lenovo/develop/kumalagroup/system/View/View.php(224): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('App\\Modules\\kum...')
+#1 /home/lenovo/develop/kumalagroup/system/Common.php(1071): CodeIgniter\View\View->render('App\\Modules\\kum...', Array, true)
+#2 /home/lenovo/develop/kumalagroup/app/Modules/kumalagroup/Views/index.php(328): view('App\\Modules\\kum...')
+#3 /home/lenovo/develop/kumalagroup/system/View/View.php(236): include('/home/lenovo/de...')
+#4 /home/lenovo/develop/kumalagroup/system/Common.php(1071): CodeIgniter\View\View->render('App\\Modules\\kum...', Array, true)
+#5 /home/lenovo/develop/kumalagroup/app/Modules/kumalagroup/Controllers/Home.php(139): view('App\\Modules\\kum...', Array)
+#6 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Home->trading()
+#7 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Home))
+#8 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/lenovo/develop/kumalagroup/index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2020-05-26 04:15:03 --> Invalid argument supplied for foreach()
+#0 /home/lenovo/develop/kumalagroup/app/Modules/kumalagroup/Views/pages/list_property.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', '/home/lenovo/de...', 13, Array)
+#1 /home/lenovo/develop/kumalagroup/system/View/View.php(236): include('/home/lenovo/de...')
+#2 /home/lenovo/develop/kumalagroup/system/Common.php(1071): CodeIgniter\View\View->render('App\\Modules\\kum...', Array, true)
+#3 /home/lenovo/develop/kumalagroup/app/Modules/kumalagroup/Views/index.php(328): view('App\\Modules\\kum...')
+#4 /home/lenovo/develop/kumalagroup/system/View/View.php(236): include('/home/lenovo/de...')
+#5 /home/lenovo/develop/kumalagroup/system/Common.php(1071): CodeIgniter\View\View->render('App\\Modules\\kum...', Array, true)
+#6 /home/lenovo/develop/kumalagroup/app/Modules/kumalagroup/Controllers/Home.php(141): view('App\\Modules\\kum...', Array)
+#7 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Home->trading()
+#8 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Home))
+#9 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/lenovo/develop/kumalagroup/index.php(44): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2020-05-26 21:54:37 --> syntax error, unexpected 'endforeach' (T_ENDFOREACH), expecting end of file
+#0 /home/lenovo/develop/kumalagroup/system/Common.php(1071): CodeIgniter\View\View->render('App\\Modules\\kum...', Array, true)
+#1 /home/lenovo/develop/kumalagroup/app/Modules/kumalagroup/Views/index.php(328): view('App\\Modules\\kum...')
+#2 /home/lenovo/develop/kumalagroup/system/View/View.php(236): include('/home/lenovo/de...')
+#3 /home/lenovo/develop/kumalagroup/system/Common.php(1071): CodeIgniter\View\View->render('App\\Modules\\kum...', Array, true)
+#4 /home/lenovo/develop/kumalagroup/app/Modules/kumalagroup/Controllers/Home.php(177): view('App\\Modules\\kum...', Array)
+#5 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Home->karir()
+#6 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Home))
+#7 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/lenovo/develop/kumalagroup/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-05-26 21:57:04 --> syntax error, unexpected 'endforeach' (T_ENDFOREACH), expecting end of file
+#0 /home/lenovo/develop/kumalagroup/system/Common.php(1071): CodeIgniter\View\View->render('App\\Modules\\kum...', Array, true)
+#1 /home/lenovo/develop/kumalagroup/app/Modules/kumalagroup/Views/index.php(328): view('App\\Modules\\kum...')
+#2 /home/lenovo/develop/kumalagroup/system/View/View.php(236): include('/home/lenovo/de...')
+#3 /home/lenovo/develop/kumalagroup/system/Common.php(1071): CodeIgniter\View\View->render('App\\Modules\\kum...', Array, true)
+#4 /home/lenovo/develop/kumalagroup/app/Modules/kumalagroup/Controllers/Home.php(177): view('App\\Modules\\kum...', Array)
+#5 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Home->karir()
+#6 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Home))
+#7 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/lenovo/develop/kumalagroup/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-05-26 21:57:14 --> syntax error, unexpected 'endforeach' (T_ENDFOREACH), expecting end of file
+#0 /home/lenovo/develop/kumalagroup/system/Common.php(1071): CodeIgniter\View\View->render('App\\Modules\\kum...', Array, true)
+#1 /home/lenovo/develop/kumalagroup/app/Modules/kumalagroup/Views/index.php(328): view('App\\Modules\\kum...')
+#2 /home/lenovo/develop/kumalagroup/system/View/View.php(236): include('/home/lenovo/de...')
+#3 /home/lenovo/develop/kumalagroup/system/Common.php(1071): CodeIgniter\View\View->render('App\\Modules\\kum...', Array, true)
+#4 /home/lenovo/develop/kumalagroup/app/Modules/kumalagroup/Controllers/Home.php(177): view('App\\Modules\\kum...', Array)
+#5 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Home->karir()
+#6 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Home))
+#7 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/lenovo/develop/kumalagroup/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-05-26 21:57:55 --> syntax error, unexpected 'endforeach' (T_ENDFOREACH), expecting end of file
+#0 /home/lenovo/develop/kumalagroup/system/Common.php(1071): CodeIgniter\View\View->render('App\\Modules\\kum...', Array, true)
+#1 /home/lenovo/develop/kumalagroup/app/Modules/kumalagroup/Views/index.php(328): view('App\\Modules\\kum...')
+#2 /home/lenovo/develop/kumalagroup/system/View/View.php(236): include('/home/lenovo/de...')
+#3 /home/lenovo/develop/kumalagroup/system/Common.php(1071): CodeIgniter\View\View->render('App\\Modules\\kum...', Array, true)
+#4 /home/lenovo/develop/kumalagroup/app/Modules/kumalagroup/Controllers/Home.php(177): view('App\\Modules\\kum...', Array)
+#5 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Home->karir()
+#6 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Home))
+#7 /home/lenovo/develop/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/lenovo/develop/kumalagroup/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
