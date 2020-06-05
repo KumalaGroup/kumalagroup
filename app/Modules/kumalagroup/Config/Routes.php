@@ -8,7 +8,6 @@ $routes->get('otomotif', "$base\Home::otomotif");
 $routes->get('otomotif/(:any)/detail/(:num)', "$base\Home::detail_otomotif");
 $routes->get('otomotif/(:any)/page/(:num)', "$base\Home::otomotif");
 $routes->get('otomotif/(:any)', "$base\Home::otomotif");
-$routes->get('dealer/(:any)', "$base\Home::dealer");
 $routes->get('property', "$base\Home::property");
 $routes->get('property/(:any)/detail/(:num)', "$base\Home::detail_property");
 $routes->get('property/(:any)', "$base\Home::property");
@@ -19,6 +18,7 @@ $routes->get('mining', "$base\Home::mining");
 $routes->get('kontak', "$base\Home::kontak");
 $routes->get('karir', "$base\Home::karir");
 
+$routes->post('dealer/(:any)', "$base\Home::dealer");
 $routes->post('otomotif', "$base\Home::otomotif");
 $routes->post('karir', "$base\Home::karir");
 $routes->post('kontak', "$base\Home::kontak");

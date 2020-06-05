@@ -112,7 +112,9 @@
     </section>
     <script>
         function load_dealer(area) {
-            $('#load_dealer').load("<?= base_url() ?>/dealer/<?= $head->jenis ?>/" + area);
+            $.post("<?= base_url() ?>/dealer/<?= $head->jenis ?>/" + area, function(r) {
+                $('#load_dealer').html(r);
+            });
         }
     </script>
 <?php elseif ($mod == "detail") : ?>
