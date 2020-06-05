@@ -263,7 +263,7 @@
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger <?= ($index == 'index') ? 'active' : '' ?>" href="<?= ($index == 'index') ? '#home' : base_url() ?>">Beranda</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger <?= ($index == 'tentang') ? 'active' : '' ?>" href="<?= ($index == 'index') ? '#about' : base_url('tentang') ?>">Tentang</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger <?= ($index == 'tentang') ? 'active' : '' ?>" href="<?= ($index == 'index') ? '#about' : base_url('tentang') ?>">Tentang Kami</a>
                 </li>
                 <?php if ($index == 'index') : ?>
                     <li class="nav-item mx-0 mx-lg-1">
@@ -361,7 +361,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h4 class=mb-4">KIRIM PESAN</h4>
+                    <h4 class="mb-4">KIRIM PESAN</h4>
                     <form name="sentMessage" id="contactForm" novalidate="novalidate">
                         <div class="control-group">
                             <div class="form-group">

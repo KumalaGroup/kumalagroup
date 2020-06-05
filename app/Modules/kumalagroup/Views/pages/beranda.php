@@ -29,7 +29,7 @@
 <!-- About Section -->
 <section class="bg-primary text-white mb-0" id="about">
     <div class="container" style="padding-top:10%; padding-bottom:10%;">
-        <h2 class="text-center text-white animated zoomIn delay-1s">Tentang</h2>
+        <h2 class="text-center text-white animated zoomIn delay-1s">Tentang Kami</h2>
         <!-- <hr class="star-light mb-5"> -->
         <br> <br>
         <div class="row">

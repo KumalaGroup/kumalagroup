@@ -268,11 +268,15 @@
         $('#submit').click(function(e) {
             e.preventDefault();
             var data = $('#form').serialize();
-            if ($('#form').valid()) $.post("<?= base_url("otomotif") ?>", data, function(r) {
-                swal("", "Data berhasil disimpan!", "success").then(function() {
-                    location.reload();
+            if ($('#form').valid()) {
+                $('#submit').prop('disabled', true);
+                $('#submit').html("Mengirim data...");
+                $.post("<?= base_url("otomotif") ?>", data, function(r) {
+                    swal("", "Data berhasil disimpan!", "success").then(function() {
+                        location.reload();
+                    });
                 });
-            });
+            }
         });
 
         function mOver(src) {
