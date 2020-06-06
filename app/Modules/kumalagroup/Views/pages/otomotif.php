@@ -225,8 +225,8 @@
     <script>
         $('#dp').keyup(function() {
             $(this).val(formatRupiah($(this).val()));
-            $('#table_dp').html($(this).val() + ".00");
-            $('#tableDp').html($(this).val() + ".00");
+            $('#table_dp').html($(this).val() + ",00");
+            $('#tableDp').html($(this).val() + ",00");
             hitung_simulasi();
         });
 
@@ -258,7 +258,7 @@
 
         function simulasi(data, harga) {
             $('#otr').val(harga)
-            $('#table_otr').html(harga + ".00")
+            $('#table_otr').html(harga + ",00")
             $('#labelsumulasi').html("Simulasi Kredit " + data);
         }
 
