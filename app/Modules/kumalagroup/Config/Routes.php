@@ -23,3 +23,4 @@ $routes->post('otomotif', "$base\Home::otomotif");
 $routes->post('karir', "$base\Home::karir");
 $routes->post('kontak', "$base\Home::kontak");
 $routes->post('hapus_berkas', "$base\Home::hapus_berkas");
+$routes->post('simulasi_kredit', "$base\Home::simulasi_kredit");

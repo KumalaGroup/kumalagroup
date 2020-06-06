@@ -58,7 +58,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nohp">No Telepon: </label>
-                        <input type="text" name="hp" class="form-control" id="telepon" placeholder="No Telepon anda" required>
+                        <input type="text" name="hp" class="form-control" onkeydown="input_number(event)" id="telepon" placeholder="No Telepon anda" required>
                     </div>
                     <div class="form-group">
                         <label for="pendakhir">Pendidikan terakhir: </label>

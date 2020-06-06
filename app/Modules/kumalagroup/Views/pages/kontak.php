@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         <label for="notelp">Telepon</label>
-                        <input name="telepon" type="text" class="form-control" id="telepon" placeholder="Masukkan no telepon anda" required>
+                        <input name="telepon" type="text" class="form-control" onkeydown="input_number(event)" id="telepon" placeholder="Masukkan no telepon anda" required>
                     </div>
                     <div class="form-group">
                         <label for="pesan">Pesan</label>

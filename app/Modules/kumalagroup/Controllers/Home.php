@@ -230,6 +230,26 @@ class Home extends Controller
 			echo view("$base\index", $d);
 		}
 	}
+	public function simulasi_kredit()
+	{
+		$request = \Config\Services::request();
+		$post =  $request->getPost();
+		$otr = implode("", explode(".", $post['otr']));
+		$dp = implode("", explode(".", $post['dp']));
+		$tenor = $post['tenor'] * 12;
+		$bunga = $post['bunga'];
+		$plafon = $otr - $dp;
+		$a_pokok = $plafon / $tenor;
+		$a_bunga = $plafon * ($bunga / 100) / 12;
+		$angsuran = $a_pokok + $a_bunga;
+		$pembayaran = $dp + $angsuran;
+		$data['plafon'] = number_format($plafon, 2, ",", ".");
+		$data['a_pokok'] = number_format($a_pokok, 2, ",", ".");
+		$data['a_bunga'] = number_format($a_bunga, 2, ",", ".");
+		$data['angsuran'] = number_format($angsuran, 2, ",", ".");
+		$data['pembayaran'] = number_format($pembayaran, 2, ",", ".");
+		echo json_encode($data);
+	}
 	public function hapus_berkas()
 	{
 		$request = \Config\Services::request();

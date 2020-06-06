@@ -85,13 +85,22 @@
                         <br>
                         <h6 class="text-center" style="margin-top:10px;">Mulai Dari Rp. <?= number_format($v->harga, 0, '', '.') ?></h6>
                         <br>
-                        <a class="btn btn-l btn-outline-primary text-center" href="<?= base_url("/otomotif/$head->jenis/detail/$v->id") ?>">
-                            Explore
-                        </a>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a class="btn btn-l btn-outline-primary text-center mt-0 mb-1" href="<?= base_url("/otomotif/$head->jenis/detail/$v->id") ?>">
+                                    Explore
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="btn btn-l btn-outline-primary text-center mt-0 mb-1" onclick="$('#form_simulasi').trigger('reset');simulasi('<?= $v->model ?>','<?= number_format($v->harga, 0, '', '.') ?>');" data-toggle="modal" href="#simulasi">
+                                    Simulasi Kredit
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 <?php endforeach ?>
             </div>
-            <div class="row">
+            <div class=" row">
                 <div class="col-12">
                     <nav aria-label="Page-link navigation example">
                         <ul class="pagination justify-content-center">
@@ -110,7 +119,149 @@
             </div>
         </div>
     </section>
+    <div class="modal fade" id="simulasi" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-body">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="labelsumulasi"></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <form id="form_simulasi">
+                                    <div class="form-group">
+                                        <label>Harga OTR</label>
+                                        <input type="text" class="form-control" onkeydown="return false" id="otr" name="otr" placeholder="Satuan dalam rupiah" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Uang Muka</label>
+                                        <input type="text" class="form-control" onkeydown="input_number(event)" id="dp" name="dp" placeholder="Satuan dalam rupiah" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tenor</label>
+                                        <input type="text" class="form-control" onkeyup="hitung_simulasi()" onkeydown="input_number(event)" id="tenor" name="tenor" placeholder="Satuan dalam tahun" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Bunga Pinjaman</label>
+                                        <input type="text" class="form-control" onkeyup="hitung_simulasi()" onkeydown="input_number(event)" id="bunga" name="bunga" placeholder="Satuan dalam % / tahun" required>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-8">
+                                <strong>Plafon pinjaman Anda</strong>
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <td width=250>Harga Mobil OTR</td>
+                                            <td>:</td>
+                                            <td align="right" id="table_otr"></td>
+                                        </tr>
+                                        <tr>
+                                            <td width=250>Uang Muka (DP)</td>
+                                            <td>:</td>
+                                            <td align="right" id="table_dp"></td>
+                                        </tr>
+                                        <tr>
+                                            <td width=250>Plafon Pinjaman</td>
+                                            <td>:</td>
+                                            <td align="right"><strong id="plafon"></strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <strong>Angsuran per bulan</strong>
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <td width=250>Angsuran Pokok</td>
+                                            <td>:</td>
+                                            <td align="right" id="a_pokok"></td>
+                                        </tr>
+                                        <tr>
+                                            <td width=250>Angsuran Bunga</td>
+                                            <td>:</td>
+                                            <td align="right" id="a_bunga"></td>
+                                        </tr>
+                                        <tr>
+                                            <td width=250>Total Angsuran</td>
+                                            <td>:</td>
+                                            <td align="right"><strong id="angsuran"></strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <strong>Pembayaran pertama kali</strong>
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <td width=250>Uang Muka (DP)</td>
+                                            <td>:</td>
+                                            <td align="right" id="tableDp"></td>
+                                        </tr>
+                                        <tr>
+                                            <td width=250>Angsuran Pertama</td>
+                                            <td>:</td>
+                                            <td align="right" id="a_pertama"></td>
+                                        </tr>
+                                        <tr>
+                                            <td width=250>Total Pembayaran Pertama</td>
+                                            <td>:</td>
+                                            <td align="right"><strong id="pembayaran"></strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p><strong>Note:*</strong> Syarat tiap bank bisa berbeda-beda Perhitungan ini sifatnya simulasi belaka. Untuk lebih jelasnya silakan hubungi pemberi kredit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
+        $('#dp').keyup(function() {
+            $(this).val(formatRupiah($(this).val()));
+            $('#table_dp').html($(this).val() + ".00");
+            $('#tableDp').html($(this).val() + ".00");
+            hitung_simulasi();
+        });
+
+        function hitung_simulasi() {
+            var data = $('#form_simulasi').serialize();
+            if ($('#form_simulasi').valid()) $.post("<?= base_url("simulasi_kredit") ?>", data, function(r) {
+                if (parseInt(r.plafon) < 1) swal("", "Uang muka melebihi harga otr!", "error").then(function() {
+                    $('#dp').val("");
+                    $('#table_dp').html("");
+                    $('#tableDp').html("");
+                    hitung_simulasi()
+                });
+                $('#plafon').html(r.plafon);
+                $('#a_pokok').html(r.a_pokok);
+                $('#a_bunga').html(r.a_bunga);
+                $('#angsuran').html(r.angsuran);
+                $('#a_pertama').html(r.angsuran);
+                $('#pembayaran').html(r.pembayaran);
+            }, "json");
+            else {
+                $('#plafon').html("");
+                $('#a_pokok').html("");
+                $('#a_bunga').html("");
+                $('#angsuran').html("");
+                $('#a_pertama').html("");
+                $('#pembayaran').html("");
+            }
+        }
+
+        function simulasi(data, harga) {
+            $('#otr').val(harga)
+            $('#table_otr').html(harga + ".00")
+            $('#labelsumulasi').html("Simulasi Kredit " + data);
+        }
+
         function load_dealer(area) {
             $.post("<?= base_url() ?>/dealer/<?= $head->jenis ?>/" + area, function(r) {
                 $('#load_dealer').html(r);
@@ -179,7 +330,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="telepon">No Telepon: </label>
-                                            <input name="telepon" type="text" class="form-control" id="telepon" placeholder="No Telepon anda" required>
+                                            <input name="telepon" type="text" class="form-control" onkeydown="input_number(event)" id="telepon" placeholder="No Telepon anda" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="dealer">Dealer: </label>

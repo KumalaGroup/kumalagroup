@@ -247,6 +247,11 @@
         margin-top: 15px;
     }
 
+    .error {
+        padding-top: 5px;
+        color: red;
+    }
+
     /* end:: floating bottom */
 </style>
 
@@ -430,6 +435,28 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
+        function input_number(e) {
+            if ($.inArray(e.which, [8, 37, 39, 46, 190]) != -1) return;
+            else if ((e.which < 48 || e.which > 57) && (e.which < 96 || e.which > 105)) e.preventDefault();
+        }
+        /* Fungsi formatRupiah */
+        function formatRupiah(angka) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            // tambahkan titik jika yang di input sudah menjadi angka ribuan
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            // rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return rupiah;
+        }
+
         var Tawk_API = Tawk_API || {},
             Tawk_LoadStart = new Date();
         (function() {
