@@ -305,7 +305,6 @@ class Home extends Controller
 		$curl = curl_init($url);
 		curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
 		$r = curl_exec($curl);
 		curl_close($curl);
 		return $r;
@@ -315,7 +314,6 @@ class Home extends Controller
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $url);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
 		$r = curl_exec($curl);
 		curl_close($curl);
 		return $r;
