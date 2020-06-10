@@ -7,9 +7,6 @@ Options All -Indexes
 
 # Turning on the rewrite engine is necessary for the following rules and features.
 # FollowSymLinks must be enabled for this to work.
-RewriteEngine On
-RewriteCond %{HTTPS} Off
-RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
 <IfModule mod_rewrite.c>
 	Options +FollowSymlinks
 	RewriteEngine On
@@ -33,6 +30,11 @@ RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
 	# Ensure Authorization header is passed along
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://www.%{HTTP_HOST}%{REQUEST_URI}
+
 </IfModule>
 
 <IfModule !mod_rewrite.c>
