@@ -32,9 +32,8 @@ Options All -Indexes
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} !^www.honda-kmg.com$ [NC]
-RewriteRule ^(.*)$ https://www.honda-kmg.com/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} !^www.
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
 
 </IfModule>
 
