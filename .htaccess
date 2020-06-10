@@ -32,8 +32,8 @@ Options All -Indexes
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://www.%{HTTP_HOST}%{REQUEST_URI}
+RewriteCond %{HTTP_HOST} !^www.
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
 
 </IfModule>
 
