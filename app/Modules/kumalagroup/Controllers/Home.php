@@ -8,7 +8,7 @@ use DateTime;
 class Home extends Controller
 {
 	private $url = [
-		"http://localhost:6424/kmg/",
+		// "http://localhost:6424/kmg/",
 		"http://portal.kumalagroup.co.id/kmg/",
 		"http://portal2.kumalagroup.co.id/kmg/",
 		"http://portal3.kumalagroup.co.id/kmg/"
@@ -35,8 +35,7 @@ class Home extends Controller
 		$d['index'] = "index";
 		$berita = json_decode($this->_curl_get($this->api_server . 'berita'));
 		$d['berita'] = array_slice($berita, 0, 2);
-		$slider = json_decode($this->_curl_get($this->api_server . 'slider'));
-		$d['slider'] = array_slice($slider, 0, 3);
+		$d['slider'] = json_decode($this->_curl_get($this->api_server . 'slider'));
 		$d['partner'] = json_decode($this->_curl_get($this->api_server . 'partner'));
 		$d['base_img'] = $this->base_img;
 		echo view("$base\index", $d);
