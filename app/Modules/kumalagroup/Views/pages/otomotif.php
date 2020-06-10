@@ -79,7 +79,7 @@
             </div>
             <div class="row text-center">
                 <?php foreach ($otomotif as $i => $v) : ?>
-                    <div class="col-md-4 shadow p-3 mb-5 bg-white">
+                    <div class="col-md-4 p-3 mb-5">
                         <h4><?= $v->model ?></h4>
                         <img src="<?= "$base_img/otomotif/$v->gambar" ?>" width="350px" height="200px" alt="">
                         <br>
@@ -263,7 +263,10 @@
         }
 
         function load_dealer(area) {
-            $.post("<?= base_url() ?>/dealer/<?= $head->jenis ?>/" + area, function(r) {
+            $.post("<?= base_url("dealer") ?>", {
+                'brand': "<?= $head->jenis ?>",
+                'area': area
+            }, function(r) {
                 $('#load_dealer').html(r);
             });
         }
@@ -284,7 +287,7 @@
         <div class="container">
             <br>
             <div class="row">
-                <div class="col-md-2 text-center shadow p-3 mb-5 bg-white">
+                <div class="col-md-2 text-center p-3 mb-5">
                     <h6>Pilih Warna</h6>
                     <?php foreach ($warna as $v) :
                         if ($v) : ?>
@@ -292,17 +295,18 @@
                     <?php endif;
                     endforeach ?>
                 </div>
-                <div class="col-md-7 shadow p-3 mb-5 bg-white">
+                <div class="col-md-7 p-3 mb-5">
                     <img id="main-color" src="<?= "$base_img/otomotif/$otomotif->gambar" ?>" style="width: 100%;" alt="" data-animate="fadeInRight">
                 </div>
-                <div class="col-md-3 shadow p-3 mb-5 bg-white">
-                    <h4><?= $data->nama ?></h4>
+                <div class="col-md-3 p-3 mb-5">
+                    <h4><?= $otomotif->model ?></h4>
                     <!-- Download Brosue -->
                     <a download href="<?= "$base_img/otomotif/brosur/$otomotif->brosur" ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a>
-                    <br>
                     <!-- test drive -->
-                    <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;padding-left: 72px;padding-right: 58px;" data-toggle="modal" data-target="#testdr">Layanan</button>
+                    <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Layanan</button>
                     <!-- Modal -->
+                    <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#komparasi">Bandingkan Mobil</button>
+
                     <div class="modal fade" id="testdr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -355,16 +359,7 @@
                     <br>
                 </div>
             </div>
-
-            <br><br><br><br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="text-center text-secondary mb-0">Detail</h2>
-                    <br><br>
-
-                </div>
-            </div>
-
+            <br><br>
             <div class="row">
                 <div class="col-md-12">
                     <h4>Tentang <?= $otomotif->model ?></h4>
@@ -373,8 +368,26 @@
 
                 </div>
             </div>
-
             <br><br>
+            <div class="row">
+                <div class="offset-2 col-md-8">
+                    <h2 class="text-center text-secondary mb-0">Video</h2>
+                    <br><br>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="<?= str_replace("watch?v=", "embed/", $otomotif->video) ?>" allowfullscreen></iframe>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-center text-secondary mb-0">Detail</h2>
+                    <br><br>
+
+                </div>
+            </div>
+
             <h4>Fitur <?= $otomotif->model ?></h4>
             <br>
             <?php foreach ($detail as $i => $v) :
@@ -409,6 +422,44 @@
             <br>
         </div>
     </section>
+    <div class="modal fade" id="komparasi" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-body">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Bandingkan dengan</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form id="form_ilj">
+                                    <div class="form-group">
+                                        <label for="brand">Brand: </label>
+                                        <select id="brand" name="brand" class="form-control" required>
+                                            <option value="" selected disabled>-- Silahkan Pilih Brand --</option>
+                                            <?php foreach ($brand as $v) : ?>
+                                                <option value="<?= $v->id ?>"><?= ucwords($v->jenis) ?></option>
+                                            <?php endforeach ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="model">Model: </label>
+                                        <select id="model" name="model" class="form-control" required>
+                                            <option value="" selected disabled>-- Silahkan Pilih Model --</option>
+
+                                        </select>
+                                    </div>
+                                    <input type="hidden" name="web" value="true">
+                                    <button id="modelsdjd" class="btn btn-danger">Lihat Perbandingan</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         $('#layanan').change(function() {
@@ -429,6 +480,28 @@
                         location.reload();
                     });
                 });
+            }
+        });
+        $('#brand').change(function() {
+            $.post("<?= base_url("model") ?>", {
+                'brand': $(this).val()
+            }, function(r) {
+                $('#model').html(r);
+            });
+        });
+
+        $('#modelsdjd').click(function(e) {
+            e.preventDefault();
+            var data = $('#form_ilj').serialize();
+            if ($('#form_ilj').valid()) {
+                $('#modelsdjd').prop('disabled', true);
+                $('#modelsdjd').html("Loading data...");
+                alert(data)
+                // $.post("<?= base_url("otomotif") ?>", data, function(r) {
+                //     swal("", "Data berhasil disimpan!", "success").then(function() {
+                //         location.reload();
+                //     });
+                // });
             }
         });
 

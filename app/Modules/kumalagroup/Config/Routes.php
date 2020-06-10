@@ -18,7 +18,8 @@ $routes->get('mining', "$base\Home::mining");
 $routes->get('kontak', "$base\Home::kontak");
 $routes->get('karir', "$base\Home::karir");
 
-$routes->post('dealer/(:any)', "$base\Home::dealer");
+$routes->post('dealer', "$base\Home::dealer");
+$routes->post('model', "$base\Home::model");
 $routes->post('otomotif', "$base\Home::otomotif");
 $routes->post('karir', "$base\Home::karir");
 $routes->post('kontak', "$base\Home::kontak");

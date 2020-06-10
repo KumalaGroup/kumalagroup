@@ -229,12 +229,20 @@
     }
 
     /* begin:: floating bottom */
+    #toppp {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 170px;
+        right: 20px;
+    }
+
     .float {
         position: fixed;
         width: 60px;
         height: 60px;
-        bottom: 78px;
-        right: 15px;
+        bottom: 95px;
+        right: 20px;
         background-color: #0C9;
         color: #FFF;
         border-radius: 50px;
@@ -405,7 +413,7 @@
     </div> -->
 
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-to-top d-lg-none position-fixed ">
+    <div class="scroll-to-top d-lg-none" id="toppp">
         <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
             <i class="fa fa-chevron-up"></i>
         </a>
