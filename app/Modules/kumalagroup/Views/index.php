@@ -291,7 +291,7 @@
                                     <h4 class=""> <a href="<?= base_url() ?>/otomotif">OTOMOTIF</a></h4>
                                     <ul type="square">
                                         <li><a class="dropdown-item" href="https://mazda-makassar.com">Mazda</a></li>
-                                        <li><a class="dropdown-item" href="http://www.honda-kmg.com/">Honda</a></li>
+                                        <li><a class="dropdown-item" href="https://honda-kmg.com/">Honda</a></li>
                                         <li><a class="dropdown-item" href="<?= base_url() ?>/otomotif/hino">Hino</a></li>
                                         <li><a class="dropdown-item" href="<?= base_url() ?>/otomotif/wuling">Wuling</a></li>
                                         <li><a class="dropdown-item" href="https://www.kumala.mercedes-benz.co.id/en/desktop/passenger-cars.html">Mercedes-Benz</a></li>
