@@ -8,9 +8,9 @@ use DateTime;
 class Home extends Controller
 {
 	private $url = [
-		"http://portal3.kumalagroup.co.id/kmg/",
+		"http://portal.kumalagroup.co.id/kmg/",
 		"http://portal2.kumalagroup.co.id/kmg/",
-		"http://portal.kumalagroup.co.id/kmg/"
+		"http://portal3.kumalagroup.co.id/kmg/"
 	];
 	private $base_img;
 	private $api_server;
