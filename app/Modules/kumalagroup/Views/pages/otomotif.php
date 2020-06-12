@@ -81,7 +81,7 @@
                 <?php foreach ($otomotif as $i => $v) : ?>
                     <div class="col-md-4 p-3 mb-5">
                         <h4><?= $v->model ?></h4>
-                        <img src="<?= "$base_img/otomotif/$v->gambar" ?>" width="350px" height="200px" alt="">
+                        <img src="<?= "$base_img/otomotif/$v->gambar" ?>" width="100%" height="auto" class="img-fluid" alt="" style="object-fit: cover;">
                         <br>
                         <h6 class="text-center" style="margin-top:10px;">Mulai Dari Rp. <?= number_format($v->harga, 0, '', '.') ?></h6>
                         <br>
@@ -291,12 +291,12 @@
                     <h6>Pilih Warna</h6>
                     <?php foreach ($warna as $v) :
                         if ($v) : ?>
-                            <img class="side" onmouseover="mOver('<?= $base_img . '/otomotif/warna/' . $v->gambar ?>')" style="margin-top: 10px;" src="<?= "$base_img/otomotif/warna/$v->gambar" ?>" alt="" data-animate="fadeInRight" width="100px" height="50px"> </br>
+                            <img class="side" onmouseover="mOver('<?= $base_img . '/otomotif/warna/' . $v->gambar ?>')" width="100px" height="auto" class="img-fluid" src="<?= "$base_img/otomotif/warna/$v->gambar" ?>" alt="" data-animate="fadeInRight"> </br>
                     <?php endif;
                     endforeach ?>
                 </div>
                 <div class="col-md-7 p-3 mb-5">
-                    <img id="main-color" src="<?= "$base_img/otomotif/$otomotif->gambar" ?>" style="width: 100%;" alt="" data-animate="fadeInRight">
+                    <img id="main-color" src="<?= "$base_img/otomotif/$otomotif->gambar" ?>" width="100%" height="auto" class="img-fluid" alt="" data-animate="fadeInRight">
                 </div>
                 <div class="col-md-3 p-3 mb-5">
                     <h4><?= $otomotif->model ?></h4>
