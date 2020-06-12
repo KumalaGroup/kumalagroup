@@ -291,7 +291,7 @@
                     <h6>Pilih Warna</h6>
                     <?php foreach ($warna as $v) :
                         if ($v) : ?>
-                            <img class="side" onmouseover="mOver('<?= $base_img . '/otomotif/warna/' . $v->gambar ?>')" width="100px" height="auto" class="img-fluid" src="<?= "$base_img/otomotif/warna/$v->gambar" ?>" alt="" data-animate="fadeInRight"> </br>
+                            <img class="side mb-2" onmouseover="mOver('<?= $base_img . '/otomotif/warna/' . $v->gambar ?>')" width="100px" height="auto" class="img-fluid" src="<?= "$base_img/otomotif/warna/$v->gambar" ?>" alt="" data-animate="fadeInRight">
                     <?php endif;
                     endforeach ?>
                 </div>
