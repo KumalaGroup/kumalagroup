@@ -2,11 +2,11 @@
 $routes->get('/', "$base\Home::index");
 $routes->get('tentang', "$base\Home::tentang");
 $routes->get('berita', "$base\Home::berita");
-$routes->get('berita/page/(:any)', "$base\Home::berita");
+$routes->get('berita/page/(:num)', "$base\Home::berita");
 $routes->get('berita/detail/(:any)', "$base\Home::detail_berita");
 $routes->get('otomotif', "$base\Home::otomotif");
 $routes->get('otomotif/(:any)/detail/(:any)', "$base\Home::detail_otomotif");
-$routes->get('otomotif/(:any)/page/(:any)', "$base\Home::otomotif");
+$routes->get('otomotif/(:any)/page/(:num)', "$base\Home::otomotif");
 $routes->get('otomotif/(:any)', "$base\Home::otomotif");
 $routes->get('property', "$base\Home::property");
 $routes->get('property/(:any)/detail/(:any)', "$base\Home::detail_property");

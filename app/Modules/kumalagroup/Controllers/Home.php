@@ -56,7 +56,7 @@ class Home extends Controller
 		$d['content'] =  "$base\pages\berita";
 		$d['index'] = "berita";
 		$data = json_decode($this->_curl_get($this->api_server . 'berita'));
-		$d['page'] = ($request->uri->getSegments()[1] == "page") ? base64_decode($request->uri->getSegments()[2]) : 1;
+		$d['page'] = ($request->uri->getSegments()[1] == "page") ? $request->uri->getSegments()[2] : 1;
 		$start = ($d['page'] * 6) - 6;
 		$d['pages'] = ceil(count($data) / 6);
 		$d['data'] = array_slice($data, $start, 6);
@@ -95,7 +95,7 @@ class Home extends Controller
 				$d['mod'] = "list";
 				$data = json_decode($this->_curl_get($this->api_server . 'otomotif/' . $request->uri->getSegments()[1]));
 				$d['head'] = $data->head;
-				$d['page'] = ($request->uri->getSegments()[2] == "page") ? base64_decode($request->uri->getSegments()[3]) : 1;
+				$d['page'] = ($request->uri->getSegments()[2] == "page") ? $request->uri->getSegments()[3] : 1;
 				$start = ($d['page'] * 9) - 9;
 				$d['pages'] = ceil(count($data->otomotif) / 9);
 				$d['otomotif'] =  array_slice($data->otomotif, $start, 9);

@@ -135,13 +135,13 @@
                     <nav aria-label="Page-link navigation example">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
-                                <a class="page-link" <?= ($page != 1) ? 'href="' . base_url() . '/berita/page/' . base64_encode(($page - 1)) . '"' : '' ?>>‹</a>
+                                <a class="page-link" <?= ($page != 1) ? 'href="' . base_url() . '/berita/page/' . ($page - 1) . '"' : '' ?>>‹</a>
                             </li>
                             <?php for ($i = 1; $i <= $pages; $i++) : ?>
-                                <li class="page-item <?= ($i == $page) ? 'active' : '' ?>"><a class="page-link" <?= ($i != $page) ? 'href="' . base_url() . '/berita/page/' . base64_encode($i) . '"' : '' ?>><?= $i ?></a></li>
+                                <li class="page-item <?= ($i == $page) ? 'active' : '' ?>"><a class="page-link" <?= ($i != $page) ? 'href="' . base_url() . '/berita/page/' . $i . '"' : '' ?>><?= $i ?></a></li>
                             <?php endfor ?>
                             <li class="page-item">
-                                <a class="page-link" <?= ($page != $pages) ? 'href="' . base_url() . '/berita/page/' . base64_encode(($page + 1)) . '"' : '' ?>>›</a>
+                                <a class="page-link" <?= ($page != $pages) ? 'href="' . base_url() . '/berita/page/' . ($page + 1) . '"' : '' ?>>›</a>
                             </li>
                         </ul>
                     </nav>
