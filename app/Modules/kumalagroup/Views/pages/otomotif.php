@@ -370,7 +370,7 @@
             </div>
             <br><br>
             <div class="row">
-                <div class="offset-2 col-md-8">
+                <div class="offset-md-2 col-md-8">
                     <h2 class="text-center text-secondary mb-0">Video</h2>
                     <br><br>
                     <div class="embed-responsive embed-responsive-16by9">
