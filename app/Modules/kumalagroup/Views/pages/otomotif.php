@@ -87,7 +87,7 @@
                         <br>
                         <div class="row">
                             <div class="col-md-6">
-                                <a class="btn btn-l btn-outline-primary mt-0 mb-1" href="<?= base_url("/otomotif/$head->jenis/detail/$v->id") ?>">
+                                <a class="btn btn-l btn-outline-primary mt-0 mb-1" href="<?= base_url("/otomotif/$head->jenis/detail/" . base64_encode($v->id)) ?>">
                                     Explore
                                 </a>
                             </div>
@@ -105,13 +105,13 @@
                     <nav aria-label="Page-link navigation example">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
-                                <a class="page-link" <?= ($page != 1) ? 'href="' . base_url() . '/otomotif/' . $head->jenis . '/page/' . ($page - 1) . '"' : '' ?>>‹</a>
+                                <a class="page-link" <?= ($page != 1) ? 'href="' . base_url() . '/otomotif/' . $head->jenis . '/page/' . base64_encode(($page - 1)) . '"' : '' ?>>‹</a>
                             </li>
                             <?php for ($i = 1; $i <= $pages; $i++) : ?>
-                                <li class="page-item <?= ($i == $page) ? 'active' : '' ?>"><a class="page-link" <?= ($i != $page) ? 'href="' . base_url() . '/otomotif/' . $head->jenis . '/page/' . $i . '"' : '' ?>><?= $i ?></a></li>
+                                <li class="page-item <?= ($i == $page) ? 'active' : '' ?>"><a class="page-link" <?= ($i != $page) ? 'href="' . base_url() . '/otomotif/' . $head->jenis . '/page/' . base64_encode($i) . '"' : '' ?>><?= $i ?></a></li>
                             <?php endfor ?>
                             <li class="page-item">
-                                <a class="page-link" <?= ($page != $pages) ? 'href="' . base_url() . '/otomotif/' . $head->jenis . '/page/' . ($page + 1) . '"' : '' ?>>›</a>
+                                <a class="page-link" <?= ($page != $pages) ? 'href="' . base_url() . '/otomotif/' . $head->jenis . '/page/' . base64_encode(($page + 1)) . '"' : '' ?>>›</a>
                             </li>
                         </ul>
                     </nav>

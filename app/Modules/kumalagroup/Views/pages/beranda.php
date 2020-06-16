@@ -135,14 +135,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <p class="card-text"><b><?= ucwords($v->type) ?> </b>| <?= $date ?></p>
-                                    <a href="<?= base_url("/berita/detail/$v->id") ?>">
+                                    <a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>">
                                         <h5 class="card-title"><?= $v->judul ?></h5>
                                     </a>
                                     <p class=" card-text"><?= substr(strip_tags($v->deskripsi), 0, 200) ?>...</p>
-                                    <a href="<?= base_url("/berita/detail/$v->id") ?>" class="primary">Selengkapnya</a>
+                                    <a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>" class="primary">Selengkapnya</a>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    <a href="<?= base_url("/berita/detail/$v->id") ?>"><img class="img-fluid" src="<?= "$base_img/berita/$v->gambar" ?>" alt="" width="400" height="100"></a>
+                                    <a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>"><img class="img-fluid" src="<?= "$base_img/berita/$v->gambar" ?>" alt="" width="400" height="100"></a>
                                 </div>
                             </div>
                         </div>

@@ -56,7 +56,7 @@ class Home extends Controller
 		$d['content'] =  "$base\pages\berita";
 		$d['index'] = "berita";
 		$data = json_decode($this->_curl_get($this->api_server . 'berita'));
-		$d['page'] = ($request->uri->getSegments()[1] == "page") ? $request->uri->getSegments()[2] : 1;
+		$d['page'] = ($request->uri->getSegments()[1] == "page") ? base64_decode($request->uri->getSegments()[2]) : 1;
 		$start = ($d['page'] * 6) - 6;
 		$d['pages'] = ceil(count($data) / 6);
 		$d['data'] = array_slice($data, $start, 6);
@@ -71,7 +71,7 @@ class Home extends Controller
 		$d['content'] =  "$base\pages\berita";
 		$d['mod'] = "detail";
 		$d['index'] = "berita";
-		$d['data'] = json_decode($this->_curl_get($this->api_server . 'berita/' . $request->uri->getSegments()[2]));
+		$d['data'] = json_decode($this->_curl_get($this->api_server . 'berita/' . base64_decode($request->uri->getSegments()[2])));
 		$bulan = array(1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
 		$date = new DateTime($d['data']->updated_at);
 		$d['date'] = $date->format('d') . " " . $bulan[$date->format('n')] . " " . $date->format('Y');
@@ -95,7 +95,7 @@ class Home extends Controller
 				$d['mod'] = "list";
 				$data = json_decode($this->_curl_get($this->api_server . 'otomotif/' . $request->uri->getSegments()[1]));
 				$d['head'] = $data->head;
-				$d['page'] = ($request->uri->getSegments()[2] == "page") ? $request->uri->getSegments()[3] : 1;
+				$d['page'] = ($request->uri->getSegments()[2] == "page") ? base64_decode($request->uri->getSegments()[3]) : 1;
 				$start = ($d['page'] * 9) - 9;
 				$d['pages'] = ceil(count($data->otomotif) / 9);
 				$d['otomotif'] =  array_slice($data->otomotif, $start, 9);
@@ -115,7 +115,7 @@ class Home extends Controller
 		$d['index'] = "unit_bisnis";
 		$d['content'] =  "$base\pages\otomotif";
 		$d['mod'] = "detail";
-		$data = json_decode($this->_curl_get($this->api_server . 'otomotif/' . $request->uri->getSegments()[1] . '/' . $request->uri->getSegments()[3]));
+		$data = json_decode($this->_curl_get($this->api_server . 'otomotif/' . $request->uri->getSegments()[1] . '/' . base64_decode($request->uri->getSegments()[3])));
 		$d['base_img'] = $this->base_img;
 		$d['brand'] = $data->brand;
 		$d['warna'] = $data->warna;
@@ -194,7 +194,7 @@ class Home extends Controller
 		$d['index'] = "unit_bisnis";
 		$d['content'] =  "$base\pages\property";
 		$d['mod'] = "detail";
-		$d['data'] = json_decode($this->_curl_get($this->api_server . 'property/' . $request->uri->getSegments()[1] . '/' . $request->uri->getSegments()[3]));
+		$d['data'] = json_decode($this->_curl_get($this->api_server . 'property/' . $request->uri->getSegments()[1] . '/' . base64_decode($request->uri->getSegments()[3])));
 		$d['base_img'] = $this->base_img;
 		echo view("$base\index", $d);
 	}
@@ -219,7 +219,7 @@ class Home extends Controller
 		if ($request->uri->getSegments()[2]) {
 			$d['content'] = $base . '\pages\mining';
 			$d['mod'] = "list";
-			$d['data'] = json_decode($this->_curl_get($this->api_server . 'mining/' . $request->uri->getSegments()[2]));
+			$d['data'] = json_decode($this->_curl_get($this->api_server . 'mining/' . base64_decode($request->uri->getSegments()[2])));
 		} else {
 			$d['data'] = json_decode($this->_curl_get($this->api_server . 'mining'));
 			$d['content'] = $base . '\pages\mining';

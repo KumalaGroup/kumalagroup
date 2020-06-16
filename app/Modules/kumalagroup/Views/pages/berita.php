@@ -99,8 +99,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <p align="right">Share :
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?= base_url("/berita/detail/$data->id") ?>" target="_blank"> <i class="fab fa-facebook-square fa-2x"></i></a>
-                        <a href="https://twitter.com/intent/tweet?text=<?= base_url("/berita/detail/$data->id") ?>" target="_blank"> <i class="fab fa-twitter-square fa-2x"></i></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?= base_url("/berita/detail/" . base64_encode($data->id)) ?>" target="_blank"> <i class="fab fa-facebook-square fa-2x"></i></a>
+                        <a href="https://twitter.com/intent/tweet?text=<?= base_url("/berita/detail/" . base64_encode($data->id)) ?>" target="_blank"> <i class="fab fa-twitter-square fa-2x"></i></a>
                         <a href="https://www.instagram.com/?url=https://www.drdrop.co/" target="_blank" rel="noopener"> <i class="fab fa-instagram fa-2x"></i></a>
                     </p>
                 </div>
@@ -120,11 +120,11 @@
                 <?php foreach ($data as $v) : ?>
                     <div class="col-md-4 mb-3 shadow p-3 mb-5 bg-white">
                         <div class="card" style="height:100%;">
-                            <a href="<?= base_url("/berita/detail/$v->id") ?>"><img src="<?= "$base_img/berita/$v->gambar" ?>" class="card-img-top" width="100%" alt="..."></a>
+                            <a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>"><img src="<?= "$base_img/berita/$v->gambar" ?>" class="card-img-top" width="100%" alt="..."></a>
                             <div class="card-body">
-                                <h4><a href="<?= base_url("/berita/detail/$v->id") ?>" style="color:#000;"><?= $v->judul ?></a></h4>
+                                <h4><a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>" style="color:#000;"><?= $v->judul ?></a></h4>
                                 <p class="card-text"><?= substr(strip_tags($v->deskripsi), 0, 200) ?>...</p>
-                                <a href="<?= base_url("/berita/detail/$v->id") ?>">Selengkapnya</a>
+                                <a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -135,13 +135,13 @@
                     <nav aria-label="Page-link navigation example">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
-                                <a class="page-link" <?= ($page != 1) ? 'href="' . base_url() . '/berita/page/' . ($page - 1) . '"' : '' ?>>‹</a>
+                                <a class="page-link" <?= ($page != 1) ? 'href="' . base_url() . '/berita/page/' . base64_encode(($page - 1)) . '"' : '' ?>>‹</a>
                             </li>
                             <?php for ($i = 1; $i <= $pages; $i++) : ?>
-                                <li class="page-item <?= ($i == $page) ? 'active' : '' ?>"><a class="page-link" <?= ($i != $page) ? 'href="' . base_url() . '/berita/page/' . $i . '"' : '' ?>><?= $i ?></a></li>
+                                <li class="page-item <?= ($i == $page) ? 'active' : '' ?>"><a class="page-link" <?= ($i != $page) ? 'href="' . base_url() . '/berita/page/' . base64_encode($i) . '"' : '' ?>><?= $i ?></a></li>
                             <?php endfor ?>
                             <li class="page-item">
-                                <a class="page-link" <?= ($page != $pages) ? 'href="' . base_url() . '/berita/page/' . ($page + 1) . '"' : '' ?>>›</a>
+                                <a class="page-link" <?= ($page != $pages) ? 'href="' . base_url() . '/berita/page/' . base64_encode(($page + 1)) . '"' : '' ?>>›</a>
                             </li>
                         </ul>
                     </nav>
