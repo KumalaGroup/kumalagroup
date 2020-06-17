@@ -98,6 +98,7 @@ class Home extends Controller
 				$d['mod'] = "list";
 				$data = json_decode($this->_curl_get($this->api_server . 'otomotif/' . $request->uri->getSegments()[1]));
 				$d['head'] = $data->head;
+				$d['dealer'] = $data->dealer;
 				$d['otomotif'] = [];
 				if ($data->otomotif) {
 					$d['page'] = ($request->uri->getSegments()[2] == "page") ? $request->uri->getSegments()[3] : 1;
