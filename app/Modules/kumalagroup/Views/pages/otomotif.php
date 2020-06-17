@@ -541,7 +541,7 @@
                 <?php foreach ($data as $v) : ?>
                     <div class="card flex-child text-center my-2 ml-2" style="width: 15rem;float:left !important;">
                         <img src="<?= "$base_img/head/$v->foto" ?>" height="150px" width="250px" class="card-img-top" alt="...">
-                        <a class="card-body text-center btn btn-l btn btn-danger text-uppercase" style="background:#fa0f0c; border-color:#fa0f0c; " href="<?= $v->url ?>" target="_blank">
+                        <a class="card-body text-center btn btn-l btn btn-danger text-uppercase" style="background:#fa0f0c; border-color:#fa0f0c; " href="<?= $v->url ?>" target="<?= in_array($v->jenis, ["honda", "mazda", "mercedes-benz"]) ? "_blank" : "" ?>">
                             <?= strtoupper($v->jenis) ?>
                         </a>
                     </div>
