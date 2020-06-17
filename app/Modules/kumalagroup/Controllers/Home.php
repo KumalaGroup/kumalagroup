@@ -8,6 +8,7 @@ use DateTime;
 class Home extends Controller
 {
 	private $url = [
+		"http://localhost:6424/kmg/",
 		"http://portal.kumalagroup.co.id/kmg/",
 		"http://portal2.kumalagroup.co.id/kmg/",
 		"http://portal3.kumalagroup.co.id/kmg/"
@@ -269,7 +270,7 @@ class Home extends Controller
 			$name = "surat_lamaran" . date("YmdHis") . "." . strtolower(end(explode(".", $surat_lamaran->getName())));
 			$surat_lamaran->move(ROOTPATH . 'assets/pelamar', $name);
 			$data['surat_lamaran'] = $surat_lamaran->getName();
-			$result = $this->_curl_post($this->api_server . 'w_karir', $data);
+			$result = $this->_curl_post($this->api_server . 'pelamar', $data);
 			echo $result;
 		} else {
 			$base = "App\Modules\kumalagroup\Views";
