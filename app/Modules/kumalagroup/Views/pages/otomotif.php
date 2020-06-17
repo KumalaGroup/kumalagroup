@@ -31,7 +31,7 @@
                                         <ul id="myTab" class="nav nav-tabs boot-tabs">
                                             <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" id="myTabDrop1" data-toggle="dropdown">Pilih Kota anda</a>
                                                 <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
-                                                    <?php foreach ($dealer as $v) : ?>
+                                                    <?php if(!empty($dealer)) foreach ($dealer as $v) : ?>
                                                         <a class="dropdown-item dealer" onclick="load_dealer('<?= $v->area ?>');" href="#makassar" tabindex="-1" data-toggle="tab"><?= $v->area ?></a>
                                                     <?php endforeach ?>
                                                 </ul>
