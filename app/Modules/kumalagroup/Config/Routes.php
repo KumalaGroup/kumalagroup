@@ -23,5 +23,9 @@ $routes->post('model', "$base\Home::model");
 $routes->post('otomotif', "$base\Home::otomotif");
 $routes->post('karir', "$base\Home::karir");
 $routes->post('kontak', "$base\Home::kontak");
-$routes->post('hapus_berkas', "$base\Home::hapus_berkas");
 $routes->post('simulasi_kredit', "$base\Home::simulasi_kredit");
+
+$routes->post('hapus_berkas', "$base\Post_gate::hapus_berkas");
+
+$routes->post('post_img', "$base\Post_gate::post_img");
+$routes->post('delete_img', "$base\Post_gate::delete_img");

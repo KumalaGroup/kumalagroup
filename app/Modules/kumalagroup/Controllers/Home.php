@@ -8,12 +8,10 @@ use DateTime;
 class Home extends Controller
 {
 	private $url = [
-		"http://localhost:6424/kmg/",
 		"http://portal.kumalagroup.co.id/kmg/",
 		"http://portal2.kumalagroup.co.id/kmg/",
 		"http://portal3.kumalagroup.co.id/kmg/"
 	];
-	private $base_img;
 	private $api_server;
 	function _set_base($url)
 	{
@@ -22,7 +20,6 @@ class Home extends Controller
 			$r = $headers && strpos($headers[0], '200') ? 1 : 0;
 			if ($r == 1) {
 				$this->api_server = $v . "api/tHLxW586aIi1YXsQeEKBwhPOJzqfjFokybGmCgRN0M4cnlvduTrVAU2pZS9D37/";
-				$this->base_img = $v . "assets/img_marketing";
 				break;
 			}
 		}
@@ -37,7 +34,6 @@ class Home extends Controller
 		$d['berita'] = array_slice($berita, 0, 2);
 		$d['slider'] = json_decode($this->_curl_get($this->api_server . 'slider'));
 		$d['partner'] = json_decode($this->_curl_get($this->api_server . 'partner'));
-		$d['base_img'] = $this->base_img;
 		echo view("$base\index", $d);
 	}
 	public function tentang()
@@ -64,7 +60,6 @@ class Home extends Controller
 			$d['pages'] = ceil(count($data) / 6);
 			$d['data'] = array_slice($data, $start, 6);
 		}
-		$d['base_img'] = $this->base_img;
 		echo view("$base\index", $d);
 	}
 	public function detail_berita()
@@ -79,7 +74,6 @@ class Home extends Controller
 		$bulan = array(1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
 		$date = new DateTime($d['data']->updated_at);
 		$d['date'] = $date->format('d') . " " . $bulan[$date->format('n')] . " " . $date->format('Y');
-		$d['base_img'] = $this->base_img;
 		echo view("$base\index", $d);
 	}
 	public function otomotif()
@@ -111,7 +105,6 @@ class Home extends Controller
 				$d['content'] =  "$base\pages\otomotif";
 				$d['data'] = json_decode($this->_curl_get($this->api_server . 'otomotif'));
 			}
-			$d['base_img'] = $this->base_img;
 			echo view("$base\index", $d);
 		}
 	}
@@ -124,7 +117,6 @@ class Home extends Controller
 		$d['content'] =  "$base\pages\otomotif";
 		$d['mod'] = "detail";
 		$data = json_decode($this->_curl_get($this->api_server . 'otomotif/' . $request->uri->getSegments()[1] . '/' . base64_decode($request->uri->getSegments()[3])));
-		$d['base_img'] = $this->base_img;
 		$d['brand'] = $data->brand;
 		$d['warna'] = $data->warna;
 		$d['otomotif'] = $data->otomotif;
@@ -138,7 +130,6 @@ class Home extends Controller
 		$request = \Config\Services::request();
 		$post = $request->getPost();
 		$data = json_decode($this->_curl_get($this->api_server . 'dealer/' . $post['brand'] . '/' . $post['area']));
-		$base_img = $this->base_img;
 		if ($data) :
 			foreach ($data as $v) : ?>
 				<div class="card col-md-5 m-1 flex-column">
@@ -146,7 +137,7 @@ class Home extends Controller
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-12">
-								<img height="140px" width="240px" src="<?= "$base_img/dealer/$v->gambar" ?>" width="150px" alt="">
+								<img height="140px" width="240px" src="<?= base_url("dealer/$v->gambar") ?>" width="150px" alt="">
 							</div>
 						</div>
 						<div class="row">
@@ -191,7 +182,6 @@ class Home extends Controller
 		} else {
 			$d['content'] =  "$base\pages\property";
 		}
-		$d['base_img'] = $this->base_img;
 		echo view("$base\index", $d);
 	}
 	public function detail_property()
@@ -203,7 +193,6 @@ class Home extends Controller
 		$d['content'] =  "$base\pages\property";
 		$d['mod'] = "detail";
 		$d['data'] = json_decode($this->_curl_get($this->api_server . 'property/' . $request->uri->getSegments()[1] . '/' . base64_decode($request->uri->getSegments()[3])));
-		$d['base_img'] = $this->base_img;
 		echo view("$base\index", $d);
 	}
 	public function trading()
@@ -232,7 +221,6 @@ class Home extends Controller
 			$d['data'] = json_decode($this->_curl_get($this->api_server . 'mining'));
 			$d['content'] = $base . '\pages\mining';
 		}
-		$d['base_img'] = $this->base_img;
 		echo view("$base\index", $d);
 	}
 	public function kontak()
@@ -299,14 +287,6 @@ class Home extends Controller
 		$data['angsuran'] = number_format($angsuran, 2, ",", ".");
 		$data['pembayaran'] = number_format($pembayaran, 2, ",", ".");
 		echo json_encode($data);
-	}
-	public function hapus_berkas()
-	{
-		$request = \Config\Services::request();
-		$post =  $request->getPost();
-		unlink("./assets/pelamar/" . $post['foto']);
-		unlink("./assets/pelamar/" . $post['cv']);
-		unlink("./assets/pelamar/" . $post['surat_lamaran']);
 	}
 	function _curl_post($url, $data)
 	{
