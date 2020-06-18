@@ -249,15 +249,15 @@ class Home extends Controller
 			foreach ($post as $i => $v) $data[$i] = preg_replace('#<script(.*?)>(.*?)</script>#is', '', strip_tags($v));
 			$foto = $this->request->getFile('foto');
 			$name = "foto" . date("YmdHis") . "." . strtolower(end(explode(".", $foto->getName())));
-			$foto->move(ROOTPATH . 'assets/pelamar', $name);
+			$foto->move('./assets/img_marketing/pelamar/', $name);
 			$data['foto'] = $foto->getName();
 			$cv = $this->request->getFile('cv');
 			$name = "cv" . date("YmdHis") . "." . strtolower(end(explode(".", $cv->getName())));
-			$cv->move(ROOTPATH . 'assets/pelamar', $name);
+			$cv->move('./assets/img_marketing/pelamar/', $name);
 			$data['cv'] = $cv->getName();
 			$surat_lamaran = $this->request->getFile('surat_lamaran');
 			$name = "surat_lamaran" . date("YmdHis") . "." . strtolower(end(explode(".", $surat_lamaran->getName())));
-			$surat_lamaran->move(ROOTPATH . 'assets/pelamar', $name);
+			$surat_lamaran->move('./assets/img_marketing/pelamar/', $name);
 			$data['surat_lamaran'] = $surat_lamaran->getName();
 			$result = $this->_curl_post($this->api_server . 'pelamar', $data);
 			echo $result;

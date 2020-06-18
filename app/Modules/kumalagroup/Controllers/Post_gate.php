@@ -23,9 +23,9 @@ class Post_gate extends Controller
     {
         $request = \Config\Services::request();
         $post =  $request->getPost();
-        unlink("./assets/pelamar/" . $post['foto']);
-        unlink("./assets/pelamar/" . $post['cv']);
-        unlink("./assets/pelamar/" . $post['surat_lamaran']);
+        unlink("./assets/img_marketing/pelamar/" . $post['foto']);
+        unlink("./assets/img_marketing/pelamar/" . $post['cv']);
+        unlink("./assets/img_marketing/pelamar/" . $post['surat_lamaran']);
     }
     function _curl_post($url, $data)
     {
