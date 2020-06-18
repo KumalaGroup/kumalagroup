@@ -10,9 +10,8 @@ class Post_gate extends Controller
     {
         $request = \Config\Services::request();
         $post =  $request->getPost();
-        $gambar = $this->request->getFile('file');
-        $gambar->move($post['path'], $post['name']);
-        echo $gambar->getName();
+        file_put_contents($post['path'] . $post['name'], base64_decode($post['file']));
+        echo $post['name'];
     }
     public function delete_img()
     {
