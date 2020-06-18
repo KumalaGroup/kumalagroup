@@ -138,7 +138,7 @@ class Home extends Controller
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-12">
-								<img height="140px" width="240px" src="<?= base_url("dealer/$v->gambar") ?>" width="150px" alt="">
+								<img height="140px" width="240px" src="<?= base_url("assets/img_marketing/dealer/$v->gambar") ?>" width="150px" alt="">
 							</div>
 						</div>
 						<div class="row">
