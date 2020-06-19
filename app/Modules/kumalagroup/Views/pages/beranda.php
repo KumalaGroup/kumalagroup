@@ -65,7 +65,7 @@
 <section class="mb-0" style="background-color: #f5f5f5; padding-top:100px;">
     <div class="container">
         <h2 class="text-center animated zoomIn delay-4s">Berita & Promo</h2> <br><br><?php foreach ($berita as $v) : $bulan = array(1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
-                                                                                            $date = new DateTime($berita->updated_at);
+                                                                                            $date = new DateTime($v->updated_at);
                                                                                             $date = $date->format('d') . " " . $bulan[$date->format('n')] . " " . $date->format('Y') ?> <div class="row animated zoomInLeft delay-4s">
                 <div class="col-md-12">
                     <div class="card ">
