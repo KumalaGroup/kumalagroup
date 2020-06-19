@@ -25,7 +25,7 @@ $routes->post('karir', "$base\Home::karir");
 $routes->post('kontak', "$base\Home::kontak");
 $routes->post('simulasi_kredit', "$base\Home::simulasi_kredit");
 
-$routes->post('hapus_berkas', "$base\Post_gate::hapus_berkas");
 
+$routes->post('post_file', "$base\Post_gate::post_file");
 $routes->post('post_img', "$base\Post_gate::post_img");
 $routes->post('delete_img', "$base\Post_gate::delete_img");
