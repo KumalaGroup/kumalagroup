@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="row"> <?php foreach ($otomotif as $i => $v) : ?> <div class="col-md-4 p-3 mb-5">
-                        <h4 class="text-center"><?= $v->model ?></h4> <img src="<?= base_url("assets/img_marketing/otomotif/$v->gambar") ?>" width="100%" height="200" alt="" style="object-fit: cover;"> <br>
+                        <h4 class="text-center"><?= $v->model ?></h4> <img src="<?= base_url("assets/img_marketing/otomotif/$v->gambar") ?>" width="100%" height="200" alt="" style="object-fit: contain;"> <br>
                         <h6 class="text-center" style="margin-top:10px;">Mulai Dari Rp. <?= number_format($v->harga, 0, '', '.') ?></h6> <br>
                         <div class="row">
                             <div class="col-md-6"> <a class="btn btn-l btn-outline-primary mt-0 mb-1" href="<?= base_url("/otomotif/$head->jenis/detail/" . base64_encode($v->id)) ?>"> Explore </a> </div>
