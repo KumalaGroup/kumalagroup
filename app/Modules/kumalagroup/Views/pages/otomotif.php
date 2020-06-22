@@ -209,7 +209,9 @@
                 </div>
                 <div class="col-md-7 p-3 mb-5"> <img id="main-color" src="<?= base_url("assets/img_marketing/otomotif/$otomotif->gambar") ?>" width="100%" height="auto" class="img-fluid" alt="" data-animate="fadeInRight"> </div>
                 <div class="col-md-3 p-3 mb-5">
-                    <h4><?= $otomotif->model ?></h4> <a download href="<?= base_url("assets/img_marketing/otomotif/brosur/$otomotif->brosur") ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a> <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Layanan</button>
+                    <h4><?= $otomotif->model ?></h4>
+                    <h6>Rp. <?= number_format($otomotif->harga, 0, '', '.') ?> <br><small class="text-center text-danger">*Harga berlaku di Makassar</small></h6>
+                    <a download href="<?= base_url("assets/img_marketing/otomotif/brosur/$otomotif->brosur") ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a> <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Layanan</button>
                     <div class="modal fade" id="testdr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
