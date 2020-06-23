@@ -1,11 +1,5 @@
-<?php if ($mod == "list") : ?> <style>
-        #listotomotifmas {
-            background-image: url('<?= base_url("assets/img_marketing/head/$head->foto") ?>');
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 100vh;
-        }
-
+<?php if ($mod == "list") : ?>
+    <style>
         #mainNav a {
             font-size: 11pt;
         }
