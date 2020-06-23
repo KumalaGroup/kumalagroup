@@ -10,12 +10,9 @@
             font-size: 11pt;
         }
     </style>
-    <section class="bg-primary text-white mb-0" id="listotomotifmas">
-        <div class="container"> <br><br><br><br>
-            <p class="text-center text-white" style="font-size: 40pt;margin-top: 50px"> <b><?= strtoupper($head->jenis) ?></b></p><br><br>
-        </div>
-        </div>
-    </section>
+    <div style="padding-top: calc(3rem + 39px);">
+        <img src="<?= base_url("assets/img_marketing/head/$head->foto") ?>" alt="" class="img-fluid" width="100%" height="auto">
+    </div>
     <section class="portfolio" id="unitbisnis">
         <div id="dealer" class="container">
             <div class="row text-center mb-5">
@@ -50,8 +47,8 @@
                         <h4 class="text-center"><?= $v->model ?></h4> <img src="<?= base_url("assets/img_marketing/otomotif/$v->gambar") ?>" width="100%" height="200" alt="" style="object-fit: contain;"> <br>
                         <h6 class="text-center" style="margin-top:10px;">Mulai dari Rp. <?= number_format($v->harga, 0, '', '.') ?></h6> <br>
                         <div class="row">
-                            <div class="col-md-6"> <a class="btn btn-l btn-outline-primary mt-0 mb-1" href="<?= base_url("/otomotif/$head->jenis/detail/" . base64_encode($v->id)) ?>"> Explore </a> </div>
-                            <div class="col-md-6"> <a class="btn btn-l btn-outline-primary mt-0 mb-1" onclick="$('#form_simulasi').trigger('reset');simulasi('<?= $v->model ?>','<?= number_format($v->harga, 0, '', '.') ?>');" data-toggle="modal" href="#simulasi"> Simulasi Kredit </a> </div>
+                            <div class="col-6"> <a class="btn btn-l btn-outline-primary mt-0 mb-1" href="<?= base_url("/otomotif/$head->jenis/detail/" . base64_encode($v->id)) ?>"> Explore </a> </div>
+                            <div class="col-6"> <a class="btn btn-l btn-outline-primary mt-0 mb-1" onclick="$('#form_simulasi').trigger('reset');simulasi('<?= $v->model ?>','<?= number_format($v->harga, 0, '', '.') ?>');" data-toggle="modal" href="#simulasi"> Simulasi Kredit </a> </div>
                         </div>
                     </div><?php endforeach ?> </div>
             <div class=" row">
