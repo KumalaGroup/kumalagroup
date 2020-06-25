@@ -506,11 +506,11 @@ a {
   color: #fa0f0c;
 }
 
-a:active,
+/* a:active,
 a:focus,
 a:hover {
   color: #fa0f0c;
-}
+} */
 
 #about {
   background-image: url("../img/about.jpg");

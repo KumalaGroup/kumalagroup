@@ -135,7 +135,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <p><strong>Note:*</strong> Syarat tiap bank bisa berbeda-beda Perhitungan ini sifatnya simulasi belaka. Untuk lebih jelasnya silakan hubungi pemberi kredit.</p>
+                                <p><strong>Note:*</strong> Syarat tiap bank bisa berbeda-beda Perhitungan ini sifatnya simulasi belaka. Untuk lebih jelasnya silakan hubungi virtual assisten kami di 081212100700 atau mengisi form layanan kami.</p>
                             </div>
                         </div>
                     </div>
@@ -194,15 +194,47 @@
     </script><?php elseif ($mod == "detail") : ?> <section class="portfolio" id="unitbisnis" style="margin-top:80px;">
         <div class="container"> <br>
             <div class="row">
-                <div class="col-md-2 text-center p-3 mb-5">
-                    <h6>Pilih Warna</h6> <?php foreach ($warna as $v) : if ($v) : ?> <img class="side mb-2" onmouseover="mOver('<?= base_url('assets/img_marketing/otomotif/warna/' . $v->gambar) ?>')" width="100px" height="auto" class="img-fluid" src="<?= base_url("assets/img_marketing/otomotif/warna/$v->gambar") ?>" alt="" data-animate="fadeInRight"> <?php endif;
-                                                                                                                                                                                                                                                                                                                                                            endforeach ?>
+                <div class="col-md-9 mb-3">
+                    <div class="col-12 mb-2">
+                        <img id="main-color" src="<?= base_url("assets/img_marketing/otomotif/$otomotif->gambar") ?>" width="100%" height="auto" alt="" data-animate="fadeInRight" class="img-fluid">
+                    </div>
+                    <div class="col-12">
+                        <div class="owl-carousel owl-theme">
+                            <?php foreach ($warna as $v) : if ($v) : ?>
+                                    <div class="item">
+                                        <img class="side mb-2" onclick="mOver('<?= base_url('assets/img_marketing/otomotif/warna/' . $v->gambar) ?>')" width="100px" height="auto" class="img-fluid" src="<?= base_url("assets/img_marketing/otomotif/warna/$v->gambar") ?>" alt="" data-animate="fadeInRight">
+                                    </div>
+                            <?php endif;
+                            endforeach ?>
+                        </div>
+                        <script>
+                            $('.owl-carousel').owlCarousel({
+                                // loop: true,
+                                margin: 10,
+                                responsiveClass: true,
+                                responsive: {
+                                    0: {
+                                        items: 3,
+                                        nav: false
+                                    },
+                                    1000: {
+                                        items: 5,
+                                        nav: false
+                                    }
+                                }
+                            })
+                        </script>
+                    </div>
                 </div>
-                <div class="col-md-7 p-3 mb-5"> <img id="main-color" src="<?= base_url("assets/img_marketing/otomotif/$otomotif->gambar") ?>" width="100%" height="auto" class="img-fluid" alt="" data-animate="fadeInRight"> </div>
-                <div class="col-md-3 p-3 mb-5">
+                <div class="col-md-3 mb-3">
                     <h4><?= $otomotif->model ?></h4>
                     <h6>Mulai dari Rp. <?= number_format($otomotif->harga, 0, '', '.') ?> <br><small class="text-center text-danger">*Harga akan disesuaikan dengan domisili pemesan</small></h6>
                     <a download href="<?= base_url("assets/img_marketing/otomotif/brosur/$otomotif->brosur") ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a> <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Layanan</button>
+                    <!-- <?php if (session()->logged_in) : ?>
+                        <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#jhsjshjsdhd">Checkout</button>
+                    <?php else : ?>
+                        <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#login">Beli</button>
+                    <?php endif ?> -->
                     <div class="modal fade" id="testdr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -229,7 +261,7 @@
                         </div>
                     </div><br>
                 </div>
-            </div><br><br>
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <h4>Tentang <?= $otomotif->model ?></h4> <br>
@@ -264,7 +296,47 @@
                                                         endforeach ?> <br>
         </div>
     </section>
-    <div class="modal fade" id="komparasi" tabindex="-1">
+    <!-- <div class="modal fade" id="jhsjshjsdhd">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Checkout</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                </div>
+                <div class="modal-body">
+                    <form id="ghbhvbngj">
+                        <div class="form-group"> <label for="pesan">Alamat</label> <textarea name="alamat" class="form-control" id="alamat" rows="2" placeholder="Alamat anda" required></textarea> </div>
+                        <div class="form-group"> <label for="notelp">Telepon</label> <input name="telepon" type="text" class="form-control" onkeydown="input_number(event)" id="no_hp" placeholder="Masukkan no telepon anda" required> </div>
+                        <div class="form-group"> <label for="notelp">No NPWP</label> <input name="no_npwp" type="text" class="form-control" onkeydown="input_number(event)" id="no_npwp" placeholder="Masukkan No NPWP anda"> </div>
+                        <div class="form-group"> <label for="brand">Domisili: </label>
+                            <select id="provinsi" name="provinsi" class="form-control" required>
+                                <option value="" selected disabled>-- Silahkan Pilih Provinsi --</option>
+                                <?php foreach ($provinsi as $v) : ?> <option value="<?= $v->id ?>"><?= ucwords($v->provinsi) ?></option> <?php endforeach ?>
+                            </select> </div>
+                        <div class="form-group"> <label for="brand">Tipe: </label>
+                            <select id="tipe" name="tipe" class="form-control" required>
+                                <option value="" selected disabled>-- Silahkan Pilih Tipe --</option>
+                            </select>
+                        </div>
+                        <p class="text-right">Rp. <span id="bnmjjh">0,00</span></p>
+                        <div class="form-group">
+                            <label>Masukkan Foto KTP anda</label>
+                            <input type="file" name="foto_ktp" id="foto_ktp" class="form-control-file" required> </div>
+                        <div class="form-group">
+                            <label>Masukkan Foto KK anda</label>
+                            <input type="file" name="foto_kk" id="foto_kk" class="form-control-file" required> </div>
+                        <div class="form-group">
+                            <label>Masukkan Foto Rekening Listrik anda</label>
+                            <input type="file" name="foto_reklis" id="foto_reklis" class="form-control-file" required> </div>
+                        <button id="dbsmncs" class="btn btn-primary">Proses</button>
+                        <div class="form-group mt-3">
+                            <p><strong>Note:*</strong> Data yang Anda kirim akan diverifikasi. Kami akan menghubungi Anda kembali.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- <div class="modal fade" id="komparasi" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-body">
                 <div class="modal-content">
@@ -288,7 +360,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <script>
         $('#layanan').change(function() {
             if ($(this).val() == "Test Drive") $('#form').find('.form-group').eq(1).removeAttr('style');
@@ -317,6 +389,79 @@
                 $('#model').html(r);
             });
         });
+        // $('#dbsmncs').click(function(e) {
+        //     e.preventDefault();
+        //     if ($('#ghbhvbngj').valid()) {
+        //         $(this).prop('disabled', true);
+        //         $(this).html("Mengirim data...");
+        //         var form_data = new FormData();
+        //         form_data.append('id_customer', "<?= session()->id ?>");
+        //         form_data.append('alamat', $('#alamat').val());
+        //         form_data.append('nohp', $('#no_hp').val());
+        //         form_data.append('nonpwp', $('#no_npwp').val());
+        //         form_data.append('id_produk', "<?= $otomotif->kode_produk ?>");
+        //         form_data.append('id_provinsi', $('#provinsi').val());
+        //         form_data.append('id_brand', "<?= $otomotif->brand ?>");
+        //         form_data.append('type', $('#tipe option:selected').text());
+        //         form_data.append('harga', $('#tipe').val());
+        //         form_data.append('web', "true");
+        //         var foto_ktp = $('#foto_ktp')[0].files[0];
+        //         var allowed_types = ["jpg", "jpeg", "png"];
+        //         var ext = foto_ktp.name.split(".").pop().toLowerCase();
+        //         form_data.append('foto_ktp', foto_ktp);
+        //         if ($.inArray(ext, allowed_types) == -1) {
+        //             swal("", "Ekstensi file tidak diperbolehkan!", "warning");
+        //             return false;
+        //         } else if (foto_ktp.size > 4048576) {
+        //             swal("", "Ukuran file terlalu besar!", "warning");
+        //             return false;
+        //         }
+        //         var foto_kk = $('#foto_kk')[0].files[0];
+        //         var ext = foto_kk.name.split(".").pop().toLowerCase();
+        //         form_data.append('foto_kk', foto_kk);
+        //         if ($.inArray(ext, allowed_types) == -1) {
+        //             swal("", "Ekstensi file tidak diperbolehkan!", "warning");
+        //             return false;
+        //         } else if (foto_kk.size > 4048576) {
+        //             swal("", "Ukuran file terlalu besar!", "warning");
+        //             return false;
+        //         }
+        //         var foto_reklis = $('#foto_reklis')[0].files[0];
+        //         var ext = foto_reklis.name.split(".").pop().toLowerCase();
+        //         form_data.append('foto_reklis', foto_reklis);
+        //         if ($.inArray(ext, allowed_types) == -1) {
+        //             swal("", "Ekstensi file tidak diperbolehkan!", "warning");
+        //             return false;
+        //         } else if (foto_reklis.size > 4048576) {
+        //             swal("", "Ukuran file terlalu besar!", "warning");
+        //             return false;
+        //         }
+        //         $.ajax({
+        //             type: 'post',
+        //             url: "<?= base_url("checkout") ?>",
+        //             data: form_data,
+        //             processData: false,
+        //             contentType: false,
+        //             success: function(r) {
+        //                 swal("", r, (r == "Maaf, Permintaan Anda tidak dapat diproses!" ? "warning" : "success")).then(function() {
+        //                     location.reload();
+        //                 });
+        //             }
+        //         });
+        //     }
+        // });
+        // $('#provinsi').change(function() {
+        //     $.post("<?= base_url("tipe") ?>", {
+        //         'brand': "<?= $otomotif->brand ?>",
+        //         'provinsi': $(this).val(),
+        //         'key': "<?= substr($otomotif->model, 0, 5) ?>",
+        //     }, function(r) {
+        //         $('#tipe').html(r);
+        //         $('#tipe').change(function() {
+        //             $('#bnmjjh').html(formatRupiah($(this).val()) + ",00");
+        //         });
+        //     });
+        // });
 
         function mOver(src) {
             var a = document.getElementById("main-color");
