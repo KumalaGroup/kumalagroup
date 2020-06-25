@@ -286,134 +286,11 @@
                 <li class="nav-item mx-0 mx-lg-1"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger <?= ($index == 'karir') ? 'active' : '' ?>" href="<?= ($index == 'index') ? '#karir' : base_url('karir') ?>">Karir</a> </li>
                 <li class="nav-item mx-0 mx-lg-1"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger <?= ($index == 'kontak') ? 'active' : '' ?>" href="<?= base_url() ?>/kontak">Kontak</a> </li>
             </ul>
-            <!-- <ul class="nav navbar-nav float-xs-right">
-                <?php if (session()->logged_in) : ?>
-                    <li class="dropdown dropdown-user nav-item"><a href="javascript:void(0)" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link px-0 px-lg-3">
-                            <span class="avatar avatar-online"><img src="<?= base_url("assets/baru/img/profile.png") ?>" alt="avatar" class="rounded-circle" height="40"></span></a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#ghedjdhddd"><i class="fas fa-cart-arrow-down"></i> Histori Transaksi</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="<?= base_url("logout") ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                        </div>
-                    </li>
-                <?php else : ?>
-                    <li class="nav-item mx-0 mx-lg-1"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="javascript:void(0)" data-toggle="modal" data-target="#login">Login</a> </li>
-                <?php endif ?>
-            </ul> -->
+            <div id="top-search"> <a href="javascript:void(0)" class="lang-button"> <span class="active">ID</span> <span>EN</span> <i class="clear"></i> </a> </div>
         </div>
     </nav>
     <?= view("$content"); ?>
-    <!-- <?php if (!session()->logged_in) : ?>
-        <div class="modal fade" id="login">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Login</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="loginjsfjs">
-                            <div class="form-group"> <label for="namalengkap">Email: </label>
-                                <input type="email" name="lemail" class="form-control" id="lemail" placeholder="Email anda" required> </div>
-                            <div class="form-group"> <label for="alamat">Password:</label>
-                                <input type="password" name="lpassword" class="form-control" id="lpassword" placeholder="Password anda" required> </div>
-                            <button id="ererer" class="btn btn-primary">Login</button>
-                        </form>
-                        <hr>
-                        <div class="text-center">
-                            <div>Belum punya akun? Silahkan daftar <a href="javascript:void(0)" data-dismiss="modal" data-toggle="modal" data-target="#jwkjekwe">disini!</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="jwkjekwe">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Registrasi</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="formfdkjfkdf">
-                            <div class="form-group"> <label for="d_namalengkap">Nama Lengkap: </label>
-                                <input type="text" name="dnama" class="form-control" id="dnama" placeholder="Nama Lengkap anda" required> </div>
-                            <div class="form-group"> <label for="namalengkap">Email: </label>
-                                <input type="email" name="demail" class="form-control" id="demail" placeholder="Email anda" required> </div>
-                            <div class="form-group"> <label for="alamat">Password:</label>
-                                <input type="password" name="dpassword" class="form-control" id="dpassword" placeholder="Password anda" required> </div>
-                            <button id="fdfffff" class="btn btn-primary">Daftar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script>
-            $('#ererer').click(function(e) {
-                e.preventDefault();
-                var data = $('#loginjsfjs').serialize();
-                if ($('#loginjsfjs').valid()) {
-                    $.post("<?= base_url("login") ?>", data, function(r) {
-                        if (r == "Maaf, Username atau password yang Anda masukkan salah!")
-                            swal("", r, "error");
-                        else location.reload();
-                    });
-                }
-            });
-            $('#fdfffff').click(function(e) {
-                e.preventDefault();
-                var data = $('#formfdkjfkdf').serialize();
-                if ($('#formfdkjfkdf').valid()) {
-                    $(this).prop('disabled', true);
-                    $(this).html("Mengirim data...");
-                    $.post("<?= base_url("registrasi") ?>", data, function(r) {
-                        swal("", r, (r == "Maaf, Email yang Anda masukkan telah terdaftar!" ? "warning" : "success")).then(function() {
-                            location.reload();
-                        });
-                    });
-                }
-            });
-        </script>
-    <?php else : ?>
-        <div class="modal fade" id="ghedjdhddd">
-            <div class="modal-dialog">
-                <div class="modal-body">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Histori Transaksi</h4> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="row px-2">
-                                        <div class="col-6 m-0"><small>Kode Checkout</small></div>
-                                        <div class="text-right col-6 m-0 text-danger"><small><i class="fas fa-times"></i> Batalkan</small></div>
-                                    </div>
-                                    <hr class="m-1">
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <img src=" <?= base_url("assets/baru/img/profile.png") ?>" alt="avatar" class="img-fluid pl-2" height="auto" width="auto">
-                                        </div>
-                                        <div class="col-9 pl-0">
-                                            <div class="row pl-0 pr-2">
-                                                <div class="col-12 m-0">Nama Model<br>
-                                                    <small>Nama Tipe</small></div>
-                                                <div class="col-12 text-right m-0"><small>Rp. 100.000.000,00</small></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr class="m-1">
-                                    <div class="row px-2">
-                                        <div class="col-6 m-0 text-info"><small><i class="fas fa-spinner"></i> Menunggu Verifikasi</small></div>
-                                        <div class="text-right col-6 m-0 text-danger"><small><i class="fas fa-times"></i> Batalkan</small></div>
-                                    </div>
-                                    <hr class="m-1">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php endif ?> -->
+
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -425,9 +302,9 @@
                     <h4 class="mb-4">IKUTI KAMI</h4>
                     <p class="lead mb-0" align="left">Ayo Ikuti Sosial Media Kami</p>
                     <ul class="list-inline mb-0">
-                        <li class="list-inline-item"> <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.facebook.com/kumalagroup"> <i class="fab fa-fw fa-facebook-f"></i> </a> </li>
-                        <li class="list-inline-item"> <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.instagram.com/kumalagroup/"> <i class="fab fa-fw fa-instagram"></i> </a> </li>
-                        <li class="list-inline-item"> <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.youtube.com/channel/UC7R09sGLSsz-Ky1nQs1Qbiw"> <i class="fab fa-fw fa-youtube"></i> </a> </li>
+                        <li class="list-inline-item"> <a class="btn btn-outline-light btn-social text-center rounded-circle" target="_blank" href="https://www.facebook.com/kumalagroup1/"> <i class="fab fa-fw fa-facebook-f"></i> </a> </li>
+                        <li class="list-inline-item"> <a class="btn btn-outline-light btn-social text-center rounded-circle" target="_blank" href="https://www.instagram.com/kumalagroup/"> <i class="fab fa-fw fa-instagram"></i> </a> </li>
+                        <li class="list-inline-item"> <a class="btn btn-outline-light btn-social text-center rounded-circle" target="_blank" href="https://www.youtube.com/channel/UC7R09sGLSsz-Ky1nQs1Qbiw"> <i class="fab fa-fw fa-youtube"></i> </a> </li>
                     </ul>
                 </div>
                 <div class="col-md-4">
