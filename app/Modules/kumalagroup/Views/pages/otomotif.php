@@ -202,7 +202,7 @@
                         <div class="owl-carousel owl-theme">
                             <?php foreach ($warna as $v) : if ($v) : ?>
                                     <div class="item">
-                                        <img class="side mb-2" onclick="mOver('<?= base_url('assets/img_marketing/otomotif/warna/' . $v->gambar) ?>')" width="100px" height="auto" class="img-fluid" src="<?= base_url("assets/img_marketing/otomotif/warna/$v->gambar") ?>" alt="" data-animate="fadeInRight">
+                                        <img class="img-fluid" onclick="mOver('<?= base_url('assets/img_marketing/otomotif/warna/' . $v->gambar) ?>')" width="100px" height="auto" src="<?= base_url("assets/img_marketing/otomotif/warna/$v->gambar") ?>" alt="" data-animate="fadeInRight">
                                     </div>
                             <?php endif;
                             endforeach ?>
@@ -215,6 +215,10 @@
                                 responsive: {
                                     0: {
                                         items: 3,
+                                        nav: false
+                                    },
+                                    500: {
+                                        items: 4,
                                         nav: false
                                     },
                                     1000: {
@@ -230,11 +234,7 @@
                     <h4><?= $otomotif->model ?></h4>
                     <h6>Mulai dari Rp. <?= number_format($otomotif->harga, 0, '', '.') ?> <br><small class="text-center text-danger">*Harga akan disesuaikan dengan domisili pemesan</small></h6>
                     <a download href="<?= base_url("assets/img_marketing/otomotif/brosur/$otomotif->brosur") ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a> <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Layanan</button>
-                    <!-- <?php if (session()->logged_in) : ?>
-                        <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#jhsjshjsdhd">Checkout</button>
-                    <?php else : ?>
-                        <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#login">Beli</button>
-                    <?php endif ?> -->
+
                     <div class="modal fade" id="testdr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -273,30 +273,59 @@
                     <h2 class="text-center text-secondary mb-0">Video</h2> <br><br>
                     <div class="embed-responsive embed-responsive-16by9"> <iframe class="embed-responsive-item" src="<?= str_replace("watch?v=", "embed/", $otomotif->video) ?>" allowfullscreen></iframe> </div><br><br>
                 </div>
-            </div><br><br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="text-center text-secondary mb-0">Detail</h2> <br><br>
-                </div>
             </div>
-            <h4>Fitur <?= $otomotif->model ?></h4> <br><?php foreach ($detail as $i => $v) : if ($v) : if ($i % 2) : ?> <div class="row">
-                            <div class="col-md-8"> <br>
-                                <h5><?= $v->nama_detail ?></h5> <br>
-                                <p><?= $v->deskripsi ?>.</p>
-                            </div>
-                            <div class="col-md-4"> <img src="<?= base_url("assets/img_marketing/otomotif/detail/$v->gambar") ?>" width="350" height="250" alt=""> </div>
-                        </div><?php else : ?> <div class="row">
-                            <div class="col-md-4"> <img src="<?= base_url("assets/img_marketing/otomotif/detail/$v->gambar") ?>" width="350" height="250" alt=""> </div>
-                            <div class="col-md-8"> <br>
-                                <h5><?= $v->nama_detail ?></h5> <br>
-                                <p><?= $v->deskripsi ?>.</p>
-                            </div>
-                        </div><?php endif;
-                                                            endif;
-                                                        endforeach ?> <br>
+            <?php if ($detail) : ?>
+                <br><br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-center text-secondary mb-0">Detail</h2> <br><br>
+                    </div>
+                </div>
+                <h4>Fitur <?= $otomotif->model ?></h4> <br>
+                <?php foreach ($detail as $i => $v) : if ($v) : if ($i % 2) : ?> <div class="row">
+                                <div class="col-md-8"> <br>
+                                    <h5><?= $v->nama_detail ?></h5> <br>
+                                    <p><?= $v->deskripsi ?>.</p>
+                                </div>
+                                <div class="col-md-4"> <img src="<?= base_url("assets/img_marketing/otomotif/detail/$v->gambar") ?>" width="100%" height="auto" class="img-fluid" alt=""> </div>
+                            </div><?php else : ?> <div class="row">
+                                <div class="col-md-4"> <img src="<?= base_url("assets/img_marketing/otomotif/detail/$v->gambar") ?>" width="100%" height="auto" class="img-fluid" alt=""> </div>
+                                <div class="col-md-8"> <br>
+                                    <h5><?= $v->nama_detail ?></h5> <br>
+                                    <p><?= $v->deskripsi ?>.</p>
+                                </div>
+                            </div><?php endif;
+                            endif;
+                        endforeach ?> <br>
+            <?php endif ?>
         </div>
     </section>
 
+    <!-- <div class="modal fade" id="komparasi" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-body">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Bandingkan dengan</h4> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form id="form_ilj">
+                                    <div class="form-group"> <label for="brand">Brand: </label> <select id="brand" name="brand" class="form-control" required>
+                                            <option value="" selected disabled>-- Silahkan Pilih Brand --</option> <?php foreach ($brand as $v) : ?> <option value="<?= $v->id ?>"><?= ucwords($v->jenis) ?></option> <?php endforeach ?>
+                                        </select> </div>
+                                    <div class="form-group"> <label for="model">Model: </label> <select id="model" name="model" class="form-control" required>
+                                            <option value="" selected disabled>-- Silahkan Pilih Model --</option>
+                                        </select> </div><input type="hidden" name="web" value="true"> <button id="modelsdjd" class="btn btn-danger">Lihat Perbandingan</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
     <script>
         $('#layanan').change(function() {
             if ($(this).val() == "Test Drive") $('#form').find('.form-group').eq(1).removeAttr('style');
