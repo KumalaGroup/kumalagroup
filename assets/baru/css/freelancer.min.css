@@ -75,9 +75,6 @@ section h2 {
     font-size: 3rem;
     line-height: 2.5rem;
   }
-  .carousel-item img{
-      height: 600px;
-  }
 }
 
 .btn-xl {
@@ -252,6 +249,7 @@ header.masthead h2 {
   #about h2 {
     margin-top: 100px;
   }
+ 
 }
 
 .portfolio {
@@ -317,9 +315,6 @@ header.masthead h2 {
 }
 
 @media (max-width: 400px) {
-  .carousel-item img{
-      height: 450px;
-  }
   .card {
     margin-bottom: 15px;
   }
@@ -374,14 +369,12 @@ header.masthead h2 {
     margin-top: 5%;
     margin-left: 35%;
   }
+  
 }
 
 @media (min-width: 350px) {
   #unitbisnis .col-md-4 {
     margin-bottom: 20px;
-  }
-  .carousel-item img{
-      height: 350px;
   }
 }
 
@@ -694,10 +687,6 @@ a:hover {
   padding: 2rem 1.75rem;
 }
 
-/* #partner {
-  height: 100vh;
-} */
-
 #lowongan {
   height: 70vh;
 }
@@ -726,14 +715,6 @@ a:hover {
 #kontak {
   background-image: url("../img/about.jpg");
   height: 50vh;
-}
-
-#partner img {
-  /* opacity: 0.5; */
-  transition: 0.3s;
-  width: 250px;
-  height: 150px;
-  margin-top: 20px;
 }
 
 .btn {

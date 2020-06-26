@@ -190,14 +190,34 @@
         transform: scale(1);
     }
 
-    #partner img {
-        width: 250px;
-        height: 150px;
-    }
-
     header .masthead {
         padding-top: calc(3rem + 52px) !important;
         margin-top: 50px !important;
+    }
+
+    #partner img {
+        height: 100px;
+    }
+
+    @media (min-width: 300px) {
+
+        #partner img {
+            height: 40px;
+        }
+    }
+
+    @media (min-width: 500px) {
+
+        #partner img {
+            height: 60px;
+        }
+    }
+
+    @media (min-width: 700px) {
+
+        #partner img {
+            height: 80px;
+        }
     }
 
     @media (min-width: 992px) {
@@ -208,8 +228,8 @@
             transition: padding-top 0.3s, padding-bottom 0.3s;
         }
 
-        .carousel-item img {
-            height: 90vh;
+        #partner img {
+            height: 100px;
         }
     }
 
@@ -286,6 +306,7 @@
                 <li class="nav-item mx-0 mx-lg-1"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger <?= ($index == 'karir') ? 'active' : '' ?>" href="<?= ($index == 'index') ? '#karir' : base_url('karir') ?>">Karir</a> </li>
                 <li class="nav-item mx-0 mx-lg-1"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger <?= ($index == 'kontak') ? 'active' : '' ?>" href="<?= base_url() ?>/kontak">Kontak</a> </li>
             </ul>
+
             <div id="top-search"> <a href="javascript:void(0)" class="lang-button"> <span class="active">ID</span> <span>EN</span> <i class="clear"></i> </a> </div>
         </div>
     </nav>
