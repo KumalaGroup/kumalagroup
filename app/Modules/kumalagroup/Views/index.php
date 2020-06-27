@@ -361,7 +361,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript">
         function input_number(e) {
-            if ($.inArray(e.which, [8, 37, 39, 46, 190]) != -1) return;
+            if ($.inArray(e.which, [187, 107, 8, 37, 39, 46, 190]) != -1) return;
             else if ((e.which < 48 || e.which > 57) && (e.which < 96 || e.which > 105)) e.preventDefault();
         } /* Fungsi formatRupiah */
         function formatRupiah(angka) {
