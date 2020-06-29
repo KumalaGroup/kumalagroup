@@ -1,12 +1,4 @@
 <?php if ($mod == "detail") : ?> <style>
-        #detailb {
-            background-image: url("<?= base_url("assets/img_marketing/berita/$data->gambar") ?>");
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 100vh;
-            /* filter: contrast(0.5) brightness(1) grayscale(0.5); */
-        }
-
         @media (min-width: 1024px) {
             #detailb {
                 /*margin-top: 100px;*/
@@ -76,7 +68,7 @@
         </div>
     </section>
     <div class="container">
-        <section class="bg-primary text-white mb-0" id="detailb"> </section>
+        <img src="<?= base_url("assets/img_marketing/berita/$data->gambar") ?>" alt="" width="100%" height="auto" class="img-fluid">
     </div>
     <section class="portfolio">
         <div class="container">
