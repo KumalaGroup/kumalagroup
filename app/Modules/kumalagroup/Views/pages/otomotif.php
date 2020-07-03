@@ -1,12 +1,24 @@
 <?php if ($mod == "list") : ?>
-    <style>
-        #mainNav a {
-            font-size: 11pt;
-        }
-    </style>
-    <div style="padding-top: calc(3rem + 39px);">
-        <img src="<?= base_url("assets/img_marketing/head/$head->foto") ?>" alt="" class="img-fluid" width="100%" height="auto">
-    </div>
+    <header class="text-white text-center" style="padding-top: 82px !important;" id="home">
+        <div class="bd-example">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <?php foreach ($slider as $i => $v) : ?>
+                        <li data-target="#carouselExampleCaptions" class="<?= ($i == 0) ? "active" : "" ?>" data-slide-to="<?= $i++ ?>"></li>
+                    <?php endforeach ?>
+                </ol>
+                <div class="carousel-inner">
+                    <?php foreach ($slider as $i => $v) : ?>
+                        <div class="carousel-item <?= ($i == 0) ? "active" : "" ?>"> <a href="<?= $v->aksi ?>" target="_blank">
+                                <img src="<?= base_url("assets/img_marketing/slider/$v->gambar") ?>" class="img-fluid" width="100%" alt="...">
+                                <div class="carousel-caption d-none d-md-block text-left">
+                                    <h2><?= $v->judul ?></h2>
+                                    <p><?= $v->deskripsi ?></p>
+                                </div>
+                            </a> </div><?php endforeach ?> </div>
+            </div>
+        </div>
+    </header>
     <section class="portfolio" id="unitbisnis">
         <div id="dealer" class="container">
             <div class="row text-center mb-5">
@@ -37,23 +49,38 @@
                     </div>
                 </div>
             </div>
-            <div class="row"> <?php foreach ($otomotif as $i => $v) : ?> <div class="col-md-4 p-3 mb-5">
-                        <h4 class="text-center"><?= $v->model ?></h4> <img src="<?= base_url("assets/img_marketing/otomotif/$v->gambar") ?>" width="100%" height="200" alt="" style="object-fit: contain;"> <br>
+            <div class="row">
+                <?php foreach ($otomotif as $i => $v) : ?>
+                    <div class="col-md-4 p-3 mb-5">
+                        <h4 class="text-center"><?= $v->model ?></h4>
+                        <img src="<?= base_url("assets/img_marketing/otomotif/$v->gambar") ?>" width="100%" height="200" alt="" style="object-fit: contain;"> <br>
                         <h6 class="text-center" style="margin-top:10px;">Mulai dari Rp. <?= number_format($v->harga, 0, '', '.') ?></h6> <br>
                         <div class="row">
-                            <div class="col-6"> <a class="btn btn-l btn-outline-primary mt-0 mb-1" href="<?= base_url("/otomotif/$head->jenis/detail/" . base64_encode($v->id)) ?>"> Explore </a> </div>
-                            <div class="col-6"> <a class="btn btn-l btn-outline-primary mt-0 mb-1" onclick="$('#form_simulasi').trigger('reset');simulasi('<?= $v->model ?>','<?= number_format($v->harga, 0, '', '.') ?>');" data-toggle="modal" href="#simulasi"> Simulasi Kredit </a> </div>
+                            <div class="col-6">
+                                <a class="btn btn-l btn-outline-primary mt-0 mb-1" href="<?= base_url("/otomotif/$head->jenis/detail/" . base64_encode($v->id)) ?>"> Explore </a>
+                            </div>
+                            <div class="col-6">
+                                <a class="btn btn-l btn-outline-primary mt-0 mb-1" onclick="$('#form_simulasi').trigger('reset');simulasi('<?= $v->model ?>','<?= number_format($v->harga, 0, '', '.') ?>');" data-toggle="modal" href="#simulasi"> Simulasi Kredit </a>
+                            </div>
                         </div>
                     </div><?php endforeach ?> </div>
-            <div class=" row">
-                <div class="col-12">
-                    <nav aria-label="Page-link navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item"> <a class="page-link" <?= ($page != 1) ? 'href="' . base_url() . '/otomotif/' . $head->jenis . '/page/' . ($page - 1) . '"' : '' ?>>‹</a> </li><?php for ($i = 1; $i <= $pages; $i++) : ?> <li class="page-item <?= ($i == $page) ? 'active' : '' ?>"><a class="page-link" <?= ($i != $page) ? 'href="' . base_url() . '/otomotif/' . $head->jenis . '/page/' . $i . '"' : '' ?>><?= $i ?></a></li><?php endfor ?> <li class="page-item"> <a class="page-link" <?= ($page != $pages) ? 'href="' . base_url() . '/otomotif/' . $head->jenis . '/page/' . ($page + 1) . '"' : '' ?>>›</a> </li>
-                        </ul>
-                    </nav>
+            <?php if ($page != 1) : ?>
+                <div class=" row">
+                    <div class="col-12">
+                        <nav aria-label="Page-link navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item"> <a class="page-link" <?= ($page != 1) ? 'href="' . base_url() . '/otomotif/' . $head->jenis . '/page/' . ($page - 1) . '"' : '' ?>>‹</a> </li>
+                                <?php for ($i = 1; $i <= $pages; $i++) : ?>
+                                    <li class="page-item <?= ($i == $page) ? 'active' : '' ?>">
+                                        <a class="page-link" <?= ($i != $page) ? 'href="' . base_url() . '/otomotif/' . $head->jenis . '/page/' . $i . '"' : '' ?>><?= $i ?></a>
+                                    </li>
+                                <?php endfor ?>
+                                <li class="page-item"> <a class="page-link" <?= ($page != $pages) ? 'href="' . base_url() . '/otomotif/' . $head->jenis . '/page/' . ($page + 1) . '"' : '' ?>>›</a> </li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
-            </div>
+            <?php endif ?>
         </div>
     </section>
     <div class="modal fade" id="simulasi" tabindex="-1">
@@ -191,8 +218,10 @@
                 $('#load_dealer').html(r);
             });
         }
-    </script><?php elseif ($mod == "detail") : ?> <section class="portfolio" id="unitbisnis" style="margin-top:80px;">
-        <div class="container"> <br>
+    </script>
+<?php elseif ($mod == "detail") : ?>
+    <section class="portfolio" id="unitbisnis" style="margin-top:82px;">
+        <div class="container">
             <div class="row">
                 <div class="col-md-9 mb-3">
                     <div class="col-12 mb-2">
@@ -233,7 +262,8 @@
                 <div class="col-md-3 mb-3">
                     <h4><?= $otomotif->model ?></h4>
                     <h6>Mulai dari Rp. <?= number_format($otomotif->harga, 0, '', '.') ?> <br><small class="text-center text-danger">*Harga akan disesuaikan dengan domisili pemesan</small></h6>
-                    <a download href="<?= base_url("assets/img_marketing/otomotif/brosur/$otomotif->brosur") ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a> <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Layanan</button>
+                    <a download href="<?= base_url("assets/img_marketing/otomotif/brosur/$otomotif->brosur") ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a>
+                    <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Penawaran</button>
 
                     <div class="modal fade" id="testdr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -248,13 +278,9 @@
                                                 <option value="Test Drive">Test Drive</option>
                                                 <option value="Penawaran">Penawaran</option>
                                             </select> </div>
-                                        <div class="form-group" style="display: none;"> <label for="nama">Tanggal Test Drive: </label> <input type="text" name="tanggalTestDrive" class="form-control" id="tanggalTestDrive" placeholder="Masukkan tanggal Test Drive" autocomplete="off" required> </div>
                                         <div class="form-group"> <label for="nama">Nama: </label> <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Lengkap anda" required> </div>
                                         <div class="form-group"> <label for="telepon">No Telepon: </label> <input name="telepon" type="text" class="form-control" onkeydown="input_number(event)" id="telepon" placeholder="No Telepon anda" required> </div>
-                                        <div class="form-group"> <label for="dealer">Dealer: </label> <select id="idDealer" name="idDealer" class="form-control" required>
-                                                <option value="" selected disabled>-- Silahkan Pilih Dealer --</option> <?php foreach ($dealer as $v) : ?> <option value="<?= $v->id ?>"><?= ucwords($v->judul) ?></option> <?php endforeach ?>
-                                            </select> </div>
-                                        <div class="form-group"> <label for="kota">Asal Kota: </label> <input name="asalKota" type="text" class="form-control" id="asalKota" placeholder="Asal Kota anda" required> </div><input type="hidden" name="web" value="true"> <button id="submit" class="btn btn-danger">Kirim</button>
+                                        <div class="form-group"> <label for="kota">Kota Domisili: </label> <input name="asalKota" type="text" class="form-control" id="asalKota" placeholder="Kota Domisili anda" required> </div><input type="hidden" name="web" value="true"> <button id="submit" class="btn btn-danger">Kirim</button>
                                     </form>
                                 </div>
                             </div>
@@ -301,39 +327,7 @@
         </div>
     </section>
 
-    <!-- <div class="modal fade" id="komparasi" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-body">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Bandingkan dengan</h4> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form id="form_ilj">
-                                    <div class="form-group"> <label for="brand">Brand: </label> <select id="brand" name="brand" class="form-control" required>
-                                            <option value="" selected disabled>-- Silahkan Pilih Brand --</option> <?php foreach ($brand as $v) : ?> <option value="<?= $v->id ?>"><?= ucwords($v->jenis) ?></option> <?php endforeach ?>
-                                        </select> </div>
-                                    <div class="form-group"> <label for="model">Model: </label> <select id="model" name="model" class="form-control" required>
-                                            <option value="" selected disabled>-- Silahkan Pilih Model --</option>
-                                        </select> </div><input type="hidden" name="web" value="true"> <button id="modelsdjd" class="btn btn-danger">Lihat Perbandingan</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
     <script>
-        $('#layanan').change(function() {
-            if ($(this).val() == "Test Drive") $('#form').find('.form-group').eq(1).removeAttr('style');
-            else $('#form').find('.form-group').eq(1).css('display', 'none');
-        });
-        $('#tanggalTestDrive').datepicker({
-            'format': 'dd-mm-yyyy'
-        });
         $('#submit').click(function(e) {
             e.preventDefault();
             var data = $('#form').serialize();
@@ -341,18 +335,11 @@
                 $('#submit').prop('disabled', true);
                 $('#submit').html("Mengirim data...");
                 $.post("<?= base_url("otomotif") ?>", data, function(r) {
-                    swal("", "Data berhasil disimpan!", "success").then(function() {
+                    swal("", "Terima kasih, Wiraniaga kami akan segera menghubungi Anda!", "success").then(function() {
                         location.reload();
                     });
                 });
             }
-        });
-        $('#brand').change(function() {
-            $.post("<?= base_url("model") ?>", {
-                'brand': $(this).val()
-            }, function(r) {
-                $('#model').html(r);
-            });
         });
 
         function mOver(src) {
@@ -360,7 +347,9 @@
             a.src = src;
             a.css("transition-timing-function", "ease-in");
         }
-    </script><?php else : ?> <section class="bg-primary text-white mb-0" id="otomotif">
+    </script>
+<?php else : ?>
+    <section class="bg-primary text-white mb-0" id="otomotif">
         <div class="container"> <br>
             <h2 class="text-center text-white" style="margin-top: 200px;">Tentang Bisnis Otomotif</h2> <br><br>
             <div class="row">

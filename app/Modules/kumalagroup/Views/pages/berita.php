@@ -83,17 +83,29 @@
                 </div>
             </div>
         </div>
-    </section><?php else : ?> <section class="portfolio" id="beritadanpromo" style="margin-top:150px !important;">
+    </section><?php else : ?>
+    <section class="portfolio" id="beritadanpromo" style="margin-top:100px !important;">
         <div class="container">
-            <h3 class="text-center text-secondary mb-0">Berita & Promo</h3> <br><br>
-            <div class="row" align="center"> <?php foreach ($data as $v) : ?> <div class="col-md-4 mb-3 shadow p-3 mb-5 bg-white">
-                        <div class="card" style="height:100%;"> <a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>"><img src="<?= base_url("assets/img_marketing/berita/$v->gambar") ?>" class="card-img-top" width="100%" alt="..."></a>
+            <h2 class="text-center text-secondary mb-0">Berita</h2>
+            <hr style="margin-left: 400px;margin-right: 400px;"> <br><br>
+            <div class="row">
+                <?php foreach ($data as $v) :
+                    $bulan = array(1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
+                    $date = new DateTime($v->updated_at);
+                    $date = $date->format('d') . " " . $bulan[$date->format('n')] . " " . $date->format('Y') ?>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <a class="m-0" href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>">
+                                <img src="<?= base_url("assets/img_marketing/berita/$v->gambar") ?>" class="card-img-top" width="100%" alt="..."></a>
                             <div class="card-body">
-                                <h4><a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>" style="color:#000;"><?= $v->judul ?></a></h4>
+                                <h5><a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>"><?= $v->judul ?></a></h5>
+                                <p class="card-text"><b><?= ucwords($v->type) ?> </b>| <?= $date ?></p>
                                 <p class="card-text"><?= substr(strip_tags($v->deskripsi), 0, 200) ?>...</p><a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>">Selengkapnya</a>
                             </div>
                         </div>
-                    </div><?php endforeach ?> </div>
+                    </div>
+                <?php endforeach ?>
+            </div>
             <div class="row">
                 <div class="col-12">
                     <nav aria-label="Page-link navigation example">

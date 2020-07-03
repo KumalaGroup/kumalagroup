@@ -9,7 +9,7 @@
     <title>Kumala Group</title>
     <link href="<?= base_url() ?>/assets/baru/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>/assets/baru/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url() ?>/assets/images/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?= base_url() ?>/assets/images/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="<?= base_url() ?>/assets/images/favicon/apple-icon-72x72.png">
@@ -39,6 +39,7 @@
     <link href="<?= base_url() ?>/assets/baru/datepicker.css" rel="stylesheet">
     <script src="<?= base_url() ?>/assets/baru/bootstrap-datepicker.js"></script>
     <script src="<?= base_url() ?>/assets/baru/owlcarousel/dist/owl.carousel.min.js"></script>
+    <!-- Google Tag Manager -->
     <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -50,14 +51,16 @@
                 j = d.createElement(s),
                 dl = l != 'dataLayer' ? '&l=' + l : '';
             j.async = true;
-            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-WSN4ZX4');
     </script>
+    <!-- End Google Tag Manager -->
 </head>
 <style>
     #mainNav a {
-        font-size: 11pt;
+        font-size: 10pt;
     }
 
     /* tambahan */
@@ -111,8 +114,6 @@
     }
 
     .hovereffect {
-        width: 100%;
-        height: 100%;
         float: left;
         overflow: hidden;
         position: relative;
@@ -120,19 +121,9 @@
         cursor: default;
     }
 
-    .hovereffect .overlay {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        overflow: hidden;
-        top: 0;
-        left: 0;
-    }
-
     .hovereffect img {
         display: block;
         position: relative;
-        height: 120%;
         -webkit-transition: all 0.4s ease-in;
         transition: all 0.4s ease-in;
     }
@@ -144,50 +135,6 @@
         -webkit-transform: scale(1.2);
         -ms-transform: scale(1.2);
         transform: scale(1.2);
-    }
-
-    .hovereffect h2 {
-        text-transform: uppercase;
-        text-align: center;
-        position: relative;
-        font-size: 17px;
-        padding: 10px;
-        background: #FA0F0c;
-    }
-
-    .hovereffect a.info {
-        display: inline-block;
-        text-decoration: none;
-        padding: 9px 18px;
-        border: 1px solid #FA0F0c;
-        margin: 50px 0 0 0;
-        background-color: transparent;
-    }
-
-    .hovereffect a.info:hover {
-        box-shadow: 0 0 5px #FA0F0c;
-    }
-
-    .hovereffect a.info,
-    .hovereffect h2 {
-        -webkit-transform: scale(0.7);
-        -ms-transform: scale(0.7);
-        transform: scale(0.7);
-        -webkit-transition: all 0.4s ease-in;
-        transition: all 0.4s ease-in;
-        opacity: 0;
-        filter: alpha(opacity=0);
-        color: #fff;
-        text-transform: uppercase;
-    }
-
-    .hovereffect:hover a.info,
-    .hovereffect:hover h2 {
-        opacity: 1;
-        filter: alpha(opacity=100);
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
     }
 
     header .masthead {
@@ -206,14 +153,14 @@
         }
     }
 
-    @media (min-width: 500px) {
+    @media (min-width: 576px) {
 
         #partner img {
             height: 60px;
         }
     }
 
-    @media (min-width: 700px) {
+    @media (min-width: 768px) {
 
         #partner img {
             height: 80px;
@@ -265,16 +212,24 @@
         color: red;
     }
 
+    h2 {
+        font-size: 25pt !important;
+    }
+
+    p {
+        font-size: 11pt !important;
+    }
+
     /* end:: floating bottom */
 </style>
 
 <body id="page-top">
-    <nav class="navbar navbar-expand-lg bg-secondary shadow fixed-top" id="mainNav"> <a href="<?= base_url() ?>"><img src="<?= base_url() ?>/assets/baru/img/logo.png" style="margin-left: 15px;" alt="Logo" width="160px" height="60px"></a> <button class="navbar-toggler navbar-toggler-right bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> Menu <i class="fas fa-bars"></i> </button>
+    <nav class="navbar navbar-expand-lg bg-secondary shadow fixed-top" id="mainNav" style="padding-top: 16px !important; padding-bottom: 16px !important;"> <a href="<?= base_url() ?>" class="mx-lg-2"><img src="<?= base_url() ?>/assets/baru/img/logo.png" alt="Logo" width="auto" height="50"></a> <button class="navbar-toggler navbar-toggler-right bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> Menu <i class="fas fa-bars"></i> </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item mx-0 mx-lg-1"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger <?= ($index == 'index') ? 'active' : '' ?>" href="<?= ($index == 'index') ? '#home' : base_url() ?>">Beranda</a> </li>
-                <li class="nav-item mx-0 mx-lg-1"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger <?= ($index == 'tentang') ? 'active' : '' ?>" href="<?= ($index == 'index') ? '#about' : base_url('tentang') ?>">Tentang Kami</a> </li><?php if ($index == 'index') : ?> <li class="nav-item mx-0 mx-lg-1"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#unitbisnis">Unit Bisnis</a> </li><?php else : ?>
-                    <li class="nav-item mx-0 mx-lg-1 dropdown megamenu-li"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger dropdown-toggle <?= ($index == 'unit_bisnis') ? 'active' : '' ?>" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Unit Bisnis</a>
+                <li class="nav-item mx-lg-2"> <a class="nav-link rounded js-scroll-trigger <?= ($index == 'index') ? 'active' : '' ?>" href="<?= ($index == 'index') ? '#home' : base_url() ?>"><strong>Beranda</strong></a> </li>
+                <li class="nav-item mx-lg-2"> <a class="nav-link rounded js-scroll-trigger <?= ($index == 'tentang') ? 'active' : '' ?>" href="<?= ($index == 'index') ? '#about' : base_url('tentang') ?>"><strong>Tentang Kami</strong></a> </li><?php if ($index == 'index') : ?> <li class="nav-item mx-lg-2"> <a class="nav-link rounded js-scroll-trigger" href="#unitbisnis"><strong>Unit Bisnis</strong></a> </li><?php else : ?>
+                    <li class="nav-item mx-lg-2 dropdown megamenu-li"> <a class="nav-link rounded js-scroll-trigger dropdown-toggle <?= ($index == 'unit_bisnis') ? 'active' : '' ?>" href="javascript:void(0)" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Unit Bisnis</strong></a>
                         <div class="dropdown-menu megamenu" aria-labelledby="dropdown01">
                             <div class="row">
                                 <div class="col-sm-6 col-lg-3">
@@ -302,9 +257,9 @@
                                 </div>
                             </div>
                         </div>
-                    </li><?php endif ?> <li class="nav-item mx-0 mx-lg-1"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger <?= ($index == 'berita') ? 'active' : '' ?>" href="<?= ($index == 'index') ? '#berita' : base_url('berita') ?>">Berita</a> </li>
-                <li class="nav-item mx-0 mx-lg-1"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger <?= ($index == 'karir') ? 'active' : '' ?>" href="<?= ($index == 'index') ? '#karir' : base_url('karir') ?>">Karir</a> </li>
-                <li class="nav-item mx-0 mx-lg-1"> <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger <?= ($index == 'kontak') ? 'active' : '' ?>" href="<?= base_url() ?>/kontak">Kontak</a> </li>
+                    </li><?php endif ?> <li class="nav-item mx-lg-2"> <a class="nav-link rounded js-scroll-trigger <?= ($index == 'berita') ? 'active' : '' ?>" href="<?= ($index == 'index') ? '#berita' : base_url('berita') ?>"><strong>Berita</strong></a> </li>
+                <li class="nav-item mx-lg-2"> <a class="nav-link rounded js-scroll-trigger <?= ($index == 'karir') ? 'active' : '' ?>" href="<?= base_url('karir') ?>"><strong>Karir</strong></a> </li>
+                <li class="nav-item mx-lg-2"> <a class="nav-link rounded js-scroll-trigger <?= ($index == 'kontak') ? 'active' : '' ?>" href="<?= base_url('kontak') ?>"><strong>Kontak</strong></a> </li>
             </ul>
 
             <div id="top-search"> <a href="javascript:void(0)" class="lang-button"> <span class="active">ID</span> <span>EN</span> <i class="clear"></i> </a> </div>

@@ -28,11 +28,15 @@ class Home extends Controller
 	public function index()
 	{
 		$this->_set_base($this->url);
+		// echo $this->api_server;
+		// die();
 		$base = "App\Modules\kumalagroup\Views";
 		$d['content'] = "$base\pages\beranda";
 		$d['index'] = "index";
 		$berita = json_decode($this->_curl_get($this->api_server . 'berita'));
-		$d['berita'] = array_slice($berita, 0, 2);
+		$d['berita'] = array_slice($berita, 0, 6);
+		$berita = json_decode($this->_curl_get($this->api_server . 'm_promo'));
+		$d['promo'] = array_slice($berita, 0, 5);
 		$d['slider'] = json_decode($this->_curl_get($this->api_server . 'slider'));
 		$d['partner'] = json_decode($this->_curl_get($this->api_server . 'partner'));
 		echo view("$base\index", $d);
@@ -57,9 +61,9 @@ class Home extends Controller
 		$d['data'] = [];
 		if ($data) {
 			$d['page'] = ($request->uri->getSegments()[1] == "page") ? $request->uri->getSegments()[2] : 1;
-			$start = ($d['page'] * 6) - 6;
-			$d['pages'] = ceil(count($data) / 6);
-			$d['data'] = array_slice($data, $start, 6);
+			$start = ($d['page'] * 9) - 9;
+			$d['pages'] = ceil(count($data) / 9);
+			$d['data'] = array_slice($data, $start, 9);
 		}
 		echo view("$base\index", $d);
 	}
@@ -90,8 +94,12 @@ class Home extends Controller
 			$base = "App\Modules\kumalagroup\Views";
 			$d['index'] = "unit_bisnis";
 			if ($request->uri->getSegments()[1]) {
+				if ($request->uri->getSegments()[1] == "honda") return redirect()->to("https://honda-kmg.com/");
+				elseif ($request->uri->getSegments()[1] == "mazda") return redirect()->to("https://www.mazda-makassar.com/");
+				elseif ($request->uri->getSegments()[1] == "mercedes-benz") return redirect()->to("https://www.kumala.mercedes-benz.co.id/en/desktop/passenger-cars.html");
 				$d['content'] =  "$base\pages\otomotif";
 				$d['mod'] = "list";
+				$d['slider'] = json_decode($this->_curl_get($this->api_server . 'slider' . '/' . $request->uri->getSegments()[1]));
 				$data = json_decode($this->_curl_get($this->api_server . 'otomotif/' . $request->uri->getSegments()[1]));
 				$d['head'] = $data->head;
 				$d['dealer'] = $data->dealer;
@@ -118,11 +126,12 @@ class Home extends Controller
 		$d['content'] =  "$base\pages\otomotif";
 		$d['mod'] = "detail";
 		$data = json_decode($this->_curl_get($this->api_server . 'otomotif/' . $request->uri->getSegments()[1] . '/' . base64_decode($request->uri->getSegments()[3])));
-		$d['brand'] = $data->brand;
+		// $d['brand'] = $data->brand;
 		$d['warna'] = $data->warna;
 		$d['otomotif'] = $data->otomotif;
 		$d['detail'] = $data->detail;
-		$d['dealer'] = $data->dealer;
+		// $d['dealer'] = $data->dealer;
+		// $d['provinsi'] = $data->provinsi;
 		echo view("$base\index", $d);
 	}
 	public function dealer()
@@ -157,18 +166,7 @@ class Home extends Controller
 			<?php endforeach;
 		else : ?>
 			<p>Dealer di kota anda belum tersedia</p>
-		<?php endif;
-	}
-	public function model()
-	{
-		$this->_set_base($this->url);
-		$request = \Config\Services::request();
-		$post = $request->getPost();
-		$data = json_decode($this->_curl_get($this->api_server . 'model/' . $post['brand'])) ?>
-		<option value="" selected disabled>-- Silahkan Pilih Model --</option>
-		<?php foreach ($data as $v) : ?>
-			<option value="<?= $v->id ?>"><?= $v->nama_model ?></option>
-<?php endforeach;
+<?php endif;
 	}
 	public function property()
 	{
@@ -248,15 +246,15 @@ class Home extends Controller
 		if ($post) {
 			foreach ($post as $i => $v) $data[$i] = preg_replace('#<script(.*?)>(.*?)</script>#is', '', strip_tags($v));
 			$foto = $this->request->getFile('foto');
-			$name = "foto" . date("YmdHis") . "." . strtolower(end(explode(".", $foto->getName())));
+			$name = date("YmdHis") . "foto." . strtolower(end(explode(".", $foto->getName())));
 			$foto->move('./assets/img_marketing/pelamar/', $name);
 			$data['foto'] = $foto->getName();
 			$cv = $this->request->getFile('cv');
-			$name = "cv" . date("YmdHis") . "." . strtolower(end(explode(".", $cv->getName())));
+			$name = date("YmdHis") . "cv." . strtolower(end(explode(".", $cv->getName())));
 			$cv->move('./assets/img_marketing/pelamar/', $name);
 			$data['cv'] = $cv->getName();
 			$surat_lamaran = $this->request->getFile('surat_lamaran');
-			$name = "surat_lamaran" . date("YmdHis") . "." . strtolower(end(explode(".", $surat_lamaran->getName())));
+			$name = date("YmdHis") . "surat_lamaran." . strtolower(end(explode(".", $surat_lamaran->getName())));
 			$surat_lamaran->move('./assets/img_marketing/pelamar/', $name);
 			$data['surat_lamaran'] = $surat_lamaran->getName();
 			$result = $this->_curl_post($this->api_server . 'pelamar', $data);
@@ -289,6 +287,7 @@ class Home extends Controller
 		$data['pembayaran'] = number_format($pembayaran, 2, ",", ".");
 		echo json_encode($data);
 	}
+
 	function _curl_post($url, $data)
 	{
 		$curl = curl_init($url);
