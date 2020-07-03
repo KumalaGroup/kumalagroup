@@ -220,6 +220,13 @@
         font-size: 11pt !important;
     }
 
+    header .owl-dots {
+        bottom: 0;
+        position: absolute;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+
     /* end:: floating bottom */
 </style>
 

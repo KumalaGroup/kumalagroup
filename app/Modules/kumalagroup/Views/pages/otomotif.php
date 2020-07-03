@@ -1,23 +1,23 @@
 <?php if ($mod == "list") : ?>
-    <header class="text-white text-center" style="padding-top: 82px !important;" id="home">
-        <div class="bd-example">
-            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <?php foreach ($slider as $i => $v) : ?>
-                        <li data-target="#carouselExampleCaptions" class="<?= ($i == 0) ? "active" : "" ?>" data-slide-to="<?= $i++ ?>"></li>
-                    <?php endforeach ?>
-                </ol>
-                <div class="carousel-inner">
-                    <?php foreach ($slider as $i => $v) : ?>
-                        <div class="carousel-item <?= ($i == 0) ? "active" : "" ?>"> <a href="<?= $v->aksi ?>" target="_blank">
-                                <img src="<?= base_url("assets/img_marketing/slider/$v->gambar") ?>" class="img-fluid" width="100%" alt="...">
-                                <div class="carousel-caption d-none d-md-block text-left">
-                                    <h2><?= $v->judul ?></h2>
-                                    <p><?= $v->deskripsi ?></p>
-                                </div>
-                            </a> </div><?php endforeach ?> </div>
-            </div>
+    <header class="text-white text-center" style="padding-top: 82px" id="home">
+        <div class="owl-carousel owl-theme">
+            <?php foreach ($slider as $v) : ?>
+                <div class="item">
+                    <a href="<?= $v->aksi ?>" target="_blank">
+                        <img src="<?= base_url("assets/img_marketing/slider/$v->gambar") ?>" class="img-fluid" width="100%" alt="...">
+                    </a>
+                </div>
+            <?php endforeach ?>
         </div>
+        <script>
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoHeight: true,
+                items: 1,
+            })
+        </script>
     </header>
     <section class="portfolio" id="unitbisnis">
         <div id="dealer" class="container">
