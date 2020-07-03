@@ -58,47 +58,43 @@
 </div>
 <section class="p-2 m-0">
     <div class="container">
-        <div class="row">
-            <div class="col-12 p-0">
-                <div class="owl-carousel owl-theme">
-                    <?php foreach ($promo as $v) : ?>
-                        <div class="item">
-                            <?php $bulan = array(1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
-                            $date = new DateTime($v->updated_at);
-                            $date = $date->format('d') . " " . $bulan[$date->format('n')] . " " . $date->format('Y') ?>
-                            <div class="animated zoomIn delay-1s">
-                                <div class="card" style="border: 0;">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <a class="m-0" href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>">
-                                                <img src="<?= base_url("assets/img_marketing/berita/$v->gambar") ?>" class="card-img-top" width="100%" alt="..."></a>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5><a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>"><?= $v->judul ?></a></h5>
-                                                <p class="card-text"><b><?= ucwords($v->type) ?> </b>| <?= $date ?></p>
-                                                <p class="card-text"><?= substr(strip_tags($v->deskripsi), 0, 200) ?>...</p><a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>">Selengkapnya</a>
-                                            </div>
-                                        </div>
+        <div class="owl-carousel owl-theme">
+            <?php foreach ($promo as $v) : ?>
+                <div class="item">
+                    <?php $bulan = array(1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
+                    $date = new DateTime($v->updated_at);
+                    $date = $date->format('d') . " " . $bulan[$date->format('n')] . " " . $date->format('Y') ?>
+                    <div class="animated zoomIn delay-1s">
+                        <div class="card" style="border: 0;">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4">
+                                    <a class="m-0" href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>">
+                                        <img src="<?= base_url("assets/img_marketing/berita/$v->gambar") ?>" class="card-img-top" width="100%" alt="..."></a>
+                                </div>
+                                <div class="col-md-6 col-lg-8">
+                                    <div class="card-body">
+                                        <h5><a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>"><?= $v->judul ?></a></h5>
+                                        <p class="card-text"><b><?= ucwords($v->type) ?> </b>| <?= $date ?></p>
+                                        <p class="card-text"><?= substr(strip_tags($v->deskripsi), 0, 200) ?>...</p><a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>">Selengkapnya</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <?php endforeach ?>
+                    </div>
                 </div>
-                <script>
-                    $('.owl-carousel').owlCarousel({
-                        loop: true,
-                        autoplay: true,
-                        autoplayTimeout: 5000,
-                        autoplayHoverPause: true,
-                        autoHeight: true,
-                        items: 1,
-                        margin: 5,
-                    })
-                </script>
-            </div>
+            <?php endforeach ?>
         </div>
+        <script>
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                autoHeight: true,
+                items: 1,
+                margin: 5,
+            })
+        </script>
     </div>
 </section>
 <div id="berita"></div>
