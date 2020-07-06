@@ -64,7 +64,7 @@
                             </div>
                         </div>
                     </div><?php endforeach ?> </div>
-            <?php if ($page != 1) : ?>
+            <?php if ($pages > 1) : ?>
                 <div class=" row">
                     <div class="col-12">
                         <nav aria-label="Page-link navigation example">
@@ -264,7 +264,7 @@
                     <h6>Mulai dari Rp. <?= number_format($otomotif->harga, 0, '', '.') ?> <br><small class="text-center text-danger">*Harga akan disesuaikan dengan domisili pemesan</small></h6>
                     <a download href="<?= base_url("assets/img_marketing/otomotif/brosur/$otomotif->brosur") ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a>
                     <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Penawaran</button>
-
+                    
                     <div class="modal fade" id="testdr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -326,8 +326,9 @@
             <?php endif ?>
         </div>
     </section>
-
+    
     <script>
+        
         $('#submit').click(function(e) {
             e.preventDefault();
             var data = $('#form').serialize();
