@@ -83,7 +83,7 @@
             <?php endif ?>
         </div>
     </section>
-    <div class="modal fade" id="simulasi" tabindex="-1">
+    <div class="modal fade" id="simulasi" tabindex="-1" style="font-size: 11pt;">
         <div class="modal-dialog modal-lg">
             <div class="modal-body">
                 <div class="modal-content">
@@ -98,6 +98,7 @@
                                     <div class="form-group"> <label>Uang Muka</label> <input type="text" class="form-control" onkeydown="input_number(event)" id="dp" name="dp" placeholder="Satuan dalam rupiah" required> </div>
                                     <div class="form-group"> <label>Tenor</label> <input type="text" class="form-control" onkeyup="hitung_simulasi()" onkeydown="input_number(event)" id="tenor" name="tenor" placeholder="Satuan dalam tahun" required> </div>
                                     <div class="form-group"> <label>Bunga Pinjaman</label> <input type="text" class="form-control" onkeyup="hitung_simulasi()" onkeydown="input_number(event)" id="bunga" name="bunga" placeholder="Satuan dalam % / tahun" required> </div>
+                                    <button id="jkhkwkj" class="btn btn-danger">Form Layanan</button>
                                 </form>
                             </div>
                             <div class="col-md-8"> <strong>Plafon pinjaman Anda</strong>
@@ -176,6 +177,12 @@
             $('#table_dp').html($(this).val() + ",00");
             $('#tableDp').html($(this).val() + ",00");
             hitung_simulasi();
+        });
+        $('#jkhkwkj').click(function() {
+            $('#simulasi').modal('hide');
+            setTimeout(function() {
+                $('#testdr').modal('show');
+            }, 500);
         });
 
         function hitung_simulasi() {
@@ -264,28 +271,7 @@
                     <h6>Mulai dari Rp. <?= number_format($otomotif->harga, 0, '', '.') ?> <br><small class="text-center text-danger">*Harga akan disesuaikan dengan domisili pemesan</small></h6>
                     <a download href="<?= base_url("assets/img_marketing/otomotif/brosur/$otomotif->brosur") ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a>
                     <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Penawaran</button>
-                    
-                    <div class="modal fade" id="testdr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="myModalLabel">Layanan</h4> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                </div>
-                                <div class="modal-body">
-                                    <form id="form">
-                                        <div class="form-group"> <label for="layanan">Jenis Layanan: </label> <select id="layanan" name="layanan" class="form-control" required>
-                                                <option value="" selected disabled>-- Silahkan Pilih Layanan --</option>
-                                                <option value="Test Drive">Test Drive</option>
-                                                <option value="Penawaran">Penawaran</option>
-                                            </select> </div>
-                                        <div class="form-group"> <label for="nama">Nama: </label> <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Lengkap anda" required> </div>
-                                        <div class="form-group"> <label for="telepon">No Telepon: </label> <input name="telepon" type="text" class="form-control" onkeydown="input_number(event)" id="telepon" placeholder="No Telepon anda" required> </div>
-                                        <div class="form-group"> <label for="kota">Kota Domisili: </label> <input name="asalKota" type="text" class="form-control" id="asalKota" placeholder="Kota Domisili anda" required> </div><input type="hidden" name="web" value="true"> <button id="submit" class="btn btn-danger">Kirim</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div><br>
+
                 </div>
             </div>
             <div class="row">
@@ -326,23 +312,8 @@
             <?php endif ?>
         </div>
     </section>
-    
-    <script>
-        
-        $('#submit').click(function(e) {
-            e.preventDefault();
-            var data = $('#form').serialize();
-            if ($('#form').valid()) {
-                $('#submit').prop('disabled', true);
-                $('#submit').html("Mengirim data...");
-                $.post("<?= base_url("otomotif") ?>", data, function(r) {
-                    swal("", "Terima kasih, Wiraniaga kami akan segera menghubungi Anda!", "success").then(function() {
-                        location.reload();
-                    });
-                });
-            }
-        });
 
+    <script>
         function mOver(src) {
             var a = document.getElementById("main-color");
             a.src = src;
@@ -367,4 +338,41 @@
             <h4 class="text-center text-secondary mb-0">Our Partnership</h4> <br><br>
             <div class="row justify-content-center text-center"> <?php foreach ($data as $v) : ?> <div class="card flex-child text-center my-2 ml-2" style="width: 15rem;float:left !important;"> <img src="<?= base_url("assets/img_marketing/head/$v->foto") ?>" height="150px" width="250px" class="card-img-top" alt="..."> <a class="card-body text-center btn btn-l btn btn-danger text-uppercase" style="background:#fa0f0c; border-color:#fa0f0c; " href="<?= $v->url ?>" target="<?= in_array($v->jenis, ["honda", "mazda", "mercedes-benz"]) ? "_blank" : "" ?>"> <?= strtoupper($v->jenis) ?> </a> </div><?php endforeach ?> </div>
         </div>
-    </section><?php endif ?>
+    </section>
+<?php endif ?>
+<div class="modal fade" id="testdr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Layanan</h4> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="form">
+                    <div class="form-group"> <label for="layanan">Jenis Layanan: </label> <select id="layanan" name="layanan" class="form-control" required>
+                            <option value="" selected disabled>-- Silahkan Pilih Layanan --</option>
+                            <option value="Test Drive">Test Drive</option>
+                            <option value="Penawaran">Penawaran</option>
+                        </select> </div>
+                    <div class="form-group"> <label for="nama">Nama: </label> <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Lengkap anda" required> </div>
+                    <div class="form-group"> <label for="telepon">No Telepon: </label> <input name="telepon" type="text" class="form-control" onkeydown="input_number(event)" id="telepon" placeholder="No Telepon anda" required> </div>
+                    <div class="form-group"> <label for="kota">Kota Domisili: </label> <input name="asalKota" type="text" class="form-control" id="asalKota" placeholder="Kota Domisili anda" required> </div><input type="hidden" name="web" value="true"> <button id="submit" class="btn btn-danger">Kirim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#submit').click(function(e) {
+        e.preventDefault();
+        var data = $('#form').serialize();
+        if ($('#form').valid()) {
+            $('#submit').prop('disabled', true);
+            $('#submit').html("Mengirim data...");
+            $.post("<?= base_url("otomotif") ?>", data, function(r) {
+                swal("", "Terima kasih, Wiraniaga kami akan segera menghubungi Anda!", "success").then(function() {
+                    location.reload();
+                });
+            });
+        }
+    });
+</script>
