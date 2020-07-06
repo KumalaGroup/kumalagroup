@@ -201,6 +201,7 @@
         text-align: center;
         box-shadow: 2px 2px 3px #999;
         font-size: 30px;
+        z-index: 20;
     }
 
     .my-float {
