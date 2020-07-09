@@ -93,7 +93,7 @@
                     $bulan = array(1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
                     $date = new DateTime($v->updated_at);
                     $date = $date->format('d') . " " . $bulan[$date->format('n')] . " " . $date->format('Y') ?>
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-6 col-lg-4 mb-4">
                         <div class="card">
                             <a class="m-0" href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>">
                                 <img src="<?= base_url("assets/img_marketing/berita/$v->gambar") ?>" class="card-img-top" width="100%" alt="..."></a>

@@ -51,19 +51,19 @@
             </div>
             <div class="row">
                 <?php foreach ($otomotif as $i => $v) : ?>
-                    <div class="col-md-4 p-3 mb-5">
-                        <h4 class="text-center"><?= $v->model ?></h4>
-                        <img src="<?= base_url("assets/img_marketing/otomotif/$v->gambar") ?>" width="100%" height="200" alt="" style="object-fit: contain;"> <br>
-                        <h6 class="text-center" style="margin-top:10px;">Mulai dari Rp. <?= number_format($v->harga, 0, '', '.') ?></h6> <br>
-                        <div class="row">
-                            <div class="col-6">
-                                <a class="btn btn-l btn-outline-primary mt-0 mb-1" href="<?= base_url("/otomotif/$head->jenis/detail/" . base64_encode($v->id)) ?>"> Explore </a>
-                            </div>
-                            <div class="col-6">
-                                <a class="btn btn-l btn-outline-primary mt-0 mb-1" onclick="$('#form_simulasi').trigger('reset');simulasi('<?= $v->model ?>','<?= number_format($v->harga, 0, '', '.') ?>');" data-toggle="modal" href="#simulasi"> Simulasi Kredit </a>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card">
+                            <a class="m-0" href="<?= base_url("/otomotif/$head->jenis/detail/" . base64_encode($v->id)) ?>">
+                                <img src="<?= base_url("assets/img_marketing/otomotif/$v->gambar") ?>" width="100%" height="200" alt="" style="object-fit: contain;"></a>
+                            <div class="card-body">
+                                <h5><a href="<?= base_url("/otomotif/$head->jenis/detail/" . base64_encode($v->id)) ?>"><?= $v->model ?></a></h5>
+                                <p class="card-text"><b>Mulai dari Rp. <?= number_format($v->harga, 0, '', '.') ?></b></p>
+                                <a class="btn btn-l btn-outline-primary btn-sm" onclick="$('#form_simulasi').trigger('reset');simulasi('<?= $v->model ?>','<?= number_format($v->harga, 0, '', '.') ?>');" data-toggle="modal" href="#simulasi">Simulasi Kredit</a>
                             </div>
                         </div>
-                    </div><?php endforeach ?> </div>
+                    </div>
+                <?php endforeach ?>
+            </div>
             <?php if ($pages > 1) : ?>
                 <div class=" row">
                     <div class="col-12">
