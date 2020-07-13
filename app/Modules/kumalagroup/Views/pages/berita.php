@@ -74,7 +74,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p align="center" style="line-height: 1.6;"><?= $data->deskripsi ?></p>
+                    <p align="center" style="line-height: 1.6;"><?= htmlspecialchars_decode($data->deskripsi) ?></p>
                 </div>
             </div>
             <div class="row">
