@@ -8,10 +8,9 @@ use DateTime;
 class Home extends Controller
 {
 	private $url = [
-		"http://localhost:6424/kmg/",
+		"http://portal3.kumalagroup.co.id/kmg/",
 		"http://portal.kumalagroup.co.id/kmg/",
 		"http://portal2.kumalagroup.co.id/kmg/",
-		"http://portal3.kumalagroup.co.id/kmg/"
 	];
 	private $api_server;
 	function _set_base($url)
@@ -287,7 +286,6 @@ class Home extends Controller
 		$data['pembayaran'] = number_format($pembayaran, 2, ",", ".");
 		echo json_encode($data);
 	}
-
 	function _curl_post($url, $data)
 	{
 		$curl = curl_init($url);
