@@ -73,7 +73,10 @@
                             <div class="row">
                                 <div class="col-md-6 col-lg-4">
                                     <a class="m-0" href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>">
-                                        <img src="<?= base_url("assets/img_marketing/berita/$v->gambar") ?>" class="card-img-top" width="100%" alt="..."></a>
+                                        <img src="
+                                        <?= base_url(empty($v->thumb) ?
+                                            "assets/img_marketing/berita/$v->gambar"
+                                            : "assets/img_marketing/berita/thumb/$v->thumb") ?>" class="card-img-top" width="100%" alt="..."></a>
                                 </div>
                                 <div class="col-md-6 col-lg-8">
                                     <div class="card-body">
@@ -114,7 +117,10 @@
                 <div class="col-md-6 col-lg-4 mb-4 animated zoomIn delay-1s">
                     <div class="card">
                         <a class=" m-0" href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>">
-                            <img src="<?= base_url("assets/img_marketing/berita/$v->gambar") ?>" class="card-img-top" width="100%" alt="..."></a>
+                            <img src="
+                            <?= base_url(empty($v->thumb) ?
+                                "assets/img_marketing/berita/$v->gambar"
+                                : "assets/img_marketing/berita/thumb/$v->thumb") ?>" class="card-img-top" width="100%" alt="..."></a>
                         <div class="card-body">
                             <h5><a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>"><?= $v->judul ?></a></h5>
                             <p class="card-text"><b><?= ucwords($v->type) ?> </b>| <?= $date ?></p>
