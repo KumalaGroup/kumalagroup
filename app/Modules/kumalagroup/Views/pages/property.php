@@ -159,15 +159,20 @@
             <h2 class="text-center text-secondary mb-0">Unit Bisnis Property</h2>
             <hr style="margin-left: 400px;margin-right: 400px;"> <br><br>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <a href="<?= base_url() ?>/property/ruko" class="flex-item sidebar"> <img src="<?= base_url() ?>/assets/baru/img/retail.png" class="img-fluid" style="max-width: 100%; border-radius: 5px;" alt=""> </a>
-                    <div style="position: absolute; bottom: 0; padding-bottom: 50px; padding-left: 50px;">
+                    <div style="position: absolute; bottom: 0; padding-bottom: 40px; padding-left: 40px;">
                         <h2 class="text-white" style="font-weight: 700;"><strong><i>RUKO</i></strong></h2>
                     </div>
                 </div><br>
-                <div class="col-md-6"> <a href="<?= base_url() ?>/property/perumahan" class="flex-item sidebar"> <img src="<?= base_url() ?>/assets/baru/img/primewood.png" class="img-fluid" style="max-width: 100%; border-radius: 5px;" alt=""> </a>
-                    <div style="position: absolute; bottom: 0; padding-bottom: 50px; padding-left: 50px;">
+                <div class="col-md-4"> <a href="<?= base_url() ?>/property/perumahan" class="flex-item sidebar"> <img src="<?= base_url() ?>/assets/baru/img/bod.jpg" class="img-fluid" style="max-width: 100%; border-radius: 5px;" alt=""> </a>
+                    <div style="position: absolute; bottom: 0; padding-bottom: 40px; padding-left: 40px;">
                         <h2 class="text-white" style="font-weight: 700;"><strong><i>PERUMAHAN</i></strong></h2>
+                    </div>
+                </div>
+                <div class="col-md-4"> <a href="<?= base_url() ?>/property/kavling" class="flex-item sidebar"> <img src="<?= base_url() ?>/assets/baru/img/primewood.png" class="img-fluid" style="max-width: 100%; border-radius: 5px;" alt=""> </a>
+                    <div style="position: absolute; bottom: 0; padding-bottom: 40px; padding-left: 40px;">
+                        <h2 class="text-white" style="font-weight: 700;"><strong><i>KAVLING</i></strong></h2>
                     </div>
                 </div>
             </div>
