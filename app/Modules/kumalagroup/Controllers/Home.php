@@ -8,6 +8,7 @@ use DateTime;
 class Home extends Controller
 {
 	private $url = [
+		// "http://localhost:6424/kmg/",
 		"http://portal3.kumalagroup.co.id/kmg/",
 		"http://portal.kumalagroup.co.id/kmg/",
 		"http://portal2.kumalagroup.co.id/kmg/",
@@ -176,6 +177,7 @@ class Home extends Controller
 		if ($request->uri->getSegments()[1]) {
 			$d['content'] =  "$base\pages\property";
 			$d['mod'] = "list";
+			$d['jenis'] = $request->uri->getSegments()[1];
 			$d['data'] = json_decode($this->_curl_get($this->api_server . 'property/' . $request->uri->getSegments()[1]));
 		} else {
 			$d['content'] =  "$base\pages\property";
@@ -190,7 +192,9 @@ class Home extends Controller
 		$d['index'] = "unit_bisnis";
 		$d['content'] =  "$base\pages\property";
 		$d['mod'] = "detail";
-		$d['data'] = json_decode($this->_curl_get($this->api_server . 'property/' . $request->uri->getSegments()[1] . '/' . base64_decode($request->uri->getSegments()[3])));
+		$data = json_decode($this->_curl_get($this->api_server . 'property/' . $request->uri->getSegments()[1] . '/' . base64_decode($request->uri->getSegments()[3])));
+		$d['data'] = $data->detail;
+		$d['galeri'] = $data->galeri;
 		echo view("$base\index", $d);
 	}
 	public function trading()

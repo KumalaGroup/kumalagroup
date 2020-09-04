@@ -1,82 +1,209 @@
-<?php if ($mod == "list") : ?> <section class="bg-primary text-white mb-0" id="propertyretail">
-        <div class="container"> <br><br><br><br>
-            <h2 class="text-white text-center" style="margin-top: 300px;">Bisnis Property</h2>
-        </div>
-    </section>
-    <section id="unitbisnis">
+<?php if ($mod == "list") : ?>
+    <section class="portfolio" id="beritadanpromo" style="margin-top:100px !important;">
         <div class="container">
-            <div class="row text-center"> <?php foreach ($data as $v) : ?> <div class="col-md-4">
-                        <div class="card"> <img src="<?= base_url("assets/img_marketing/property/$v->gambar") ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h4><?= $v->nama ?></h4>
-                                <p style="font-size: 11pt;"><?= ucwords($v->type) ?></p>
+            <h2 class="text-center text-secondary mb-0">Property (<?= ucwords($jenis) ?>)</h2>
+            <hr style="margin-left: 400px;margin-right: 400px;"> <br><br>
+            <div class="row">
+                <?php if (!empty($data)) {
+                    foreach ($data as $i => $v) { ?>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card">
+                                <a class="m-0" href="<?= base_url("/property/$v->jenis/detail/" . base64_encode($v->id)) ?>">
+                                    <img src="<?= base_url("assets/img_marketing/property/$v->gambar") ?>" width="100%" height="200" alt="" style="object-fit: cover;"></a>
+                                <div class="card-body text-center">
+                                    <h5><a href="<?= base_url("/property/$v->jenis/detail/" . base64_encode($v->id)) ?>"><?= $v->nama ?></a></h5>
+                                    <?php if ($v->harga_sewa != 0) { ?>
+                                        <p class="m-0">Harga Sewa Mulai dari</p>
+                                        <p class="card-text"><b>Rp. <?= number_format($v->harga_sewa, 0, '', '.') ?>/Tahun</b></p>
+                                    <?php } ?>
+                                    <?php if ($v->harga_jual != 0) { ?>
+                                        <p class="m-0">Harga Jual Mulai dari</p>
+                                        <p class="card-text"><b>Rp. <?= number_format($v->harga_jual, 0, '', '.') ?></b></p>
+                                    <?php } ?>
+                                </div>
                             </div>
-                            <div class="card-body text-center" style="background-color: #FA0F0c;"> <a href="<?= base_url("/property/$v->type/detail/" . base64_encode($v->id)) ?>" style="color: #fff !important;">Selengkapnya</a> </div>
                         </div>
-                    </div><?php endforeach ?> </div>
-        </div>
-    </section><?php elseif ($mod == "detail") : ?> <style>
-        #detailp {
-            background-image: url("<?= base_url("assets/img_marketing/property/$data->gambar") ?>");
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 80vh;
-            /* filter: contrast(0.5) brightness(1) grayscale(0.5); */
-        }
-    </style>
-    <section class="bg-primary text-white mb-0" id="detailp">
-        <div class="container"> <br><br><br><br><!-- <div class="row"> <div class="col-lg-12 ml-auto"> <p class="text-center" style="font-size: 16pt;"><i>Retail</i></p></div></div>-->
+                    <?php }
+                } else { ?>
+
+                <?php } ?>
+            </div>
         </div>
     </section>
-    <section class="portfolio" id="unitbisnis">
+<?php elseif ($mod == "detail") : ?>
+    <section class="portfolio" id="unitbisnis" style="margin-top:82px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h2 class="text-center">Informasi</h2>
+                <div class="col-md-2"></div>
+                <div class="col-md-8 mb-3">
+                    <div class="col-12 mb-2">
+                        <img id="main-color" src="<?= base_url("assets/img_marketing/property/galeri/" . $galeri[0]->img) ?>" width="100%" height="auto" alt="" data-animate="fadeInRight" class="img-fluid">
+                    </div>
+                    <br>
+                    <div class="col-12">
+                        <div class="owl-carousel owl-theme">
+                            <?php foreach ($galeri as $v) : if ($v) : ?>
+                                    <div class="item">
+                                        <img onclick="mOver('<?= base_url('assets/img_marketing/property/galeri/' . $v->img) ?>')" width="100px" height="70" style="object-fit: cover;" src="<?= base_url("assets/img_marketing/property/galeri/$v->img") ?>" alt="" data-animate="fadeInRight">
+                                    </div>
+                            <?php endif;
+                            endforeach ?>
+                        </div>
+                        <script>
+                            $('.owl-carousel').owlCarousel({
+                                // loop: true,
+                                margin: 10,
+                                responsiveClass: true,
+                                responsive: {
+                                    0: {
+                                        items: 3,
+                                        nav: false
+                                    },
+                                    500: {
+                                        items: 4,
+                                        nav: false
+                                    },
+                                    1000: {
+                                        items: 5,
+                                        nav: false
+                                    }
+                                }
+                            })
+                        </script>
+                    </div>
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-9 mb-2">
+                    <h4><?= $data->nama ?></h4>
+                    <br>
+                    <?php if ($data->harga_sewa != 0) { ?>
+                        <h6 class="m-0">Harga Sewa Mulai dari <strong>Rp. <?= number_format($data->harga_sewa, 0, '', '.') ?>/Tahun</strong></h6>
+                    <?php } ?>
+                    <?php if ($data->harga_jual != 0) { ?>
+                        <h6 class="m-0">Harga Jual Mulai dari <strong>Rp. <?= number_format($data->harga_jual, 0, '', '.') ?></strong></h6>
+                    <?php } ?>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Penawaran</button>
+                </div>
                 <div class="col-md-12">
-                    <h4>Alamat</h4>
-                    <p><?= $data->alamat ?></p>
+                    <br>
+                    <table>
+                        <tr>
+                            <td width="150">Ukuran</td>
+                            <td width="20">:</td>
+                            <td><?= $data->ukuran ?></td>
+                        </tr>
+                        <tr>
+                            <td>Jumlah Lantai</td>
+                            <td>:</td>
+                            <td><?= $data->jumlah_lantai ?></td>
+                        </tr>
+                        <tr>
+                            <td>Listrik</td>
+                            <td>:</td>
+                            <td><?= $data->listrik ?></td>
+                        </tr>
+                        <tr>
+                            <td>Sumber Air</td>
+                            <td>:</td>
+                            <td><?= $data->sumber_air ?></td>
+                        </tr>
+                        <tr>
+                            <td>Daerah</td>
+                            <td>:</td>
+                            <td><?= $data->daerah ?></td>
+                        </tr>
+                        <tr>
+                            <td>Alamat</td>
+                            <td>:</td>
+                            <td><?= $data->alamat ?></td>
+                        </tr>
+                    </table>
+                    <br>
+                    <p><?= $data->keterangan ?></p>
+                    <br><br>
+                    <div class="text-center">
+                        <h5 class="text-center">Denah</h5>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <img src="<?= base_url("assets/img_marketing/property/denah/$data->denah") ?>" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="text-center">
+                        <h5 class="text-center">Lokasi</h5>
+                        <br>
+                        <?= htmlspecialchars_decode($data->map_url) ?>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h4>Telepon</h4>
-                    <p><?= $data->telp ?></p><a href="<?= base_url() ?>/kontak" class="btn btn-l btn-outline-primary"> Kontak </a>
-                    <hr>
-                </div>
-            </div><br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h4 style="float:left; padding-right:10px;">Fitur Retail 1</h4> <button type="button" class="btn btn-outline-secondary btn-sm"><?= $data->gap ?></button>
-                </div>
-            </div><br><?php $gambar = [$data->fg, $data->fg2, $data->fg3, $data->fg4, $data->fg5, $data->fg6, $data->fg7, $data->fg8, $data->fg9, $data->fg10, $data->fg11, $data->fg12, $data->fg13, $data->fg14, $data->fg15];
-                        $title = [$data->ft, $data->ft2, $data->ft3, $data->ft4, $data->ft5, $data->ft6, $data->ft7, $data->ft8, $data->ft9, $data->ft10, $data->ft11, $data->ft12, $data->ft13, $data->ft14, $data->ft15];
-                        $deskripsi = [$data->fd, $data->fd2, $data->fd3, $data->fd4, $data->fd5, $data->fd6, $data->fd7, $data->fd8, $data->fd9, $data->fd10, $data->fd11, $data->fd12, $data->fd13, $data->fd14, $data->fd15];
-                        foreach ($gambar as $i => $v) : if ($v) : if ($i % 2) : ?> <div class="row">
-                            <div class="col-md-8"> <br>
-                                <h5><?= $title[$i] ?></h5> <br>
-                                <p><?= $deskripsi[$i] ?>.</p>
-                            </div>
-                            <div class="col-md-4"> <img src="<?= base_url("assets/img_marketing/property/$v") ?>" width="350" height="250" alt=""> </div>
-                        </div><?php else : ?> <div class="row">
-                            <div class="col-md-4"> <img src="<?= base_url("assets/img_marketing/property/$v") ?>" width="350" height="250" alt=""> </div>
-                            <div class="col-md-8"> <br>
-                                <h5><?= $title[$i] ?></h5> <br>
-                                <p><?= $deskripsi[$i] ?>.</p>
-                            </div>
-                        </div><?php endif;
-                            endif;
-                        endforeach ?>
         </div>
-    </section><?php else : ?> <section class="portfolio" style="margin-top: 80px !important; ">
+    </section>
+
+    <script>
+        function mOver(src) {
+            var a = document.getElementById("main-color");
+            a.src = src;
+            a.css("transition-timing-function", "ease-in");
+        }
+    </script>
+<?php else : ?>
+    <section class="portfolio" style="margin-top: 80px !important; ">
         <div class="container">
-            <h2 class="text-center text-secondary mb-0">Unit Bisnis Property</h2> <br>
+            <h2 class="text-center text-secondary mb-0">Unit Bisnis Property</h2>
+            <hr style="margin-left: 400px;margin-right: 400px;"> <br><br>
             <div class="row">
-                <div class="col-md-6"> <a href="<?= base_url() ?>/property/retail" class="flex-item sidebar"> <img src="<?= base_url() ?>/assets/baru/img/retail.jpg" style="max-width: 100%;width:600px; height:500px; border-radius: 5px;" alt=""> </a> </div><br>
-                <div class="col-md-6"> <a href="<?= base_url() ?>/property/primewood" class="flex-item sidebar"> <img src="<?= base_url() ?>/assets/baru/img/primewood.jpg" style="max-width: 100%;width:600px; height:500px; border-radius: 5px;" alt=""> </a> </div>
+                <div class="col-md-6">
+                    <a href="<?= base_url() ?>/property/ruko" class="flex-item sidebar"> <img src="<?= base_url() ?>/assets/baru/img/retail.png" class="img-fluid" style="max-width: 100%; border-radius: 5px;" alt=""> </a>
+                    <div style="position: absolute; bottom: 0; padding-bottom: 50px; padding-left: 50px;">
+                        <h2 class="text-white" style="font-weight: 700;"><strong><i>RUKO</i></strong></h2>
+                    </div>
+                </div><br>
+                <div class="col-md-6"> <a href="<?= base_url() ?>/property/perumahan" class="flex-item sidebar"> <img src="<?= base_url() ?>/assets/baru/img/primewood.png" class="img-fluid" style="max-width: 100%; border-radius: 5px;" alt=""> </a>
+                    <div style="position: absolute; bottom: 0; padding-bottom: 50px; padding-left: 50px;">
+                        <h2 class="text-white" style="font-weight: 700;"><strong><i>PERUMAHAN</i></strong></h2>
+                    </div>
+                </div>
             </div>
         </div>
-    </section><?php endif ?>
+    </section>
+<?php endif ?>
+<div class="modal fade" id="testdr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Layanan</h4> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="form">
+                    <div class="form-group"> <label for="layanan">Jenis Layanan: </label> <select id="layanan" name="layanan" class="form-control" required>
+                            <option value="Penawaran" selected>Penawaran</option>
+                        </select> </div>
+                    <div class="form-group"> <label for="nama">Nama: </label> <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Lengkap anda" required> </div>
+                    <div class="form-group"> <label for="telepon">No Telepon: </label> <input name="telepon" type="text" class="form-control" onkeydown="input_number(event)" id="telepon" placeholder="No Telepon anda" required> </div>
+                    <div class="form-group"> <label for="kota">Kota Domisili: </label> <input name="asalKota" type="text" class="form-control" id="asalKota" placeholder="Kota Domisili anda" required> </div><input type="hidden" name="web" value="true"> <button id="submit" class="btn btn-danger">Kirim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#submit').click(function(e) {
+        e.preventDefault();
+        var data = $('#form').serialize();
+        if ($('#form').valid()) {
+            $('#submit').prop('disabled', true);
+            $('#submit').html("Mengirim data...");
+            $.post("<?= base_url("otomotif") ?>", data, function(r) {
+                swal("", "Terima kasih, Wiraniaga kami akan segera menghubungi Anda!", "success").then(function() {
+                    location.reload();
+                });
+            });
+        }
+    });
+</script>

@@ -253,8 +253,8 @@
                                 <div class="col-sm-6 col-lg-3">
                                     <h4 class=""> <a href="<?= base_url() ?>/property">PROPERTY</a></h4>
                                     <ul type="square">
-                                        <li><a class="dropdown-item" href="<?= base_url() ?>/property/retail">Retail</a></li>
-                                        <li><a class="dropdown-item" href="<?= base_url() ?>/property/primewood">Primewood</a></li>
+                                        <li><a class="dropdown-item" href="<?= base_url() ?>/property/ruko">Ruko</a></li>
+                                        <li><a class="dropdown-item" href="<?= base_url() ?>/property/perumahan">Perumahan</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6 col-lg-3">
