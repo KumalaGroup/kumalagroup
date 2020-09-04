@@ -73,6 +73,7 @@
                     </div>
                 </div>
             </div>
+            <br>
             <div class="row">
                 <div class="col-md-9 mb-2">
                     <h4><?= $data->nama ?></h4>
