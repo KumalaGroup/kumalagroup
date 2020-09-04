@@ -104,7 +104,7 @@
                         <tr>
                             <td>Listrik</td>
                             <td>:</td>
-                            <td><?= $data->listrik ?></td>
+                            <td><?= $data->listrik ?> Watt</td>
                         </tr>
                         <tr>
                             <td>Sumber Air</td>
