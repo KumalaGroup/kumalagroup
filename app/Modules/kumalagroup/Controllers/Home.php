@@ -9,9 +9,9 @@ class Home extends Controller
 {
 	private $url = [
 		// "http://localhost:6424/kmg/",
-		"http://portal3.kumalagroup.co.id/kmg/",
 		"http://portal.kumalagroup.co.id/kmg/",
 		"http://portal2.kumalagroup.co.id/kmg/",
+		"http://portal3.kumalagroup.co.id/kmg/",
 	];
 	private $api_server;
 	function _set_base($url)
