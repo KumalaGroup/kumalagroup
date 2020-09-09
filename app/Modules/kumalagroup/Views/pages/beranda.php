@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-lg-3 col-sm-6 mb-4 animated fadeIn delay-1s">
                 <div class="card hovereffect">
-                    <a href="<?= base_url("otomotif") ?>" class="m-0"><img src="<?= base_url() ?>/assets/baru/img/GLC-300.jpeg" class="card-img-top img" height="200" style="object-fit: contain;" alt="..."></a>
+                    <a href="<?= base_url("otomotif") ?>" class="m-0"><img src="<?= base_url() ?>/assets/baru/img/imahddgg.jpeg" class="card-img-top img" height="200" style="object-fit: contain;" alt="..."></a>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6 mb-4 animated fadeIn delay-1s">
