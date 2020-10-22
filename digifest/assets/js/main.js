@@ -4,13 +4,13 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-!(function($) {
+!(function ($) {
   "use strict";
 
   // Preloader
-  $(window).on('load', function() {
+  $(window).on('load', function () {
     if ($('#preloader').length) {
-      $('#preloader').delay(100).fadeOut('slow', function() {
+      $('#preloader').delay(100).fadeOut('slow', function () {
         $(this).remove();
       });
     }
@@ -30,7 +30,7 @@
   }
 
   // Smooth scroll for the navigation menu and links with .scrollto classes
-  $(document).on('click', '.nav-menu a, .scrollto', function(e) {
+  $(document).on('click', '.nav-menu a, .scrollto', function (e) {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var target = $(this.hash);
       if (target.length) {
@@ -57,7 +57,7 @@
   });
 
   // Activate smooth scroll on page load with hash links in the url
-  $(document).ready(function() {
+  $(document).ready(function () {
     if (window.location.hash) {
       var initial_nav = window.location.hash;
       if ($(initial_nav).length) {
@@ -69,12 +69,12 @@
     }
   });
 
-  $(document).on('click', '.mobile-nav-toggle', function(e) {
+  $(document).on('click', '.mobile-nav-toggle', function (e) {
     $('body').toggleClass('mobile-nav-active');
     $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
   });
 
-  $(document).click(function(e) {
+  $(document).click(function (e) {
     var container = $(".mobile-nav-toggle");
     if (!container.is(e.target) && container.has(e.target).length === 0) {
       if ($('body').hasClass('mobile-nav-active')) {
@@ -88,10 +88,10 @@
   var nav_sections = $('section');
   var main_nav = $('.nav-menu, #mobile-nav');
 
-  $(window).on('scroll', function() {
+  $(window).on('scroll', function () {
     var cur_pos = $(this).scrollTop() + 300;
 
-    nav_sections.each(function() {
+    nav_sections.each(function () {
       var top = $(this).offset().top,
         bottom = top + $(this).outerHeight();
 
@@ -108,7 +108,7 @@
   });
 
   // Back to top button
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
       $('.back-to-top').fadeIn('slow');
     } else {
@@ -116,7 +116,7 @@
     }
   });
 
-  $('.back-to-top').click(function() {
+  $('.back-to-top').click(function () {
     $('html, body').animate({
       scrollTop: 0
     }, 1500, 'easeInOutExpo');
@@ -130,8 +130,8 @@
   });
 
   // Skills section
-  $('.skills-content').waypoint(function() {
-    $('.progress .progress-bar').each(function() {
+  $('.skills-content').waypoint(function () {
+    $('.progress .progress-bar').each(function () {
       $(this).css("width", $(this).attr("aria-valuenow") + '%');
     });
   }, {
@@ -147,12 +147,12 @@
   }
 
   // Porfolio isotope and filter
-  $(window).on('load', function() {
+  $(window).on('load', function () {
     var portfolioIsotope = $('.portfolio-container').isotope({
       itemSelector: '.portfolio-item'
     });
 
-    $('#portfolio-flters li').on('click', function() {
+    $('#portfolio-flters li').on('click', function () {
       $("#portfolio-flters li").removeClass('filter-active');
       $(this).addClass('filter-active');
 
@@ -189,3 +189,21 @@
   });
 
 })(jQuery);
+
+function input_number(e) {
+  if ($.inArray(e.which, [187, 107, 8, 37, 39, 46, 190]) != -1) return;
+  else if ((e.which < 48 || e.which > 57) && (e.which < 96 || e.which > 105)) e.preventDefault();
+}
+
+function format_rupiah(e) {
+  var number_string = e.replace(/[^,\d]/g, '').toString()
+    , split = number_string.split(',')
+    , sisa = split[0].length % 3
+    , r = split[0].substr(0, sisa)
+    , ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+  if (ribuan) {
+    separator = sisa ? '.' : '';
+    r += separator + ribuan.join('.');
+  }
+  return r;
+}
