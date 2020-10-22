@@ -1202,3 +1202,7 @@ section {
     right: 5px;
     width: 20px;
 }
+
+.select2-container .select2-dropdown .select2-results .select2-results__options .select2-results__option{
+  font-size: 14px !important;
+}
