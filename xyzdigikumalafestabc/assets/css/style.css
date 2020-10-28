@@ -1225,3 +1225,7 @@ section {
 .my-float {
   margin-top: 15px;
 }
+
+table th{
+  color: #45505b !important;
+}
