@@ -188,6 +188,14 @@
     items: 1
   });
 
+  $('a[data-toggle="tab"]').on('show.bs.tab', function () {
+    if ($(this).attr('href') != "#tab1")
+      localStorage.setItem('active', $(this).attr('href'));
+  });
+  var active = localStorage.getItem('active');
+  if (active) $('.nav-tabs a[href="' + active + '"]').tab('show');
+
+
 })(jQuery);
 
 function input_number(e) {
