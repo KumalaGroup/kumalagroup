@@ -195,6 +195,9 @@
   var active = localStorage.getItem('active');
   if (active) $('.nav-tabs a[href="' + active + '"]').tab('show');
 
+  $('input[type="number"]').on('wheel', function (e) {
+    $(this).blur();
+  });
 
 })(jQuery);
 
