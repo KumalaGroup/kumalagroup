@@ -13,7 +13,7 @@ class Home extends Controller
 	// 	"http://portal2.kumalagroup.co.id/kmg/",
 	// 	"http://portal3.kumalagroup.co.id/kmg/",
 	// ];
-	private $api_server = 'http://portal2.kumalagroup.co.id/kmg/api/tHLxW586aIi1YXsQeEKBwhPOJzqfjFokybGmCgRN0M4cnlvduTrVAU2pZS9D37/';
+	private $api_server = 'http://portal.kumalagroup.co.id/kmg/api/tHLxW586aIi1YXsQeEKBwhPOJzqfjFokybGmCgRN0M4cnlvduTrVAU2pZS9D37/';
 	// function _set_base($url)
 	// {
 	// 	foreach ($url as $i => $v) {
