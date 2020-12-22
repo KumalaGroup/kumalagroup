@@ -58,7 +58,6 @@
                             <div class="card-body">
                                 <h5><a href="<?= base_url("/otomotif/$head->jenis/detail/" . base64_encode($v->id)) ?>"><?= $v->model ?></a></h5>
                                 <p class="card-text"><b>Mulai dari Rp. <?= number_format($v->harga, 0, '', '.') ?></b></p>
-                                <a class="btn btn-l btn-outline-primary btn-sm" onclick="$('#form_simulasi').trigger('reset');simulasi('<?= $v->model ?>','<?= number_format($v->harga, 0, '', '.') ?>');" data-toggle="modal" href="#simulasi">Simulasi Kredit</a>
                             </div>
                         </div>
                     </div>
@@ -83,6 +82,108 @@
             <?php endif ?>
         </div>
     </section>
+
+    <script>
+        function load_dealer(area) {
+            $.post("<?= base_url("dealer") ?>", {
+                'brand': "<?= $head->jenis ?>",
+                'area': area
+            }, function(r) {
+                $('#load_dealer').html(r);
+            });
+        }
+    </script>
+
+<?php elseif ($mod == "detail") : ?>
+    <section class="portfolio" id="unitbisnis" style="margin-top:82px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 mb-3">
+                    <div class="col-12 mb-2">
+                        <img id="main-color" src="<?= base_url("assets/img_marketing/otomotif/$otomotif->gambar") ?>" width="100%" height="auto" alt="" data-animate="fadeInRight" class="img-fluid">
+                    </div>
+                    <div class="col-12">
+                        <div class="owl-carousel owl-theme">
+                            <?php foreach ($warna as $v) : if ($v) : ?>
+                                    <div class="item">
+                                        <img class="img-fluid" onclick="mOver('<?= base_url('assets/img_marketing/otomotif/warna/' . $v->gambar) ?>')" width="100px" height="auto" src="<?= base_url("assets/img_marketing/otomotif/warna/$v->gambar") ?>" alt="" data-animate="fadeInRight">
+                                    </div>
+                            <?php endif;
+                            endforeach ?>
+                        </div>
+                        <script>
+                            $('.owl-carousel').owlCarousel({
+                                // loop: true,
+                                margin: 10,
+                                responsiveClass: true,
+                                responsive: {
+                                    0: {
+                                        items: 3,
+                                        nav: false
+                                    },
+                                    500: {
+                                        items: 4,
+                                        nav: false
+                                    },
+                                    1000: {
+                                        items: 5,
+                                        nav: false
+                                    }
+                                }
+                            })
+                        </script>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h4><?= $otomotif->model ?></h4>
+                    <h6>Mulai dari Rp. <?= number_format($otomotif->harga, 0, '', '.') ?> <br><small class="text-center text-danger">*Harga akan disesuaikan dengan domisili pemesan</small></h6>
+                    <a download href="<?= base_url("assets/img_marketing/otomotif/brosur/$otomotif->brosur") ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a>
+                    <button type="button" class="btn btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Penawaran</button>
+                    <a class="btn btn-outline-primary btn-block" onclick="$('#form_simulasi').trigger('reset');simulasi('<?= $otomotif->model ?>','<?= number_format($otomotif->harga, 0, '', '.') ?>');" data-toggle="modal" href="#simulasi">Simulasi Kredit</a>
+                    <a href="<?= current_url() . '/fitur_360' ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">360&deg; Explore</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Tentang <?= $otomotif->model ?></h4> <br>
+                    <p><?= $otomotif->deskripsi ?></p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="offset-md-2 col-md-8">
+                    <h2 class="text-center text-secondary mb-0">Video</h2> <br><br>
+                    <div class="embed-responsive embed-responsive-16by9"> <iframe class="embed-responsive-item" src="<?= str_replace("watch?v=", "embed/", $otomotif->video) ?>" allowfullscreen></iframe> </div><br><br>
+                </div>
+            </div>
+            <?php if ($detail) : ?>
+                <br><br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-center text-secondary mb-0">Detail</h2> <br><br>
+                    </div>
+                </div>
+                <h4>Fitur <?= $otomotif->model ?></h4> <br>
+                <?php foreach ($detail as $i => $v) : if ($v) : if ($i % 2) : ?> <div class="row">
+                                <div class="col-md-8"> <br>
+                                    <h5><?= $v->nama_detail ?></h5> <br>
+                                    <p><?= $v->deskripsi ?>.</p>
+                                </div>
+                                <div class="col-md-4"> <img src="<?= base_url("assets/img_marketing/otomotif/detail/$v->gambar") ?>" width="100%" height="auto" class="img-fluid" alt=""> </div>
+                            </div><?php else : ?> <div class="row">
+                                <div class="col-md-4"> <img src="<?= base_url("assets/img_marketing/otomotif/detail/$v->gambar") ?>" width="100%" height="auto" class="img-fluid" alt=""> </div>
+                                <div class="col-md-8"> <br>
+                                    <h5><?= $v->nama_detail ?></h5> <br>
+                                    <p><?= $v->deskripsi ?>.</p>
+                                </div>
+                            </div><?php endif;
+                            endif;
+                        endforeach ?> <br>
+            <?php endif ?>
+        </div>
+    </section>
+
     <div class="modal fade" id="simulasi" tabindex="-1" style="font-size: 11pt;">
         <div class="modal-dialog modal-lg">
             <div class="modal-body">
@@ -98,7 +199,6 @@
                                     <div class="form-group"> <label>Uang Muka</label> <input type="text" class="form-control" onkeydown="input_number(event)" id="dp" name="dp" placeholder="Satuan dalam rupiah" required> </div>
                                     <div class="form-group"> <label>Tenor</label> <input type="text" class="form-control" onkeyup="hitung_simulasi()" onkeydown="input_number(event)" id="tenor" name="tenor" placeholder="Satuan dalam tahun" required> </div>
                                     <div class="form-group"> <label>Bunga Pinjaman</label> <input type="text" class="form-control" onkeyup="hitung_simulasi()" onkeydown="input_number(event)" id="bunga" name="bunga" placeholder="Satuan dalam % / tahun" required> </div>
-                                    <button id="jkhkwkj" class="btn btn-danger">Form Layanan</button>
                                 </form>
                             </div>
                             <div class="col-md-8"> <strong>Plafon pinjaman Anda</strong>
@@ -163,7 +263,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <p><strong>Note:*</strong> Syarat tiap bank bisa berbeda-beda Perhitungan ini sifatnya simulasi belaka. Untuk lebih jelasnya silakan hubungi virtual assisten kami di 081212100700 atau mengisi form layanan kami.</p>
+                                <p><strong>Note:*</strong> Syarat tiap bank bisa berbeda-beda Perhitungan ini sifatnya simulasi belaka. Untuk lebih jelasnya silakan hubungi virtual assisten kami di 081212100700 atau mengisi form penawaran kami.</p>
                             </div>
                         </div>
                     </div>
@@ -171,18 +271,50 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="testdr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Layanan</h4> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="form">
+                        <div class="form-group"> <label for="layanan">Jenis Layanan: </label> <select id="layanan" name="layanan" class="form-control" required>
+                                <option value="" selected disabled>-- Silahkan Pilih Layanan --</option>
+                                <option value="Test Drive">Test Drive</option>
+                                <option value="Penawaran">Penawaran</option>
+                            </select> </div>
+                        <div class="form-group"> <label for="nama">Nama: </label> <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Lengkap anda" required> </div>
+                        <div class="form-group"> <label for="telepon">No Telepon: </label> <input name="telepon" type="text" class="form-control" onkeydown="input_number(event)" id="telepon" placeholder="No Telepon anda" required> </div>
+                        <div class="form-group"> <label for="kota">Kota Domisili: </label> <input name="asalKota" type="text" class="form-control" id="asalKota" placeholder="Kota Domisili anda" required> </div>
+                        <input type="hidden" name="web" value="true">
+                        <input type="hidden" name="unit" value="<?= $otomotif->id ?>">
+                        <button id="submit" class="btn btn-danger">Kirim</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
+        $('#submit').click(function(e) {
+            e.preventDefault();
+            var data = $('#form').serialize();
+            if ($('#form').valid()) {
+                $('#submit').prop('disabled', true);
+                $('#submit').html("Mengirim data...");
+                $.post("<?= base_url("otomotif") ?>", data, function(r) {
+                    swal("", "Terima kasih, Wiraniaga kami akan segera menghubungi Anda!", "success").then(function() {
+                        location.reload();
+                    });
+                });
+            }
+        });
         $('#dp').keyup(function() {
             $(this).val(formatRupiah($(this).val()));
             $('#table_dp').html($(this).val() + ",00");
             $('#tableDp').html($(this).val() + ",00");
             hitung_simulasi();
-        });
-        $('#jkhkwkj').click(function() {
-            $('#simulasi').modal('hide');
-            setTimeout(function() {
-                $('#testdr').modal('show');
-            }, 500);
         });
 
         function hitung_simulasi() {
@@ -217,103 +349,6 @@
             $('#labelsumulasi').html("Simulasi Kredit " + data);
         }
 
-        function load_dealer(area) {
-            $.post("<?= base_url("dealer") ?>", {
-                'brand': "<?= $head->jenis ?>",
-                'area': area
-            }, function(r) {
-                $('#load_dealer').html(r);
-            });
-        }
-    </script>
-<?php elseif ($mod == "detail") : ?>
-    <section class="portfolio" id="unitbisnis" style="margin-top:82px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 mb-3">
-                    <div class="col-12 mb-2">
-                        <img id="main-color" src="<?= base_url("assets/img_marketing/otomotif/$otomotif->gambar") ?>" width="100%" height="auto" alt="" data-animate="fadeInRight" class="img-fluid">
-                    </div>
-                    <div class="col-12">
-                        <div class="owl-carousel owl-theme">
-                            <?php foreach ($warna as $v) : if ($v) : ?>
-                                    <div class="item">
-                                        <img class="img-fluid" onclick="mOver('<?= base_url('assets/img_marketing/otomotif/warna/' . $v->gambar) ?>')" width="100px" height="auto" src="<?= base_url("assets/img_marketing/otomotif/warna/$v->gambar") ?>" alt="" data-animate="fadeInRight">
-                                    </div>
-                            <?php endif;
-                            endforeach ?>
-                        </div>
-                        <script>
-                            $('.owl-carousel').owlCarousel({
-                                // loop: true,
-                                margin: 10,
-                                responsiveClass: true,
-                                responsive: {
-                                    0: {
-                                        items: 3,
-                                        nav: false
-                                    },
-                                    500: {
-                                        items: 4,
-                                        nav: false
-                                    },
-                                    1000: {
-                                        items: 5,
-                                        nav: false
-                                    }
-                                }
-                            })
-                        </script>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <h4><?= $otomotif->model ?></h4>
-                    <h6>Mulai dari Rp. <?= number_format($otomotif->harga, 0, '', '.') ?> <br><small class="text-center text-danger">*Harga akan disesuaikan dengan domisili pemesan</small></h6>
-                    <a download href="<?= base_url("assets/img_marketing/otomotif/brosur/$otomotif->brosur") ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a>
-                    <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Penawaran</button>
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h4>Tentang <?= $otomotif->model ?></h4> <br>
-                    <p><?= $otomotif->deskripsi ?></p>
-                </div>
-            </div><br><br>
-            <div class="row">
-                <div class="offset-md-2 col-md-8">
-                    <h2 class="text-center text-secondary mb-0">Video</h2> <br><br>
-                    <div class="embed-responsive embed-responsive-16by9"> <iframe class="embed-responsive-item" src="<?= str_replace("watch?v=", "embed/", $otomotif->video) ?>" allowfullscreen></iframe> </div><br><br>
-                </div>
-            </div>
-            <?php if ($detail) : ?>
-                <br><br>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2 class="text-center text-secondary mb-0">Detail</h2> <br><br>
-                    </div>
-                </div>
-                <h4>Fitur <?= $otomotif->model ?></h4> <br>
-                <?php foreach ($detail as $i => $v) : if ($v) : if ($i % 2) : ?> <div class="row">
-                                <div class="col-md-8"> <br>
-                                    <h5><?= $v->nama_detail ?></h5> <br>
-                                    <p><?= $v->deskripsi ?>.</p>
-                                </div>
-                                <div class="col-md-4"> <img src="<?= base_url("assets/img_marketing/otomotif/detail/$v->gambar") ?>" width="100%" height="auto" class="img-fluid" alt=""> </div>
-                            </div><?php else : ?> <div class="row">
-                                <div class="col-md-4"> <img src="<?= base_url("assets/img_marketing/otomotif/detail/$v->gambar") ?>" width="100%" height="auto" class="img-fluid" alt=""> </div>
-                                <div class="col-md-8"> <br>
-                                    <h5><?= $v->nama_detail ?></h5> <br>
-                                    <p><?= $v->deskripsi ?>.</p>
-                                </div>
-                            </div><?php endif;
-                            endif;
-                        endforeach ?> <br>
-            <?php endif ?>
-        </div>
-    </section>
-
-    <script>
         function mOver(src) {
             var a = document.getElementById("main-color");
             a.src = src;
@@ -344,42 +379,3 @@
         </div>
     </section>
 <?php endif ?>
-<div class="modal fade" id="testdr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Layanan</h4> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="form">
-                    <div class="form-group"> <label for="layanan">Jenis Layanan: </label> <select id="layanan" name="layanan" class="form-control" required>
-                            <option value="" selected disabled>-- Silahkan Pilih Layanan --</option>
-                            <option value="Test Drive">Test Drive</option>
-                            <option value="Penawaran">Penawaran</option>
-                        </select> </div>
-                    <div class="form-group"> <label for="nama">Nama: </label> <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Lengkap anda" required> </div>
-                    <div class="form-group"> <label for="telepon">No Telepon: </label> <input name="telepon" type="text" class="form-control" onkeydown="input_number(event)" id="telepon" placeholder="No Telepon anda" required> </div>
-                    <div class="form-group"> <label for="kota">Kota Domisili: </label> <input name="asalKota" type="text" class="form-control" id="asalKota" placeholder="Kota Domisili anda" required> </div>
-                    <input type="hidden" name="web" value="true">
-                    <input type="hidden" name="unit" value="<?= $otomotif->id ?>">
-                    <button id="submit" class="btn btn-danger">Kirim</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-    $('#submit').click(function(e) {
-        e.preventDefault();
-        var data = $('#form').serialize();
-        if ($('#form').valid()) {
-            $('#submit').prop('disabled', true);
-            $('#submit').html("Mengirim data...");
-            $.post("<?= base_url("otomotif") ?>", data, function(r) {
-                swal("", "Terima kasih, Wiraniaga kami akan segera menghubungi Anda!", "success").then(function() {
-                    location.reload();
-                });
-            });
-        }
-    });
-</script>
