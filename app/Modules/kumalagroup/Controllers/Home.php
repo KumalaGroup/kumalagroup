@@ -278,7 +278,7 @@ class Home extends BaseController
 		$video = json_decode($this->_curl_get($this->api_server . 'digifest_lineUp/' . $this->request->uri->getSegments()[1] . '/' . base64_decode($this->request->uri->getSegments()[3]) . '/360Drive'));
 		$d['fitur'] = [
 			'interior' => $result->interior[0]->deskripsi ?? '',
-			'exterior' => json_encode($exterior),
+			'exterior' => !empty($exterior) ? json_encode($exterior) : '',
 			'video' => $video[0]->deskripsi ?? ''
 		];
 		echo view("$base\index", $d);

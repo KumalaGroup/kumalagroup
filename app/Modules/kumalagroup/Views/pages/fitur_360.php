@@ -86,7 +86,7 @@
         <div class="col-lg-12">
             <h4>Exterior</h4>
             <br>
-            <?php if ($fitur['exterior'] != null) { ?>
+            <?php if ($fitur['exterior'] != "") { ?>
                 <div class="cloudimage-360" data-folder="<?= base_url() ?>/assets/img_marketing/otomotif/360ex/" data-image-list='<?= htmlspecialchars_decode($fitur['exterior']) ?>' data-bottom-circle data-bottom-circle-offset="2" data-full-screen="true"></div>
             <?php } else { ?>
                 <p>Belum ada gambar</p>
