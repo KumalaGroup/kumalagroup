@@ -64,7 +64,7 @@
 <section id="header" class="portfolio">
     <div class="container">
         <h2 class="text-center text-secondary mb-0"> Fitur 360&deg; </h2>
-        <hr style="margin-left: 400px;margin-right: 400px;"> <br><br>
+        <hr style="margin-left: 400px;margin-right: 400px;">
     </div>
 </section>
 <div class="container">
