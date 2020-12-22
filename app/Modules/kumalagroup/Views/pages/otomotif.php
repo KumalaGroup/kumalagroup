@@ -139,7 +139,7 @@
                     <h6>Mulai dari Rp. <?= number_format($otomotif->harga, 0, '', '.') ?> <br><small class="text-center text-danger">*Harga akan disesuaikan dengan domisili pemesan</small></h6>
                     <a download href="<?= base_url("assets/img_marketing/otomotif/brosur/$otomotif->brosur") ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a>
                     <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Penawaran</button>
-                    <a class="btn btn-xl btn-outline-primary btn-block" onclick="$('#form_simulasi').trigger('reset');simulasi('<?= $otomotif->model ?>','<?= number_format($otomotif->harga, 0, '', '.') ?>');" data-toggle="modal" href="#simulasi">Simulasi Kredit</a>
+                    <a class="btn btn-xl btn-outline-danger btn-block" onclick="$('#form_simulasi').trigger('reset');simulasi('<?= $otomotif->model ?>','<?= number_format($otomotif->harga, 0, '', '.') ?>');" data-toggle="modal" href="#simulasi">Simulasi Kredit</a>
                     <a href="<?= current_url() . '/fitur_360' ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">360&deg; Explore</a>
                 </div>
             </div>
