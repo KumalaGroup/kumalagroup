@@ -5,7 +5,7 @@ $routes->get('berita', "$base\Home::berita");
 $routes->get('berita/page/(:num)', "$base\Home::berita");
 $routes->get('berita/detail/(:any)', "$base\Home::detail_berita");
 $routes->get('otomotif', "$base\Home::otomotif");
-$routes->get('otomotif/(:any)/detail/(:any)/fitur_360', "$base\Home::fitur_360");
+$routes->get('otomotif/(:any)/detail/(:any)/fitur360', "$base\Home::fitur_360");
 $routes->get('otomotif/(:any)/detail/(:any)', "$base\Home::detail_otomotif");
 $routes->get('otomotif/(:any)/page/(:num)', "$base\Home::otomotif");
 $routes->get('otomotif/(:any)', "$base\Home::otomotif");
