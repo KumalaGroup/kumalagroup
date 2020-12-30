@@ -34,7 +34,7 @@
                                 <h4><?= $v->nama ?></h4>
                                 <p style="font-size: 11pt;"><?= $v->type ?></p>
                             </div>
-                            <div class="card-body text-center" style="background-color: #FA0F0c;"> <a href="<?= base_url("/mining/detail/" . base64_encode($v->id)) ?>" style="color: #fff !important;">Selengkapnya</a> </div>
+                            <div class="card-body text-center" style="background-color: #FA0F0c;"> <a href="<?= base_url("/mining/detail/" . $v->id) ?>" style="color: #fff !important;">Selengkapnya</a> </div>
                         </div>
                     </div><?php endforeach ?> </div>
         </div>

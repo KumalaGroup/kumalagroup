@@ -79,7 +79,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <p align="right">Share : <a href="https://www.facebook.com/sharer/sharer.php?u=<?= base_url("/berita/detail/" . base64_encode($data->id)) ?>" target="_blank"> <i class="fab fa-facebook-square fa-2x"></i></a> <a href="https://twitter.com/intent/tweet?text=<?= base_url("/berita/detail/" . base64_encode($data->id)) ?>" target="_blank"> <i class="fab fa-twitter-square fa-2x"></i></a> <a href="https://www.instagram.com/?url=https://www.drdrop.co/" target="_blank" rel="noopener"> <i class="fab fa-instagram fa-2x"></i></a> </p>
+                    <p align="right">Share : <a href="https://www.facebook.com/sharer/sharer.php?u=<?= base_url("/berita/detail/" . $data->id) ?>" target="_blank"> <i class="fab fa-facebook-square fa-2x"></i></a> <a href="https://twitter.com/intent/tweet?text=<?= base_url("/berita/detail/" . $data->id) ?>" target="_blank"> <i class="fab fa-twitter-square fa-2x"></i></a> <a href="https://www.instagram.com/?url=https://www.drdrop.co/" target="_blank" rel="noopener"> <i class="fab fa-instagram fa-2x"></i></a> </p>
                 </div>
             </div>
         </div>
@@ -95,15 +95,15 @@
                     $date = $date->format('d') . " " . $bulan[$date->format('n')] . " " . $date->format('Y') ?>
                     <div class="col-md-6 col-lg-4 mb-4">
                         <div class="card">
-                            <a class="m-0" href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>">
+                            <a class="m-0" href="<?= base_url("/berita/detail/" . $v->id) ?>">
                                 <img src="
                                 <?= base_url(empty($v->thumb) ?
                                     "assets/img_marketing/berita/$v->gambar"
                                     : "assets/img_marketing/berita/thumb/$v->thumb") ?>" class="card-img-top" width="100%" alt="..."></a>
                             <div class="card-body">
-                                <h5><a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>"><?= $v->judul ?></a></h5>
+                                <h5><a href="<?= base_url("/berita/detail/" . $v->id) ?>"><?= $v->judul ?></a></h5>
                                 <p class="card-text"><b><?= ucwords($v->type) ?> </b>| <?= $date ?></p>
-                                <p class="card-text"><?= substr(strip_tags($v->deskripsi), 0, 200) ?>...</p><a href="<?= base_url("/berita/detail/" . base64_encode($v->id)) ?>">Selengkapnya</a>
+                                <p class="card-text"><?= substr(strip_tags($v->deskripsi), 0, 200) ?>...</p><a href="<?= base_url("/berita/detail/" . $v->id) ?>">Selengkapnya</a>
                             </div>
                         </div>
                     </div>

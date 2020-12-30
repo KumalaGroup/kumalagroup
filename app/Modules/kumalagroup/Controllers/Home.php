@@ -7,8 +7,8 @@ use DateTime;
 
 class Home extends BaseController
 {
-	private $api_server = 'http://portal.kumalagroup.co.id/kmg/api/tHLxW586aIi1YXsQeEKBwhPOJzqfjFokybGmCgRN0M4cnlvduTrVAU2pZS9D37/';
-	// private $api_server = 'http://localhost/kmg/api/tHLxW586aIi1YXsQeEKBwhPOJzqfjFokybGmCgRN0M4cnlvduTrVAU2pZS9D37/';
+	// private $api_server = 'http://portal.kumalagroup.co.id/kmg/api/tHLxW586aIi1YXsQeEKBwhPOJzqfjFokybGmCgRN0M4cnlvduTrVAU2pZS9D37/';
+	private $api_server = 'http://localhost/kmg/api/tHLxW586aIi1YXsQeEKBwhPOJzqfjFokybGmCgRN0M4cnlvduTrVAU2pZS9D37/';
 
 	public function index()
 	{
@@ -53,7 +53,7 @@ class Home extends BaseController
 		$d['content'] =  "$base\pages\berita";
 		$d['mod'] = "detail";
 		$d['index'] = "berita";
-		$d['data'] = json_decode($this->_curl_get($this->api_server . 'berita/' . base64_decode($this->request->uri->getSegments()[2])));
+		$d['data'] = json_decode($this->_curl_get($this->api_server . 'berita/' . $this->request->uri->getSegments()[2]));
 		$bulan = array(1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
 		$date = new DateTime($d['data']->updated_at);
 		$d['date'] = $date->format('d') . " " . $bulan[$date->format('n')] . " " . $date->format('Y');
@@ -100,7 +100,7 @@ class Home extends BaseController
 		$d['index'] = "unit_bisnis";
 		$d['content'] =  "$base\pages\otomotif";
 		$d['mod'] = "detail";
-		$data = json_decode($this->_curl_get($this->api_server . 'otomotif/' . $this->request->uri->getSegments()[1] . '/' . base64_decode($this->request->uri->getSegments()[3])));
+		$data = json_decode($this->_curl_get($this->api_server . 'otomotif/' . $this->request->uri->getSegments()[1] . '/' . $this->request->uri->getSegments()[3]));
 		$d['warna'] = $data->warna;
 		$d['otomotif'] = $data->otomotif;
 		$d['detail'] = $data->detail;
@@ -158,7 +158,7 @@ class Home extends BaseController
 		$d['index'] = "unit_bisnis";
 		$d['content'] =  "$base\pages\property";
 		$d['mod'] = "detail";
-		$data = json_decode($this->_curl_get($this->api_server . 'property/' . $this->request->uri->getSegments()[1] . '/' . base64_decode($this->request->uri->getSegments()[3])));
+		$data = json_decode($this->_curl_get($this->api_server . 'property/' . $this->request->uri->getSegments()[1] . '/' . $this->request->uri->getSegments()[3]));
 		$d['data'] = $data->detail;
 		$d['galeri'] = $data->galeri;
 		echo view("$base\index", $d);
@@ -181,7 +181,7 @@ class Home extends BaseController
 		if ($this->request->uri->getSegments()[2]) {
 			$d['content'] = $base . '\pages\mining';
 			$d['mod'] = "list";
-			$d['data'] = json_decode($this->_curl_get($this->api_server . 'mining/' . base64_decode($this->request->uri->getSegments()[2])));
+			$d['data'] = json_decode($this->_curl_get($this->api_server . 'mining/' . $this->request->uri->getSegments()[2]));
 		} else {
 			$d['data'] = json_decode($this->_curl_get($this->api_server . 'mining'));
 			$d['content'] = $base . '\pages\mining';
@@ -272,10 +272,10 @@ class Home extends BaseController
 		$base = "App\Modules\kumalagroup\Views";
 		$d['index'] = "unit_bisnis";
 		$d['content'] =  $base . '\pages\\fitur_360';
-		$result = json_decode($this->_curl_get($this->api_server . 'digifest_lineUp/' . $this->request->uri->getSegments()[1] . '/' . base64_decode($this->request->uri->getSegments()[3]) . '/360Img'));
+		$result = json_decode($this->_curl_get($this->api_server . 'digifest_lineUp/' . $this->request->uri->getSegments()[1] . '/' . $this->request->uri->getSegments()[3] . '/360Img'));
 		foreach ($result->exterior as $v)
 			$exterior[] = $v->gambar;
-		$video = json_decode($this->_curl_get($this->api_server . 'digifest_lineUp/' . $this->request->uri->getSegments()[1] . '/' . base64_decode($this->request->uri->getSegments()[3]) . '/360Drive'));
+		$video = json_decode($this->_curl_get($this->api_server . 'digifest_lineUp/' . $this->request->uri->getSegments()[1] . '/' . $this->request->uri->getSegments()[3] . '/360Drive'));
 		$d['fitur'] = [
 			'interior' => $result->interior[0]->deskripsi ?? '',
 			'exterior' => !empty($exterior) ? json_encode($exterior) : '',

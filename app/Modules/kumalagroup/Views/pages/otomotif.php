@@ -53,10 +53,10 @@
                 <?php foreach ($otomotif as $i => $v) : ?>
                     <div class="col-md-6 col-lg-4 mb-4">
                         <div class="card">
-                            <a class="m-0" href="<?= base_url("/otomotif/$head->jenis/detail/" . base64_encode($v->id)) ?>">
+                            <a class="m-0" href="<?= base_url("/otomotif/$head->jenis/detail/" . $v->id) ?>">
                                 <img src="<?= base_url("assets/img_marketing/otomotif/$v->gambar") ?>" width="100%" height="200" alt="" style="object-fit: contain;"></a>
                             <div class="card-body">
-                                <h5><a href="<?= base_url("/otomotif/$head->jenis/detail/" . base64_encode($v->id)) ?>"><?= $v->model ?></a></h5>
+                                <h5><a href="<?= base_url("/otomotif/$head->jenis/detail/" . $v->id) ?>"><?= $v->model ?></a></h5>
                                 <p class="card-text"><b>Mulai dari Rp. <?= number_format($v->harga, 0, '', '.') ?></b></p>
                             </div>
                         </div>

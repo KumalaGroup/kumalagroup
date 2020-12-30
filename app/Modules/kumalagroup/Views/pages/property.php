@@ -8,10 +8,10 @@
                     foreach ($data as $i => $v) { ?>
                         <div class="col-md-6 col-lg-4 mb-4">
                             <div class="card">
-                                <a class="m-0" href="<?= base_url("/property/$v->jenis/detail/" . base64_encode($v->id)) ?>">
+                                <a class="m-0" href="<?= base_url("/property/$v->jenis/detail/" . $v->id) ?>">
                                     <img src="<?= base_url("assets/img_marketing/property/$v->gambar") ?>" width="100%" height="200" alt="" style="object-fit: cover;"></a>
                                 <div class="card-body text-center">
-                                    <h5><a href="<?= base_url("/property/$v->jenis/detail/" . base64_encode($v->id)) ?>"><?= $v->nama ?></a></h5>
+                                    <h5><a href="<?= base_url("/property/$v->jenis/detail/" . $v->id) ?>"><?= $v->nama ?></a></h5>
                                     <?php if ($v->harga_sewa != 0) { ?>
                                         <p class="m-0">Harga Sewa Mulai dari</p>
                                         <p class="card-text"><b>Rp. <?= number_format($v->harga_sewa, 0, '', '.') ?>/Tahun</b></p>
