@@ -356,18 +356,49 @@
         }
     </script>
 <?php else : ?>
-    <section class="bg-primary text-white mb-0" id="otomotif">
-        <div class="container"> <br>
-            <h2 class="text-center text-white" style="margin-top: 200px;">Tentang Bisnis Otomotif</h2> <br><br>
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8 ml-auto">
-                    <p class="lead" align="center">Kumala Group menjadi Partner Resmi Brand Otomotif ternama meliputi Hino, Honda, Mazda, dan Wuling. Saat ini Kumala Group memiliki 35 Jaringan Dealer Resmi yang tersebar di Seluruh Indonesia Tengah dan Timur. </p>
+    <style>
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        @media only screen and (max-width: 700px) {
+            #text-over {
+                display: none;
+            }
+        }
+    </style>
+    <header class="text-white text-center" style="padding-top: 82px" id="home">
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <a href="javascript:void(0)">
+                    <img src="<?= base_url("assets/baru/img/otomotif.jpeg") ?>" class="img-fluid" width="100%" alt="...">
+                </a>
+                <div class="overlay"></div>
+                <div style="position: absolute;bottom: 25%;padding-left: 50px;padding-right: 50px;" id="text-over">
+                    <h2 class="text-center text-white" style="margin-top: 200px;">Tentang Bisnis Otomotif</h2>
+                    <div class="row mt-4">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8 ml-auto">
+                            <p class="lead" align="center">Kumala Group menjadi Partner Resmi Brand Otomotif ternama meliputi Hino, Honda, Mazda, dan Wuling. Saat ini Kumala Group memiliki 35 Jaringan Dealer Resmi yang tersebar di Seluruh Indonesia Tengah dan Timur. </p>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
                 </div>
-                <div class="col-md-2"></div>
             </div>
         </div>
-    </section>
+        <script>
+            $('.owl-carousel').owlCarousel({
+                loop: false,
+                autoHeight: true,
+                items: 1,
+            })
+        </script>
+    </header>
     <section class="portfolio" id="Partnership">
         <div class="container-fluid text-center">
             <h4 class="text-center text-secondary mb-0">Our Partnership</h4> <br><br>
@@ -375,7 +406,9 @@
                 <?php foreach ($data as $v) : ?>
                     <div class="card flex-child text-center my-2 ml-2" style="width: 15rem;float:left !important;">
                         <img src="<?= base_url("assets/img_marketing/head/$v->foto") ?>" height="150px" class="img-fluid card-img-top" alt="..." style="object-fit: cover;">
-                        <a class="card-body text-center btn btn-l btn btn-danger text-uppercase" style="background:#fa0f0c; border-color:#fa0f0c; " href="<?= $v->url ?>" target="<?= in_array($v->jenis, ["honda", "mazda", "mercedes-benz"]) ? "_blank" : "" ?>"> <?= strtoupper($v->jenis) ?> </a> </div><?php endforeach ?> </div>
+                        <a class="card-body text-center btn btn-l btn btn-danger text-uppercase" style="background:#fa0f0c; border-color:#fa0f0c; " href="<?= $v->url ?>" target="<?= in_array($v->jenis, ["honda", "mazda", "mercedes-benz"]) ? "_blank" : "" ?>"> <?= strtoupper($v->jenis) ?> </a>
+                    </div><?php endforeach ?>
+            </div>
         </div>
     </section>
 <?php endif ?>
