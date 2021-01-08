@@ -379,8 +379,8 @@
                     <img src="<?= base_url("assets/baru/img/otomotif.jpeg") ?>" class="img-fluid" width="100%" alt="...">
                 </a>
                 <div class="overlay"></div>
-                <div style="position: absolute;bottom: 25%;padding-left: 50px;padding-right: 50px;" id="text-over">
-                    <h2 class="text-center text-white" style="margin-top: 200px;">Tentang Bisnis Otomotif</h2>
+                <div style="position: absolute;top: 10%;padding-left: 50px;padding-right: 50px;" id="text-over">
+                    <h2 class="text-center text-white">Tentang Bisnis Otomotif</h2>
                     <div class="row mt-4">
                         <div class="col-md-2"></div>
                         <div class="col-md-8 ml-auto">
