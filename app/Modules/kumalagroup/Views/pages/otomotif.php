@@ -363,7 +363,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.2);
         }
 
         @media only screen and (max-width: 700px) {
