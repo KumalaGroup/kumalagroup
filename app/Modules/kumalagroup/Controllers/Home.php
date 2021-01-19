@@ -55,7 +55,7 @@ class Home extends BaseController
 		$d['index'] = "berita";
 		$d['data'] = json_decode($this->_curl_get($this->api_server . 'berita/' . $this->request->uri->getSegments()[2]));
 		$bulan = array(1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
-		$date = new DateTime($d['data']->updated_at);
+		$date = new DateTime($d['data']->created_at);
 		$d['date'] = $date->format('d') . " " . $bulan[$date->format('n')] . " " . $date->format('Y');
 		echo view("$base\index", $d);
 	}

@@ -91,7 +91,7 @@
             <div class="row">
                 <?php foreach ($data as $v) :
                     $bulan = array(1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
-                    $date = new DateTime($v->updated_at);
+                    $date = new DateTime($v->created_at);
                     $date = $date->format('d') . " " . $bulan[$date->format('n')] . " " . $date->format('Y') ?>
                     <div class="col-md-6 col-lg-4 mb-4">
                         <div class="card">
