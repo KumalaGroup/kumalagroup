@@ -139,7 +139,7 @@
                     <h6>Mulai dari Rp. <?= number_format($otomotif->harga, 0, '', '.') ?> <br><small class="text-center text-danger">*Harga akan disesuaikan dengan domisili pemesan</small></h6>
                     <a href="<?= current_url() . '/fitur360' ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">360&deg; Explore</a>
                     <a download href="<?= base_url("assets/img_marketing/otomotif/brosur/$otomotif->brosur") ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a>
-                    <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Penawaran</button>
+                    <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Minta Penawaran</button>
                     <a class="btn btn-xl btn-outline-danger btn-block" onclick="$('#form_simulasi').trigger('reset');simulasi('<?= $otomotif->model ?>','<?= number_format($otomotif->harga, 0, '', '.') ?>');" data-toggle="modal" href="#simulasi">Simulasi Kredit</a>
                 </div>
             </div>
@@ -272,7 +272,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="testdr" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="testdr" tabindex="-1" style="font-size: 11pt;">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -280,14 +280,21 @@
                 </div>
                 <div class="modal-body">
                     <form id="form">
+                        <p class="mb-3">Tinggalkan data diri Anda dibawah dan Kami akan segera menghubungi Anda.</p>
                         <div class="form-group"> <label for="layanan">Jenis Layanan: </label> <select id="layanan" name="layanan" class="form-control" required>
                                 <option value="" selected disabled>-- Silahkan Pilih Layanan --</option>
                                 <option value="Test Drive">Test Drive</option>
                                 <option value="Penawaran">Penawaran</option>
                             </select> </div>
-                        <div class="form-group"> <label for="nama">Nama: </label> <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Lengkap anda" required> </div>
-                        <div class="form-group"> <label for="telepon">No Telepon: </label> <input name="telepon" type="text" class="form-control" onkeydown="input_number(event)" id="telepon" placeholder="No Telepon anda" required> </div>
-                        <div class="form-group"> <label for="kota">Kota Domisili: </label> <input name="asalKota" type="text" class="form-control" id="asalKota" placeholder="Kota Domisili anda" required> </div>
+                        <div class="form-group">
+                            <label>Nama: </label> <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Lengkap anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label>No Telepon: </label> <input name="telepon" type="text" class="form-control" onkeydown="input_number(event)" id="telepon" placeholder="No Telepon anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Kota Domisili: </label> <input name="asalKota" type="text" class="form-control" id="asalKota" placeholder="Kota Domisili anda" required>
+                        </div>
                         <input type="hidden" name="web" value="true">
                         <input type="hidden" name="unit" value="<?= $otomotif->id ?>">
                         <button id="submit" class="btn btn-danger">Kirim</button>
