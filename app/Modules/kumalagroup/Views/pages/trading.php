@@ -24,15 +24,17 @@
             <h4 class="text-center text-secondary mb-0">Oil</h4>
             <div class="row text-center">
                 <div class="col-md-1"></div>
-                    <div class="col-md-3">
-                        <div class="oc-item col-md-3"> <a href="<?= base_url() ?>/trading/eni"> <img src="<?= base_url() ?>/assets/baru/img/partner/15.png" alt="partner" width="350" height="350"> </a> </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="oc-item col-md-3"> <a href="<?= base_url() ?>/trading/opartner"> <img src="<?= base_url() ?>/assets/baru/img/partner/7.png" alt="partner" width="350" height="350"> </a> </div>
-                    </div>
-                    <div class="col-md-3">
+                <div class="col-md-2">
                         <!-- <div class="oc-item col-md-3"> <a href="<?= base_url() ?>/trading/henkel"> <img src="<?= base_url() ?>/assets/baru/img/partner/5.png" alt="partner" width="250" height="150"> </a> </div> -->
                     </div>
+                    <div class="col-md-3">
+                        <br>
+                        <div class="oc-item col-md-3"> <a href="<?= base_url() ?>/trading/eni"> <img src="<?= base_url() ?>/assets/baru/img/partner/15.png" alt="partner" width="150" height="150"> </a> </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="oc-item col-md-3"> <a href="<?= base_url() ?>/trading/opartner"> <img src="<?= base_url() ?>/assets/baru/img/partner/7.png" alt="partner" width="350" height="250"> </a> </div>
+                    </div>
+                   
                     <!-- <div class="col-md-3">
                         <div class="oc-item col-md-3"> <a href="<?= base_url() ?>/trading/agip"> <img src="<?= base_url() ?>/assets/baru/img/partner/8.png" alt="partner" width="250" height="150"> </a> </div>
                     </div> -->
