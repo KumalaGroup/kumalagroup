@@ -46,12 +46,12 @@
             </div>
             <div class="col-lg-3 col-sm-6 mb-4 animated fadeIn delay-1s">
                 <div class="card hovereffect">
-                    <a href="<?= base_url("trading") ?>" class="m-0"><img src="<?= base_url() ?>/assets/baru/img/7.jpg" class="card-img-top img" height="200" style="object-fit: cover;" alt="..."></a>
+                    <a href="<?= base_url("trading") ?>" class="m-0"><img src="<?= base_url() ?>/assets/baru/img/7_666.jpg" class="card-img-top img" height="200" style="object-fit: cover;" alt="..."></a>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6 mb-4 animated fadeIn delay-1s">
                 <div class="card hovereffect">
-                    <a href="<?= base_url("mining") ?>" class="m-0"><img src="<?= base_url() ?>/assets/baru/img/8.jpg" class="card-img-top img" height="200" style="object-fit: cover;" alt="..."></a>
+                    <a href="<?= base_url("mining") ?>" class="m-0"><img src="<?= base_url() ?>/assets/baru/img/8_666.jpg" class="card-img-top img" height="200" style="object-fit: cover;" alt="..."></a>
                 </div>
             </div>
         </div>
