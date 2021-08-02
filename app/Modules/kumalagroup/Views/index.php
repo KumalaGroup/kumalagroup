@@ -193,7 +193,7 @@
         position: fixed;
         width: 60px;
         height: 60px;
-        bottom: 95px;
+        bottom: 25px;
         right: 20px;
         background-color: #0C9;
         color: #FFF;
@@ -340,7 +340,7 @@
             return rupiah;
         }
     </script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         var Tawk_API = Tawk_API || {},
             Tawk_LoadStart = new Date();
         (function() {
@@ -352,7 +352,7 @@
             s1.setAttribute('crossorigin', '*');
             s0.parentNode.insertBefore(s1, s0);
         })();
-    </script>
+    </script> -->
 </body>
 
 </html>
