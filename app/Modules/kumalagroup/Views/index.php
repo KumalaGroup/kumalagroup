@@ -243,7 +243,7 @@
                                 <div class="col-sm-6 col-lg-3">
                                     <h4 class=""> <a href="<?= base_url() ?>/otomotif">OTOMOTIF</a></h4>
                                     <ul type="square">
-                                        <li><a class="dropdown-item" href="https://mazda-makassar.com" target="_blank">Mazda</a></li>
+                                        <li><a class="dropdown-item" href="https://mazdakumala.com" target="_blank">Mazda</a></li>
                                         <li><a class="dropdown-item" href="https://honda-kmg.com/" target="_blank">Honda</a></li>
                                         <li><a class="dropdown-item" href="<?= base_url() ?>/otomotif/hino">Hino</a></li>
                                         <li><a class="dropdown-item" href="<?= base_url() ?>/otomotif/wuling">Wuling</a></li>
