@@ -1,0 +1,88 @@
+CRITICAL - 2021-08-20 02:02:49 --> file_put_contents(./assets/img_marketing/slider/20210820150249.jpg): failed to open stream: Permission denied
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_put_conten...', '/home/ismail/pr...', 13, Array)
+#1 /home/ismail/project/kumalagroup/app/Modules/kumalagroup/Controllers/Post_gate.php(13): file_put_contents('./assets/img_ma...', '\xFF\xD8\xFF\xE0\x00\x10JFIF\x00\x01\x01\x00\x00...')
+#2 /home/ismail/project/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Post_gate->post_img()
+#3 /home/ismail/project/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Post_gate))
+#4 /home/ismail/project/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/ismail/project/kumalagroup/index.php(43): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-08-20 02:10:14 --> file_put_contents(./assets/img_marketing/slider/20210820151014.jpg): failed to open stream: Permission denied
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_put_conten...', '/home/ismail/pr...', 13, Array)
+#1 /home/ismail/project/kumalagroup/app/Modules/kumalagroup/Controllers/Post_gate.php(13): file_put_contents('./assets/img_ma...', '\xFF\xD8\xFF\xE0\x00\x10JFIF\x00\x01\x01\x00\x00...')
+#2 /home/ismail/project/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Post_gate->post_img()
+#3 /home/ismail/project/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Post_gate))
+#4 /home/ismail/project/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/ismail/project/kumalagroup/index.php(43): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-08-20 02:11:08 --> unlink(./assets/img_marketing/slider/): Is a directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(./assets...', '/home/ismail/pr...', 28, Array)
+#1 /home/ismail/project/kumalagroup/app/Modules/kumalagroup/Controllers/Post_gate.php(28): unlink('./assets/img_ma...')
+#2 /home/ismail/project/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Post_gate->delete_img()
+#3 /home/ismail/project/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Post_gate))
+#4 /home/ismail/project/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/ismail/project/kumalagroup/index.php(43): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-08-20 02:11:26 --> file_put_contents(./assets/img_marketing/slider/20210820151126.jpg): failed to open stream: Permission denied
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_put_conten...', '/home/ismail/pr...', 13, Array)
+#1 /home/ismail/project/kumalagroup/app/Modules/kumalagroup/Controllers/Post_gate.php(13): file_put_contents('./assets/img_ma...', '\xFF\xD8\xFF\xE0\x00\x10JFIF\x00\x01\x01\x00\x00...')
+#2 /home/ismail/project/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Post_gate->post_img()
+#3 /home/ismail/project/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Post_gate))
+#4 /home/ismail/project/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/ismail/project/kumalagroup/index.php(43): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-08-20 02:11:36 --> unlink(./assets/img_marketing/slider/): Is a directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(./assets...', '/home/ismail/pr...', 28, Array)
+#1 /home/ismail/project/kumalagroup/app/Modules/kumalagroup/Controllers/Post_gate.php(28): unlink('./assets/img_ma...')
+#2 /home/ismail/project/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Post_gate->delete_img()
+#3 /home/ismail/project/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Post_gate))
+#4 /home/ismail/project/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/ismail/project/kumalagroup/index.php(43): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-08-20 03:00:28 --> file_put_contents(./assets/img_marketing/berita/thumb/20210820160028.png): failed to open stream: Permission denied
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_put_conten...', '/home/ismail/pr...', 13, Array)
+#1 /home/ismail/project/kumalagroup/app/Modules/kumalagroup/Controllers/Post_gate.php(13): file_put_contents('./assets/img_ma...', '\x89PNG\r\n\x1A\n\x00\x00\x00\rIHD...')
+#2 /home/ismail/project/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Post_gate->post_img()
+#3 /home/ismail/project/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Post_gate))
+#4 /home/ismail/project/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/ismail/project/kumalagroup/index.php(43): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-08-20 03:00:28 --> file_put_contents(./assets/img_marketing/berita/20210820160028.jpg): failed to open stream: Permission denied
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_put_conten...', '/home/ismail/pr...', 13, Array)
+#1 /home/ismail/project/kumalagroup/app/Modules/kumalagroup/Controllers/Post_gate.php(13): file_put_contents('./assets/img_ma...', '\xFF\xD8\xFF\xE0\x00\x10JFIF\x00\x01\x01\x00\x00...')
+#2 /home/ismail/project/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Post_gate->post_img()
+#3 /home/ismail/project/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Post_gate))
+#4 /home/ismail/project/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/ismail/project/kumalagroup/index.php(43): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-08-20 03:01:54 --> unlink(./assets/img_marketing/berita/thumb/): Is a directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(./assets...', '/home/ismail/pr...', 28, Array)
+#1 /home/ismail/project/kumalagroup/app/Modules/kumalagroup/Controllers/Post_gate.php(28): unlink('./assets/img_ma...')
+#2 /home/ismail/project/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Post_gate->delete_img()
+#3 /home/ismail/project/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Post_gate))
+#4 /home/ismail/project/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/ismail/project/kumalagroup/index.php(43): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-08-20 03:01:54 --> unlink(./assets/img_marketing/berita/): Is a directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(./assets...', '/home/ismail/pr...', 28, Array)
+#1 /home/ismail/project/kumalagroup/app/Modules/kumalagroup/Controllers/Post_gate.php(28): unlink('./assets/img_ma...')
+#2 /home/ismail/project/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Post_gate->delete_img()
+#3 /home/ismail/project/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Post_gate))
+#4 /home/ismail/project/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/ismail/project/kumalagroup/index.php(43): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-08-20 03:46:26 --> file_put_contents(./assets/img_marketing/slider/20210820164626.jpg): failed to open stream: Permission denied
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_put_conten...', '/home/ismail/pr...', 13, Array)
+#1 /home/ismail/project/kumalagroup/app/Modules/kumalagroup/Controllers/Post_gate.php(13): file_put_contents('./assets/img_ma...', '\xFF\xD8\xFF\xE0\x00\x10JFIF\x00\x01\x01\x00\x00...')
+#2 /home/ismail/project/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Post_gate->post_img()
+#3 /home/ismail/project/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Post_gate))
+#4 /home/ismail/project/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/ismail/project/kumalagroup/index.php(43): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-08-20 03:46:44 --> unlink(./assets/img_marketing/slider/): Is a directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(./assets...', '/home/ismail/pr...', 28, Array)
+#1 /home/ismail/project/kumalagroup/app/Modules/kumalagroup/Controllers/Post_gate.php(28): unlink('./assets/img_ma...')
+#2 /home/ismail/project/kumalagroup/system/CodeIgniter.php(910): App\Modules\kumalagroup\Controllers\Post_gate->delete_img()
+#3 /home/ismail/project/kumalagroup/system/CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Modules\kumalagroup\Controllers\Post_gate))
+#4 /home/ismail/project/kumalagroup/system/CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/ismail/project/kumalagroup/index.php(43): CodeIgniter\CodeIgniter->run()
+#6 {main}
