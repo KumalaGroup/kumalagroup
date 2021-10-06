@@ -52,9 +52,9 @@
                         <!-- <div class="form-group"> <label for="pengkerja">Pengalaman Kerja terakhir: </label> <input name="pengalaman" type="text" class="form-control" id="pengalaman" placeholder="Pengalaman Kerja Terakhir" required> </div> -->
                         <!-- <div class="form-group"> <label for="training">Training/Kursus yang pernah diikuti: </label> <input name="extra" type="text" class="form-control" id="training" placeholder="Training/Kursus yang pernah diikuti" required> </div> -->
                         <div class="form-group"> <label for="alasan">Berikan kami alasan untuk merekrut anda: </label> <textarea name="penguat" class="form-control" id="alasan" rows="3" placeholder="Masukkan alasan disini" required></textarea> </div>
-                        <div class="form-group"> <label for="foto">Masukkan Foto anda</label> <input type="file" name="foto" id="foto" class="form-control-file" required> </div>
-                        <div class="form-group"> <label for="cv">Masukkan CV anda</label> <input type="file" name="cv" id="cv" class="form-control-file" required> </div>
-                        <div class="form-group"> <label for="lamarankerja">Masukkan Surat Lamaran Kerja anda</label> <input type="file" name="surat_lamaran" id="surat_lamaran" class="form-control-file" required> </div>
+                        <div class="form-group"> <label for="foto">Masukkan Foto anda <li style="font-size: small; color:red" class="red">*max 500kb</li></label> <input type="file" name="foto" id="foto" class="form-control-file" required> </div>
+                        <div class="form-group"> <label for="cv">Masukkan CV anda <li style="font-size: small; color:red" class="red">*max 500kb</li></label> <input type="file" name="cv" id="cv" class="form-control-file" required> </div>
+                        <div class="form-group"> <label for="lamarankerja">Masukkan Surat Lamaran Kerja anda <li style="font-size: small; color:red" class="red">*max 500kb</li></label> <input type="file" name="surat_lamaran" id="surat_lamaran" class="form-control-file" required> </div>
                         <div class="form-group"> <label for="cat">Catatan</label>
                             <ul>
                                 <li>Hanya kandidat yang sesuai syarat yang kami panggil</li>
@@ -70,8 +70,7 @@
         $('#submit').click(function(e) {
             e.preventDefault();
             if ($('#form').valid()) {
-                $('#submit').prop('disabled', true);
-                $('#submit').html("Mengirim data...");
+               
                 var form_data = new FormData();
                 form_data.append('posisi', $('#posisi').val());
                 form_data.append('nama', $('#nama').val());
@@ -89,7 +88,7 @@
                 if ($.inArray(ext, allowed_types) == -1) {
                     swal("", "Ekstensi file Foto tidak diperbolehkan!", "warning");
                     return false;
-                } else if (foto.size > 4048576) {
+                } else if (foto.size/1048576 > 0.5) {
                     swal("", "Ukuran file Foto terlalu besar!", "warning");
                     return false;
                 }
@@ -100,7 +99,7 @@
                 if ($.inArray(ext, allowed_types) == -1) {
                     swal("", "Ekstensi file CV tidak diperbolehkan!", "warning");
                     return false;
-                } else if (cv.size > 4048576) {
+                } else if (cv.size/1048576 > 0.5) {
                     swal("", "Ukuran file CV terlalu besar!", "warning");
                     return false;
                 }
@@ -111,7 +110,7 @@
                 if ($.inArray(ext, allowed_types) == -1) {
                     swal("", "Ekstensi file Surat Lamaran tidak diperbolehkan!", "warning");
                     return false;
-                } else if (surat_lamaran.size > 4048576) {
+                } else if (surat_lamaran.size/1048576 > 0.5) {
                     swal("", "Ukuran file Surat Lamaran terlalu besar!", "warning");
                     return false;
                 }
@@ -121,6 +120,10 @@
                     data: form_data,
                     processData: false,
                     contentType: false,
+                    beforeSend : function(){
+                        $('#submit').prop('disabled', true);
+                        $('#submit').html("Mengirim data...");
+                    },
                     success: function(r) {
                         if (r == 1) swal("", "Data berhasil disimpan!", "success").then(function() {
                             location.reload();
