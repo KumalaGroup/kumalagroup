@@ -21,7 +21,7 @@
     </div>
 </section>
 <script>
-    $('#submit').click(function(e) {
+    $('#submit').click(function(e) { 
         e.preventDefault();
         var data = $('#form').serialize();
         if ($('#form').valid()) {
