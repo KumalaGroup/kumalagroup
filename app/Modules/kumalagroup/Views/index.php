@@ -295,18 +295,21 @@
                     <h4 class="mb-4">KIRIM PESAN</h4>
                     <form name="sentMessage" id="contactForm" novalidate="novalidate">
                         <div class="control-group">
-                            <div class="form-group"> <input type="nama" class="form-control" id="nama" placeholder="Masukkan nama Anda"> </div>
+                            <div class="form-group"> <input name="nama" type="nama" class="form-control" id="nama" placeholder="Masukkan nama anda"> </div>
                         </div>
                         <div class="control-group">
-                            <div class="form-group"> <input type="email" class="form-control" id="email" placeholder="Masukkan Email Anda"> </div>
+                            <div class="form-group"> <input name="email" type="email" class="form-control" id="email" placeholder="Masukkan email anda"> </div>
                         </div>
                         <div class="control-group">
-                            <div class="form-group"> <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required"></textarea>
+                            <div class="form-group"> <input name="telepon" type="telepon" class="form-control" onkeydown="input_number(event)" id="telepon" placeholder="Masukkan no telepon Anda"> </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group"> <textarea name="pesan" class="form-control" id="pesan" rows="5" placeholder="Pesan" required="required"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div><br>
                         <div id="success"></div>
-                        <div class="form-group"> <button type="submit" class="btn btn-xl btn-outline-light" id="sendMessageButton">Kirim</button> </div>
+                        <div class="form-group"> <button type="submit" class="btn btn-xl btn-outline-light" id="submitPesan">Kirim</button> </div>
                     </form>
                 </div>
             </div>
@@ -323,6 +326,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript">
+        $(document).ready(() => {
+            $('#submitPesan').click((e) => {
+                e.preventDefault();
+                var data = $('#contactForm').serialize();
+                if ($('#contactForm').valid()) {
+                    $('#submit').prop('disabled', true);
+                    $('#submit').html("Mengirim pesan...");
+                    $.post("<?= base_url("kontak") ?>", data, function(r) {
+                        swal("", "Terima Kasih Telah Menghubungi Kami!!", "success").then(function() {
+                            location.reload();
+                        });
+                    });
+                }
+            });
+        })
+
         function input_number(e) {
             if ($.inArray(e.which, [187, 107, 8, 37, 39, 46, 190]) != -1) return;
             else if ((e.which < 48 || e.which > 57) && (e.which < 96 || e.which > 105)) e.preventDefault();
