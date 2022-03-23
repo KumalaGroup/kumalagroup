@@ -230,7 +230,7 @@ class Home extends BaseController
 			$name = date("YmdHis") . "surat_lamaran." . strtolower(end(explode(".", $surat_lamaran->getName())));
 			$surat_lamaran->move('./assets/img_marketing/pelamar/', $name);
 			$data['surat_lamaran'] = $surat_lamaran->getName();
-			$result = $this->_curl_post($this->api_server_portal . 'pelamar', $data);
+			$result = $this->_curl_post($this->api_server . 'pelamar', $data);
 			echo $result;
 		} else {
 			$base = "App\Modules\kumalagroup\Views";
