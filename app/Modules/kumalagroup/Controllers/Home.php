@@ -8,7 +8,7 @@ use DateTime;
 class Home extends BaseController
 {
 	private $api_server = 'https://marketing.kumalagroup.id/api/tHLxW586aIi1YXsQeEKBwhPOJzqfjFokybGmCgRN0M4cnlvduTrVAU2pZS9D37/';
-	//private $api_server = 'https://portal.kumalagroup.co.id/kmg/api/tHLxW586aIi1YXsQeEKBwhPOJzqfjFokybGmCgRN0M4cnlvduTrVAU2pZS9D37/';
+	private $api_server_portal = 'https://portal.kumalagroup.co.id/kmg/api/tHLxW586aIi1YXsQeEKBwhPOJzqfjFokybGmCgRN0M4cnlvduTrVAU2pZS9D37/';
 	// private $api_server = 'http://localhost:8888/kumala/api/tHLxW586aIi1YXsQeEKBwhPOJzqfjFokybGmCgRN0M4cnlvduTrVAU2pZS9D37/';
 
 	public function index()
@@ -24,6 +24,7 @@ class Home extends BaseController
 		$d['partner'] = json_decode($this->_curl_get($this->api_server . 'partner'));
 		echo view("$base\index", $d);
 	}
+
 	public function tentang()
 	{
 		$base = "App\Modules\kumalagroup\Views";
@@ -32,6 +33,7 @@ class Home extends BaseController
 		$d['data'] = json_decode($this->_curl_get($this->api_server . 'tentang'));
 		echo view("$base\index", $d);
 	}
+
 	public function berita()
 	{
 		$base = "App\Modules\kumalagroup\Views";
@@ -48,6 +50,7 @@ class Home extends BaseController
 		}
 		echo view("$base\index", $d);
 	}
+
 	public function detail_berita()
 	{
 		$base = "App\Modules\kumalagroup\Views";
@@ -60,6 +63,7 @@ class Home extends BaseController
 		$d['date'] = $date->format('d') . " " . $bulan[$date->format('n')] . " " . $date->format('Y');
 		echo view("$base\index", $d);
 	}
+
 	public function otomotif()
 	{
 		$post =  $this->request->getPost();
@@ -95,6 +99,7 @@ class Home extends BaseController
 			echo view("$base\index", $d);
 		}
 	}
+
 	public function detail_otomotif()
 	{
 		$base = "App\Modules\kumalagroup\Views";
@@ -107,6 +112,7 @@ class Home extends BaseController
 		$d['detail'] = $data->detail;
 		echo view("$base\index", $d);
 	}
+
 	public function dealer()
 	{
 		$post = $this->request->getPost();
@@ -139,6 +145,7 @@ class Home extends BaseController
 			<p>Dealer di kota anda belum tersedia</p>
 <?php endif;
 	}
+
 	public function property()
 	{
 		$base = "App\Modules\kumalagroup\Views";
@@ -164,6 +171,7 @@ class Home extends BaseController
 		$d['galeri'] = $data->galeri;
 		echo view("$base\index", $d);
 	}
+
 	public function trading()
 	{
 		$base = "App\Modules\kumalagroup\Views";
@@ -175,6 +183,7 @@ class Home extends BaseController
 		} else $d['content'] = $base . '\pages\trading';
 		echo view("$base\index", $d);
 	}
+
 	public function mining()
 	{
 		$base = "App\Modules\kumalagroup\Views";
@@ -189,6 +198,7 @@ class Home extends BaseController
 		}
 		echo view("$base\index", $d);
 	}
+	
 	public function kontak()
 	{
 		$post =  $this->request->getPost();
@@ -220,13 +230,13 @@ class Home extends BaseController
 			$name = date("YmdHis") . "surat_lamaran." . strtolower(end(explode(".", $surat_lamaran->getName())));
 			$surat_lamaran->move('./assets/img_marketing/pelamar/', $name);
 			$data['surat_lamaran'] = $surat_lamaran->getName();
-			$result = $this->_curl_post($this->api_server . 'pelamar', $data);
+			$result = $this->_curl_post($this->api_server_portal . 'pelamar', $data);
 			echo $result;
 		} else {
 			$base = "App\Modules\kumalagroup\Views";
 			$d['content'] = $base . '\pages\karir';
 			$d['index'] = "karir";
-			$d['data'] = json_decode($this->_curl_get($this->api_server . 'karir'));
+			$d['data'] = json_decode($this->_curl_get($this->api_server_portal . 'karir'));
 			echo view("$base\index", $d);
 		}
 	}
