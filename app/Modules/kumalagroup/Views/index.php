@@ -165,6 +165,9 @@
         #partner img {
             height: 80px;
         }
+        .card-body {
+            height: 370px;
+        }
     }
 
     @media (min-width: 992px) {
@@ -177,6 +180,15 @@
 
         #partner img {
             height: 100px;
+        }
+        .card-body {
+            height: 420px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .card-body {
+            height: 330px;
         }
     }
 
@@ -229,6 +241,12 @@
     }
 
     /* end:: floating bottom */
+
+    .thumb-berita {
+            width: 100%;            
+            height: 196px;
+            object-fit: cover;
+        }
 </style>
 
 <body id="page-top">

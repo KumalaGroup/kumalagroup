@@ -59,8 +59,9 @@
             #header {
                 margin-top: 15%;
             }
-        }
+        }    
     </style>
+
     <section id="header" class="portfolio">
         <div class="container">
             <h4 class="text-center text-secondary mb-0"> <?= $data->judul ?> </h4> <br>
@@ -99,7 +100,7 @@
                                 <img src="
                                 <?= base_url(empty($v->thumb) ?
                                     "assets/img_marketing/berita/$v->gambar"
-                                    : "assets/img_marketing/berita/thumb/$v->thumb") ?>" class="card-img-top" width="100%" alt="..."></a>
+                                    : "assets/img_marketing/berita/thumb/$v->thumb") ?>" class="card-img-top thumb-berita" width="100%" alt="..."></a>
                             <div class="card-body">
                                 <h5><a href="<?= base_url("/berita/detail/" . $v->id) ?>"><?= $v->judul ?></a></h5>
                                 <p class="card-text"><b><?= ucwords($v->type) ?> </b>| <?= $date ?></p>
