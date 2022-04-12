@@ -11,7 +11,7 @@
                 <?php foreach ($data as $v) : ?>
                     <div class="col-md-12 col-lg-6 mb-4">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body card-karir">
                                 <h5><?= $v->posisi ?></h5>
                                 <p><?= htmlspecialchars_decode($v->deskripsi) ?></p>
                                 <a class="btn btn-l btn-outline-primary btn-sm" href="javascript:void(0)" data-toggle="modal" onclick="apply_data('<?= $v->posisi ?>');" data-target="#modal">Apply</a>

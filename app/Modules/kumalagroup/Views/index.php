@@ -192,6 +192,10 @@
         }
     }
 
+    .card-karir {
+        height: 100%;
+    }
+
     /* begin:: floating bottom */
     #toppp {
         position: fixed;
@@ -243,10 +247,10 @@
     /* end:: floating bottom */
 
     .thumb-berita {
-            width: 100%;            
-            height: 196px;
-            object-fit: cover;
-        }
+        width: 100%;            
+        height: 196px;
+        object-fit: cover;
+    }
 </style>
 
 <body id="page-top">
