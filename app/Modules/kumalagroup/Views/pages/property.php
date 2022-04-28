@@ -187,6 +187,7 @@
             </div>
             <div class="modal-body">
                 <form id="form">
+                    <input type="hidden" value="" name="unit">
                     <div class="form-group"> <label for="layanan">Jenis Layanan: </label> <select id="layanan" name="layanan" class="form-control" required>
                             <option value="Penawaran" selected>Penawaran</option>
                         </select> </div>
