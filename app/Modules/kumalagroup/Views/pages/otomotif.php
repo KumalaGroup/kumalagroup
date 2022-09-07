@@ -55,7 +55,7 @@
                         <div class="card">
                             <a class="m-0" href="<?= base_url("/otomotif/$head->jenis/detail/" . $v->id) ?>">
                                 <img src="<?= base_url("assets/img_marketing/otomotif/$v->gambar") ?>" width="100%" height="200" alt="" style="object-fit: contain;"></a>
-                            <div class="card-body">
+                            <div class="card-body" style="height:100px;">
                                 <h5><a href="<?= base_url("/otomotif/$head->jenis/detail/" . $v->id) ?>"><?= $v->model ?></a></h5>
                                 <p class="card-text"><b>Mulai dari Rp. <?= number_format($v->harga, 0, '', '.') ?></b></p>
                             </div>
@@ -413,7 +413,7 @@
                 <?php foreach ($data as $v) : ?>
                     <div class="card flex-child text-center my-2 ml-2" style="width: 15rem;float:left !important;">
                         <img src="<?= base_url("assets/img_marketing/head/$v->foto") ?>" height="150px" class="img-fluid card-img-top" alt="..." style="object-fit: cover;">
-                        <a class="card-body text-center btn btn-l btn btn-danger text-uppercase" style="background:#fa0f0c; border-color:#fa0f0c; " href="<?= $v->url ?>" target="<?= in_array($v->jenis, ["honda", "mazda", "mercedes-benz"]) ? "_blank" : "" ?>"> <?= strtoupper($v->jenis) ?> </a>
+                        <a class="card-body text-center btn btn-l btn btn-danger text-uppercase" style="background:#fa0f0c; border-color:#fa0f0c; height:40px;" href="<?= $v->url ?>" target="<?= in_array($v->jenis, ["honda", "mazda", "mercedes-benz"]) ? "_blank" : "" ?>"> <?= strtoupper($v->jenis) ?> </a>
                     </div><?php endforeach ?>
             </div>
         </div>
