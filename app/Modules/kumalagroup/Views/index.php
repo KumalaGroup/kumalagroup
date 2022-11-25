@@ -301,7 +301,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mb-5 mb-lg-0">
-                    <h4 class="mb-4">KUMALA GROUP</h4>
+                    <h4 class="mb-4">KUMALA GROUP (PT Kumala Cemerlang Abadi)</h4>
                     <p class="lead mb-0" align="justify">
                         - Jl. A. Mappanyukki No.2, Kunjung Mae, Kec. Mariso, Kota Makassar, Sulawesi Selatan 90125
                     </p>
