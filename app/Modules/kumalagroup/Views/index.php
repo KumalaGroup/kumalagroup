@@ -299,22 +299,37 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 mb-5 mb-lg-0">
-                    <h4 class="mb-4">KUMALA GROUP (PT KUMALA CEMERLANG ABADI)</h4>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <h4>KUMALA GROUP (PT KUMALA CEMERLANG ABADI)</h4>
+            <div class="row pt-4">
+                <div class="col-md-4 mb-lg-0">
+                    <h5><i class="fas fa-map-marker-alt"></i> Alamat</h5>
                     <p class="lead mb-0" align="justify">
                         - Jl. A. Mappanyukki No.2, Kunjung Mae, Kec. Mariso, Kota Makassar, Sulawesi Selatan 90125
                     </p>
                     <br>
                     <p class="lead mb-0" align="justify">
-                        - Jl. A. P. Pettarani No.98 B, Bua Kana, Kec. Rappocini, Kota Makassar, Sulawesi Selatan 90222  <br>
-                        (0411) 422999 / 0812-1210-0700 <br>
-                        0812-1210-0700 <br>
-                        info@kumalagroup.id <br>
+                        - Jl. A. P. Pettarani No.98 B, Bua Kana, Kec. Rappocini, Kota Makassar, Sulawesi Selatan 90222
                     </p>
                 </div>
-                <div class="col-md-3 mb-5 mb-lg-0">
-                    <h4 class="mb-4">IKUTI KAMI</h4>
+                <div class="col-md-4 mb-lg-0">
+                    <h5><i class="fas fa-phone"></i> Telephone</h5>
+                    <p class="lead mb-0" align="justify">
+                        (0411) 422999 / 0812-1210-0700 
+                    </p>
+                </div>
+                <div class="col-md-4 mb-lg-0">
+                    <h5><i class="fas fa-envelope"></i> Email</h5>
+                    <p class="lead mb-0" align="justify">
+                        info@kumalagroup.id
+                    </p>
+                </div>
+                
+                
+            </div>
+            <div class="row pt-4">
+                <div class="col-md-6 mb-5 mb-lg-0">
+                    <h5>IKUTI KAMI</h4>
                     <p class="lead mb-0" align="left">Ayo Ikuti Sosial Media Kami</p>
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item"> <a class="btn btn-outline-light btn-social text-center rounded-circle" target="_blank" href="https://www.facebook.com/kumalagroup1/"> <i class="fab fa-fw fa-facebook-f"></i> </a> </li>
@@ -322,8 +337,8 @@
                         <li class="list-inline-item"> <a class="btn btn-outline-light btn-social text-center rounded-circle" target="_blank" href="https://www.youtube.com/channel/UC7R09sGLSsz-Ky1nQs1Qbiw"> <i class="fab fa-fw fa-youtube"></i> </a> </li>
                     </ul>
                 </div>
-                <div class="col-md-3">
-                    <h4 class="mb-4">KIRIM PESAN</h4>
+                <div class="col-md-6 mb-5 mb-lg-0">
+                    <h5>KIRIM PESAN</h4>
                     <form name="sentMessage" id="contactForm" novalidate="novalidate">
                         <div class="control-group">
                             <div class="form-group"> <input name="nama" type="nama" class="form-control" id="nama" placeholder="Masukkan nama anda"> </div>
@@ -343,6 +358,7 @@
                         <div class="form-group"> <button type="submit" class="btn btn-xl btn-outline-light" id="submitPesan">Kirim</button> </div>
                     </form>
                 </div>
+            </div>
             </div>
         </div>
     </footer>
