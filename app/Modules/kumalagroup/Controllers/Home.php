@@ -77,7 +77,7 @@ class Home extends BaseController
 			$d['mod'] = '';
 			if (isset($this->request->uri->getSegments()[1])) {
 				if ($this->request->uri->getSegments()[1] == "honda") return redirect()->to("https://honda-kmg.com/");
-				elseif ($this->request->uri->getSegments()[1] == "mazda") return redirect()->to("https://www.mazdakumala.com/");
+				elseif ($this->request->uri->getSegments()[1] == "mazda") return redirect()->to("https://mazdakumala.com/");
 				elseif ($this->request->uri->getSegments()[1] == "mercedes-benz") return redirect()->to("https://www.kumala.mercedes-benz.co.id/en/desktop/passenger-cars.html");
 				$d['content'] =  "$base\pages\otomotif";
 				$d['mod'] = "list";
