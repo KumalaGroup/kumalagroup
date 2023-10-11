@@ -57,7 +57,20 @@
                                 <img src="<?= base_url("assets/img_marketing/otomotif/$v->gambar") ?>" width="100%" height="200" alt="" style="object-fit: contain;"></a>
                             <div class="card-body" style="height:100px;">
                                 <h5><a href="<?= base_url("/otomotif/$head->jenis/detail/" . $v->id) ?>"><?= $v->model ?></a></h5>
-                                <p class="card-text"><b>Mulai dari Rp. <?= number_format($v->harga, 0, '', '.') ?></b></p>
+                                <?php 
+                                    switch ($v->harga) {
+                                        case '0':
+                                            echo "<p class='card-text'><b></b></p>";
+                                            break;
+                                        case '1':
+                                            echo "<p class='card-text'><b>Coming Soon</b></p>";
+                                            break;
+                                        default:
+                                            echo "<p class='card-text'><b>Mulai dari Rp. ". number_format($v->harga, 0, '', '.')."</b></p>";
+                                            # code...
+                                            break;
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
