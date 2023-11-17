@@ -149,7 +149,19 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <h4><?= $otomotif->model ?></h4>
-                    <h6>Mulai dari Rp. <?= number_format($otomotif->harga, 0, '', '.') ?> <br><small class="text-center text-danger">*Harga akan disesuaikan dengan domisili pemesan</small></h6>
+                    <?php 
+                        switch ($otomotif->harga) {
+                            case '0':
+                                echo "<h6></h6>";
+                                break;
+                            case '1':
+                                echo "<h6>Coming Soon</h6>";
+                                break;
+                            default:
+                                echo "<h6>Mulai dari Rp. ". number_format($otomotif->harga, 0, '', '.')."</h6>";
+                                break;
+                        }
+                    ?>
                     <a href="<?= current_url() . '/fitur360' ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">360&deg; Explore</a>
                     <a download href="<?= base_url("assets/img_marketing/otomotif/brosur/$otomotif->brosur") ?>" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c; font-weight: 500;">Download Brosur</a>
                     <button type="button" class="btn btn-xl btn-outline-danger btn-block" style="border-color:#FA0F0c;font-weight: 500;" data-toggle="modal" data-target="#testdr">Minta Penawaran</button>
